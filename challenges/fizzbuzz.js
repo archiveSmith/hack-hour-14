@@ -16,8 +16,8 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {  
-
+function fizzbuzz(num) {
+  return num;
 }
 
 module.exports = fizzbuzz;
