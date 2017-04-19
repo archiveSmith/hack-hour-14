@@ -16,8 +16,25 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {  
-
+function range(n){
+  return Array.apply(null, Array(n)).map((_, i) => i);
 }
+
+function fizzBuzzTest(n){
+  const by3 = n % 3 === 0;
+  const by5 = n % 5 === 0;
+
+  return  by3 && by5 ? 'fizzbuzz'
+               : by3 ? 'fizz'
+               : by5 ? 'buzz'
+                     : n;
+}
+
+function fizzbuzz(num){
+  return range(num).map(x => fizzBuzzTest(x + 1));
+}
+
+
+
 
 module.exports = fizzbuzz;
