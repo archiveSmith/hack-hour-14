@@ -16,7 +16,17 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
+function fizzbuzz(num) {  
+	let retArr = [];
+  
+  for(let i = 1; i <= num; i++){
+    if( !(i % 15) ) retArr.push('fizzbuzz');
+    else if(!(i % 3)) retArr.push('fizz');
+    else if(!(i % 5)) retArr.push('buzz');
+    else(retArr.push(i));
+  }
+  
+  return retArr;
 
 }
 
