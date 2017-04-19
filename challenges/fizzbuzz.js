@@ -16,8 +16,24 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
-
+function fizzbuzz(num) {  
+	var retArr = [];
+	for (var index = 1; index <= num; index++){
+	  if(index % 3 === 0){
+	    if(index % 5 === 0){
+	      retArr.push('fizzbuzz');
+	      continue;
+	    }
+	    retArr.push('fizz');
+	    continue;
+	  }
+	  else if(index % 5 === 0){
+	    retArr.push('buzz');
+	    continue;
+	  }
+	  retArr.push(index);
+	}
+	return retArr;
 }
 
 module.exports = fizzbuzz;
