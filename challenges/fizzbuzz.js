@@ -23,9 +23,9 @@ function fizzbuzz(num) {
 		// check if i is divisible by both 3 and 5
 		if (i%3===0 && i%5===0){output.push("fizzbuzz");}
 		// check if i is divisible by 3
-		if (i%3===0){output.push("fizz");}
+		else if (i%3===0){output.push("fizz");}
 		// check if i is divisible by 5
-		if (i%5===0){output.push("buzz");}
+		else if (i%5===0){output.push("buzz");}
 		// default case: number is not divisible by 3 or 5
 		else {output.push(i)}
 	}
