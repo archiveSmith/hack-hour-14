@@ -17,6 +17,19 @@
 //                     16 ]
 
 function fizzbuzz(num) {  
+	var x = [];
+	for(i = 1; i<=num; i++){
+		if(i%3 === 0 && i%5 ===0){
+			x.push("fizzbuzz");
+		}else if(i%3 === 0){
+			x.push('fizz');
+		}else if(i%5 === 0){
+			x.push('buzz');
+		}else{
+			x.push(i);
+		}
+	}
+	return x;
 
 }
 
