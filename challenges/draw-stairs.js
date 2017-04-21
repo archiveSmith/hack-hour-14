@@ -14,15 +14,19 @@
 */
 
 function drawStairs(n) {
-if(n<1 || n>100) return console.log('not a valid input')
-let output = new Array (n)
-output.fill(" ")
-for (let i =output.length-1; i>=0;i--){
-output[i]="*"
-console.log(output.join(''))
+    if (n < 1 || n > 100) return console.log('not a valid input')
+    let output=new Array(n)
+    let string =""
+    output.fill(" ")
+    for (let i=n-1; i>=0;i--){
+        output[i]="*"
+        string+=(output.join(''))
+        if(!(i===0){
+            string = string +'\n'
+        }
+    }
+    console.log(string)
 }
-}
-
 drawStairs(5)
 
 module.exports = drawStairs;
