@@ -14,6 +14,7 @@
 */
 
 function drawStairs(n) {
+    let retStr = ''
     for (let index = 1; index <= n; index++){
         let spaces = n-index;
         let asterisks = index;
@@ -26,8 +27,9 @@ function drawStairs(n) {
             asterisks--;
             currLine += '*';
         }
-        console.log(currLine);
+        retStr = retStr + currLine + '\n';
     }
+    console.log(retStr);
 }
 
 
