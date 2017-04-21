@@ -15,10 +15,12 @@
 
 function drawStairs(n) {
   var leftPosition = n;
+  var newStr = '';
 	for(var i = 1; i <= n; i++){
-		console.log(' '.repeat(leftPosition) + '*'.repeat(i));
+		newStr += (' '.repeat(leftPosition) + '*'.repeat(i) + '\n');
 		leftPosition--;
 	}
+	console.log(newStr);
 }
 
 
