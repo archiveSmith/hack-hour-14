@@ -13,8 +13,24 @@
 
 */
 
+//row, column -2 for lopps. for each row, start with n-1 spaces and 1 star
 function drawStairs(n) {
-
+	let output = '';
+	//for each colulms
+	for(let row=0; row<n; row++) {
+		for(let col= 0; col < n; col ++) {
+			if( col < n-row -1) {
+				output+= " ";
+			}
+			else if ( col >= n-row) {
+				output+= "*"
+			}
+			if( col === n-1) {
+				output+= " \n";
+			}
+		}
+	}
+	return output;
 }
 
 
