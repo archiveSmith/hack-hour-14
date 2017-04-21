@@ -14,6 +14,13 @@
 */
 
 function drawStairs(n) {
+  let stairs = '';
+  for(let i = 1; i <= n; i++){
+    let spaces = ' '.repeat(n-i)
+    let asts = '*'.repeat(i);
+    stairs = stairs + spaces + asts + ' \n' ;
+  }
+  return stairs
 
 }
 
