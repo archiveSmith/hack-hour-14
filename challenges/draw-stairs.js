@@ -10,7 +10,6 @@
   ****
  *****
 ******
-
 */
 
 function drawStairs(n) {
@@ -25,6 +24,4 @@ function drawStairs(n) {
         console.log(str);
     }
 }
-drawStairs(6);
-
 module.exports = drawStairs;
