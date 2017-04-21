@@ -13,10 +13,12 @@
 
 */
 
-function drawStairs(n) {
+function drawStairs(n, step=1) {
     outputString = "";
     for(let i = 1; i<=n; i++){
-        outputString += "*"
+        for(j = 1; j <= step; j++){
+            outputString += "*"
+        }
         console.log(outputString);
     }
 }
