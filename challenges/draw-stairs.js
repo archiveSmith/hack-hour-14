@@ -17,14 +17,18 @@ function drawStairs(n) {
     outputString = "";
     for(let i = 1; i<=n; i++){
         let space = ''
+        let asterisks = ''
         for(j = n-i; j > 0; j--){
             space += " "
         }
-        outputString += '*'
-        console.log(space+outputString);
+        for(k = 1; k <= i; k++){
+            asterisks += "*"
+        }
+        outputString += space + asterisks+"\n"
     }
+    console.log(outputString)
 }
 
-drawStairs(9);
+drawStairs(3);
 
 module.exports = drawStairs;
