@@ -17,7 +17,9 @@
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
-
+//success = retuns array with nums 1-n, with all numbers divisible by  3 (n%3===0) with "fizz" and numbers divisible by 5 (n%5===0) with buzz.
+// iterate thru array and for each number check if divisible by 3, add fizz to output string if true and then check if divisible by 5 and add string "buzz" to output fi true.
+//if none of the conditions where met then just push the number to the array, else push output atring.
 function fizzbuzz(num) {  
 	let outArr = [];
 	for(let i=1; i<=num; i++){
