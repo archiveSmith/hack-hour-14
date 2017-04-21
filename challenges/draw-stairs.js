@@ -13,16 +13,18 @@
 
 */
 
-function drawStairs(n, step=1) {
+function drawStairs(n) {
     outputString = "";
     for(let i = 1; i<=n; i++){
-        for(j = 1; j <= step; j++){
-            outputString += "*"
+        let space = ''
+        for(j = n-i; j > 0; j--){
+            space += " "
         }
-        console.log(outputString);
+        outputString += '*'
+        console.log(space+outputString);
     }
 }
 
-drawStairs(6);
+drawStairs(9);
 
 module.exports = drawStairs;
