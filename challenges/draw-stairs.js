@@ -14,9 +14,9 @@
 */
 
 function drawStairs(n) {
-	let string = "";
+	let string = Array(n).join(" ");
 	for (let i=1 ; i<=n ; i++){
-		string = string + "*";
+		string = string.slice(0,n-i) + "*" + string.slice(n-i+1,n);
 		console.log(string);
 	} 
 }
