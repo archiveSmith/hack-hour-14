@@ -20,7 +20,7 @@ function drawStairs(n) {
         for (var j = n-i; j > 0; j--){
             string += " ";
         }
-        hash += "#";
+        hash += "*";
         console.log(string + hash);
     }
 }
