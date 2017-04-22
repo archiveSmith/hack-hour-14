@@ -15,21 +15,30 @@ function mean(array){
 function mode(array){
   let count = 1;
   let obj = {};
+  let x = [];
   for(i=0; i < array.length; i++){
     if(obj[array[i]]){
-      obj[array[i]]+= count
+      obj[array[i]]+= count;
     }else{
-      obj[array[i]] = 1
+      obj[array[i]] = 1;
     }
   }
-  return Math.max(...Object.values(obj))
+  let highestKeyValue = Math.max(...Object.values(obj));
+  for(let key in obj){
+    if(obj[key]===highestKeyValue){
+      let value = Number(key);
+      x.push(value);
+    }
+  }
+  return Math.max(...x);
 }
 
 function modemean(array) {
-  console.log(mode(array))
-  console.log(mean(array))
-return mode(array)===mean(array)
+  console.log(mode(array));
+  console.log(mean(array));
+return mode(array)===mean(array);
 
 }
+
 
 module.exports = modemean;
