@@ -14,10 +14,14 @@
 */
 
 function drawStairs(n) {
-  for (let i = n; i > 0 ; i--) {
-    console.log(new Array(i).join(' ') + new Array(n-i+2).join('*'));
-  }
+   var count = n*1;
+   var i;
+   for (i = count; i >= 0 ; i--) {
+       if (i !== n) {
+           console.log(new Array(i+1).join(' ') + new Array(n-i+1).join('*'));
+       }
+   }
 }
 
-
+console.log(drawStairs(8))
 module.exports = drawStairs;
