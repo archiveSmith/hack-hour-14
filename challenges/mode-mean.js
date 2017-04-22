@@ -24,18 +24,21 @@ function modemean(array) {
   }
   let mode = 0
   for (prop in modeMap) {
-    if (prop > mode)
+    if (modeMap[prop] > mode)
       mode = prop;
   }
   let mean = Math.floor(sum / array.length)
-  // console.log(modeMap);
-  // console.log(mode);
-  // console.log(mean);
+  console.log(modeMap);
+  console.log(mode);
+  console.log(mean);
   if (mean == mode) {
     return true
   } else {
     return false
   }
 }
+
+
+modemean([2, 2, 2, 1, 3])
 
 module.exports = modemean;
