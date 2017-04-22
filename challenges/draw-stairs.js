@@ -28,11 +28,14 @@ function drawStairs(n) {
     }
     console.log(string)
 }
+<<<<<<< HEAD
 drawStairs(5)
 =======
 
 }
 
 >>>>>>> c14029f3b2956cc3f8b81152679dc822348ebe1d
+=======
+>>>>>>> e9ad1262edc55eb1f6b9f601bafc5718d2d1703b
 
 module.exports = drawStairs;
