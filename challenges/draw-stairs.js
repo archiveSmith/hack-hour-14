@@ -14,16 +14,19 @@
 */
 
 function drawStairs(n) {
-  let stairs = '';
-  let step = '*';
-  let space = ' ';
+  const step = '*';
+  const space = ' ';
   let x = n - 1;
   for (let i = 1; i <= n; i++) {
-    stairs = stairs + space.repeat(x) + step + '\n';
-    step += '*';
-    x--
+    console.log(space.repeat(x) + step.repeat(i));
+    x--;
   }
-  console.log(stairs);
 }
 
+// to do: staircase needs to get reversed
+// each line has to add an appropriate number of white spaces and decrement as n increases.
+
+
 module.exports = drawStairs;
+
+// drawStairs(6);
