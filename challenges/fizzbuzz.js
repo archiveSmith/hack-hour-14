@@ -30,7 +30,6 @@ function fizzbuzz(num) {
     }
   }
   return output;
-
 }
 
 module.exports = fizzbuzz;
