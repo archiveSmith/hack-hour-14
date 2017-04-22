@@ -14,6 +14,7 @@
 */
 
 function drawStairs(n) {
+<<<<<<< HEAD
     for (let i = 1; i <= n; i++) {
         const whiteSpaceCount = n - i; // # of white space preceeding stair
         const whiteSpace = repeatChar(' ', whiteSpaceCount); // ret string with whitespace
@@ -38,4 +39,10 @@ function drawStairs(n) {
 
 drawStairs(4);
 
+=======
+
+}
+
+
+>>>>>>> 8d64490be6d782e922ccc3b9574f2c5ca346c908
 module.exports = drawStairs;
