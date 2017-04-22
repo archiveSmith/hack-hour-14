@@ -14,21 +14,11 @@
 */
 
 function drawStairs(n) {
-    outputString = "";
     for(let i = 1; i<=n; i++){
-        let space = ''
-        let asterisks = ''
-        for(j = n-i; j > 0; j--){
-            space += " "
-        }
-        for(k = 1; k <= i; k++){
-            asterisks += "*"
-        }
-        outputString += space + asterisks+"\n"
+        console.log((' ').repeat(n-i) + ('*').repeat(i))
     }
-    console.log(outputString)
 }
 
-drawStairs(3);
+drawStairs(8);
 
 module.exports = drawStairs;
