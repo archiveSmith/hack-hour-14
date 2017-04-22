@@ -22,7 +22,7 @@ function drawStairs(n) {
 			if( col < n-row -1) {
 				output+= " ";
 			}
-			else if ( col >= n-row) {
+			else if ( col >= n-row-1) {
 				output+= "*"
 			}
 			if( col === n-1) {
