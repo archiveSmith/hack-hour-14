@@ -14,18 +14,21 @@
 */
 
 function drawStairs(n) {
+  var next = n;
+
   for (var i=0; i<n; i++){
     var char = '';
-    var next = i;
-    for (var j=0; j<next-i; j++){
+    for (var j=0; j<next-1; j++){
+      char += ' ';
+    }
+    for (var k=next-i-1; k<next; k++){
       char += '*';
     }
-    for (var k=0; k<next; k++){
-      char += '*';
-    }
+    next--;
+    console.log(char);
   }
-  return char;
 }
+
 
 
 module.exports = drawStairs;
