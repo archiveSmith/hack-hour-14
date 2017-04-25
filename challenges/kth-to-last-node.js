@@ -22,19 +22,16 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  // measure length
   let measure = 0;
   let testNode = head;
   while (testNode.next) {
     testNode = testNode.next
     measure += 1;
   }
-  // get distance from Top
   let distFromTop = measure - k + 1
   let counter = 0;
-  // console.log(distFromTop);
-
-  // move head pointer to correct Node and return value;
+  console.log(distFromTop);
+  if (distFromTop < 0) return undefined;
   while (counter !== distFromTop) {
     head = head.next
     counter += 1;
