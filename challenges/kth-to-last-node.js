@@ -22,7 +22,41 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+	//get position of tail
+	let curr = head;
+	let position = 1;
 
+	while(curr.next) {
+		curr = curr.next;
+		position++;
+	}
+
+	//tail - k to get actual position
+	const tail_pos = position;
+	const tail = curr;
+	const index = position - k;
+
+	//edge cases
+	if(index === 0) return head.value;
+
+	//tail
+	if (index === tail_pos) return tail.value;
+
+	//index is outside the linked list
+	if(index > tail_pos || index < 0) return `${index} is out of bounds dummy`;
+
+	//else traverse to index and return value
+	curr = head;
+	position = 1;
+
+	while(curr) {
+		if(position === index) {
+			return curr.value;
+		}
+		curr = curr.next;
+		position++;
+	}
+	return 'node not found';
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
