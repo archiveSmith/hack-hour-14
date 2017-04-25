@@ -31,14 +31,4 @@ function kthToLastNode(k, head) {
   else return valArr[i];
 }
 
-// module.exports = {Node: Node, kthToLastNode: kthToLastNode};
-const a = new Node('A');
-const b = new Node('B');
-const c = new Node('C');
-const d = new Node('D');
-const e = new Node('E');
-a.next = b;
-// b.next = c;
-// c.next = d;
-// d.next = e;
-console.log(kthToLastNode(1, a));
+module.exports = {Node: Node, kthToLastNode: kthToLastNode};
