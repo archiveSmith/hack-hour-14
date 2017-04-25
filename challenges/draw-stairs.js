@@ -14,7 +14,6 @@
 */
 
 function drawStairs(n) {
-<<<<<<< HEAD
     if (n < 1 || n > 100) return console.log('not a valid input')
     let output=new Array(n)
     let string =""
@@ -28,14 +27,5 @@ function drawStairs(n) {
     }
     console.log(string)
 }
-<<<<<<< HEAD
-drawStairs(5)
-=======
-
-}
-
->>>>>>> c14029f3b2956cc3f8b81152679dc822348ebe1d
-=======
->>>>>>> e9ad1262edc55eb1f6b9f601bafc5718d2d1703b
 
 module.exports = drawStairs;
