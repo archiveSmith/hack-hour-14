@@ -21,12 +21,13 @@
  	this.next = null;
  }
 
- function kthToLastNode(k, head) {
- 	let temp = [];
- 	for (let i = head; i !== null; i = i.next) {
- 		temp.push(i.value);
- 	}
- 	return temp[temp.length - k];
- }
+function kthToLastNode(k, head) {
+	let length = 0;
+	for (let i = head; i !== null; i = i.next) length++;
+	let target = length - k;
+	for (let i = head, count = 0; i !== null; i = i.next, count++) {
+		if (count === target) return i.value
+	}
+}
 
  module.exports = {Node: Node, kthToLastNode: kthToLastNode};
