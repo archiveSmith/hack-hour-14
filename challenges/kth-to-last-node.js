@@ -23,15 +23,18 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   let array = [];
-  let count = 0;
   let current = head;
   while (current !== null) {
-    count++;
     array.push(current);
     current = current.next;
   }
 
-  return (array[array.length - k].value);
+  if (k > array.length) {
+    return undefined;
+  }
+  else {
+    return (array[array.length - k].value);    
+  }
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
