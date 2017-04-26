@@ -27,8 +27,11 @@ function kthToLastNode(k, head) {
   for (let tail = head; tail!=null; tail=tail.next) {
   nodes.unshift(tail)
   }
-  return nodes[k - 1].value
+  if (nodes[k - 1]){
+    return nodes[k - 1].value
+  } else {
+    return undefined
+  }
 }
-
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
