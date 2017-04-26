@@ -7,5 +7,3 @@ function pow(base, power) {
 }
 
 module.exports = pow;
-
-
