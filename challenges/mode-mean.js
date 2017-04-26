@@ -1,5 +1,6 @@
 /*
- * Given an array of numbers, determine if the mode and mean of the array are equivalent
+ * Given an array of numbers, determine if the mode and mean of the array are 
+ * equivalent
  *
  * Caveats:
  * 	- Math.floor the mean
@@ -8,7 +9,7 @@
  * Return true or false
  *
  */
-
+var 
 
 function modemean(array) {
 
