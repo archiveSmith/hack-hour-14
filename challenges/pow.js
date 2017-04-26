@@ -14,7 +14,7 @@ function pow(base,power){
     if(power === 0){return 1};
     if(power ===1){return base};
     let value;
-    value = base * powRe(base, power-1)
+    value = base * pow(base, power-1)
     return value;
 }
 
