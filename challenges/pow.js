@@ -3,7 +3,7 @@
  */
 
 function pow(base, power) {
-    if (base <= 0) return "BAD INPUT";
+    if (base <= 0 || typeof base !== "number") return "BAD INPUT";
     if (power === 0) return 1;
     if (power === 1) return base;
     return pow(base,power-1)*pow(base,1)
