@@ -14,13 +14,20 @@
 */
 
 function drawStairs(n) {
-   var count = n*1;
-   var i;
-   for (i = count; i >= 0 ; i--) {
-       if (i !== n) {
-           console.log(new Array(i+1).join(' ') + new Array(n-i+1).join('*'));
-       }
-   }
+  //Enter your code here
+     var stair = ''
+     for (var i = 0; i < n; i++) {
+         var whitespace = '';
+         var wsLength = n - 1 - i;
+         for (var j =0; j < wsLength; j++){
+             whitespace += ' ';
+         }
+
+         stair += '*'
+         console.log (whitespace + stair);
+
+     }
+     return ''
 }
 
 console.log(drawStairs(8))
