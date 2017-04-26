@@ -23,14 +23,16 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   let nodeCount = 0;
-  let currNode = head;
-  let cache = [];
+  const cache = [];
+  // const cache = {};
   let index;
 
-  while(currNode !== null) {
+  while(head !== null) {
+    // cache[nodeCount] = head.value;
     nodeCount++;
-    cache.push(currNode.value);
-    currNode = currNode.next;
+    cache.push(head.value);
+    
+    head = head.next;
   }
 
   index = nodeCount - k;
