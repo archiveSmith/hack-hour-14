@@ -12,6 +12,7 @@
 
 function modemean(array) {
 
+<<<<<<< HEAD
   let length = array.length;
   let sum = array.reduce(function(a,c){
     return a+c;
@@ -36,6 +37,8 @@ function modemean(array) {
     return true;
   }
   return false;
+=======
+>>>>>>> 3e9cf2ee6443d40c100aa021ce49621a41b9e417
 }
 
 module.exports = modemean;
