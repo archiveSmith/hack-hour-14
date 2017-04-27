@@ -42,11 +42,10 @@ function Node(val) {
 function kthToLastNode(k, head) {
   let valueArray = [];
   let currNode = head;
-  while (currNode.next) {
+  while (currNode) {
     valueArray.push(currNode.value);
     currNode = currNode.next
   }
-  valueArray.push(currNode.value);
   valueArray.reverse();
   return valueArray[k - 1];
 }
