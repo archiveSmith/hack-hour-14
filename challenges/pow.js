@@ -3,15 +3,12 @@
  */
 
 function pow(base, power) {
-  let output;
-  if (power === 1) {
-    output = base;
-  } else {
-    output = base * pow(base, power - 1);
+  if (power === 0) {
+    return 1;
   }
-  return output;
+  return base * pow(base, power - 1);
 }
 
-module.exports = pow;
+// must take into account negative power
 
-console.log(pow(3, 4));
+module.exports = pow;
