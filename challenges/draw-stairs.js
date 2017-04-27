@@ -14,8 +14,8 @@
 */
 
 function drawStairs(n) {
-  let space = ' ';
-  let star = '*';
+  const space = ' ';
+  const star = '*';
   for (let i = 1; i <= n; i++) {
     let string = space.repeat(n - i);
     string += star.repeat(i);
@@ -23,7 +23,7 @@ function drawStairs(n) {
   }
 }
 
-drawStairs(6);
+console.log(drawStairs(8));
 
 
 module.exports = drawStairs;
