@@ -3,6 +3,7 @@
  */
 
 function pow(base, power) {
+<<<<<<< HEAD
   let total = base;
   power--;
   if (power > 0){
@@ -11,5 +12,9 @@ function pow(base, power) {
   return total;
 }
 
+=======
+
+}
+>>>>>>> 21800b9f5928bdea8ea0429fd82c976f3be95e6c
 
 module.exports = pow;
