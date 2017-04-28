@@ -3,10 +3,11 @@
  */
 
 function pow(base, power) {
-    if (base <= 0 || typeof base !== "number") return "BAD INPUT";
+    if (typeof base !== "number" || typeof power !== "number") return "BAD INPUT";
     if (power === 0) return 1;
     if (power === 1) return base;
-    return pow(base,power-1)*pow(base,1)
+    if (power < 0) return (1.0/(pow(base,Math.abs(power))));
+    return pow(base,power-1)*pow(base,1);
 }
 
 module.exports = pow;
