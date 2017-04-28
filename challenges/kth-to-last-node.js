@@ -21,18 +21,41 @@ function Node(val) {
   this.next = null;
 }
 
+// function kthToLastNode(k, head) {
+//   let values = [];
+//   let currentNode = head;
+//   // traverse linked list and push value in each node into values array
+//   while (currentNode !== null) {
+//     values.push(currentNode.value);
+//     currentNode = currentNode.next;
+//   }
+//   // edge case: if input = 0
+//   if (k === 0) return 'invalid input';
+//   // return kth to last value in values array
+//   return values[values.length - k];
+// }
+
 function kthToLastNode(k, head) {
-  let values = [];
-  let currentNode = head;
-  // traverse linked list and push value in each node into values array
-  while (currentNode !== null) {
-    values.push(currentNode.value);
-    currentNode = currentNode.next;
+  const array = [];
+
+  for (let i = head; i; i = i.next) {
+    array,push(i.val);
   }
-  // edge case: if input = 0
-  if (k === 0) return 'invalid input';
-  // return kth to last value in values array
-  return values[values.length - k];
+  return array[array.length - k];
+}
+
+function kthToLastNode(k, head) {
+  let lead = head;
+  let follow = head;
+
+  for (let i = 0; i < k; i =+ 1) {
+    lead = lead.next;
+  }
+
+  for (let i = lead; i; i = i.next) {
+    follow = follow.next;
+    if (!i.next) return follow.value;
+  }
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

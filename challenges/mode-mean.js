@@ -11,6 +11,7 @@
 
 
 function modemean(array) {
+<<<<<<< HEAD
   const mean = Math.floor((array.reduce((a, c) => {
     return a + c;
   })) / array.length);
@@ -36,4 +37,9 @@ function modemean(array) {
 
 console.log(modemean([13, 13, 14, 14, 15, 15]));
 
+=======
+
+}
+
+>>>>>>> 3e9cf2ee6443d40c100aa021ce49621a41b9e417
 module.exports = modemean;
