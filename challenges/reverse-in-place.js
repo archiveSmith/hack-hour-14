@@ -16,7 +16,7 @@
 function reverseInPlace(array) {
     //figure out edge cases
     if(!Array.isArray(array)){return undefined}
-    if (array.length === 0)return undefined;
+    if (array.length === 0 || array === undefined) return [];
 
     //figure out the value at both the end and beginning of array
     let index = 0;
