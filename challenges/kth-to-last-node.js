@@ -25,7 +25,7 @@ function Node(val) {
 function kthToLastNode(k, head) {
   let nodes = [];
   for (let tail = head; tail!=null; tail=tail.next) {
-  nodes.unshift(tail)
+    nodes.unshift(tail)
   }
   if (nodes[k - 1]){
     return nodes[k - 1].value
