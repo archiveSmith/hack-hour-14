@@ -13,14 +13,11 @@
 
 */
 
-function drawStairs(n) {
-  let stairs = '';
-  for(let i = 1; i <= n; i++){
-    let spaces = ' '.repeat(n-i)
-    let asts = '*'.repeat(i);
-    stairs = stairs + spaces + asts + ' \n' ;
-  }
-  return stairs
+function drawStairs(n,stairs = '',stars = 1) {
+  if(!n) return stairs;
+  let theseStairs = ' '.repeat(n - 1) + '*'.repeat(stars);
+  return x(n - 1,stairs + theseStairs + '\n', stars + 1);
+
 
 }
 
