@@ -14,7 +14,25 @@
  */
 
 function reverseInPlace(array) {
+    //figure out edge cases
+    if(!Array.isArray(array)){return undefined}
+    if (array.length === 0)return undefined;
 
+    //figure out the value at both the end and beginning of array
+    let index = 0;
+    while(index < array.length - 1 - index){
+
+        let val1 = array[index]
+        let val2 = array[array.length - 1 - index]
+
+        //reassign array values with reverse value
+        array[index] = val2;
+        array[array.length - 1 - index] = val1;
+
+        index++;
+    }
+    return array;
 }
+
 
 module.exports = reverseInPlace;
