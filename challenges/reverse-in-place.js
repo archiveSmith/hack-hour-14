@@ -12,9 +12,18 @@
  *
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
+function switchIndex(array, i, j){
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+}
 
 function reverseInPlace(array) {
-
+    let half = Math.floor(array.length/2);
+    for(let i = 0; i<half; i++){
+        switchIndex(array, i, array.length-1-i);
+    }
+    return array;
 }
 
 module.exports = reverseInPlace;
