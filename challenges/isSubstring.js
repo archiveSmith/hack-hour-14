@@ -15,6 +15,7 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  if(!s1 || !s2){return [];}
   let string = '';
   let temp = s2;
   if(s1 === s2){return true;}
