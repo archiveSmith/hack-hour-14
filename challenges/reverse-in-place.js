@@ -15,11 +15,12 @@
 
 function reverseInPlace(array) {
     let storage;
-    for (let i = 0; i < array.length - i; i++) {
+    for (let i = 0; i < array.length-1 - i; i++) {
         let storage = array[i];
-        array[i] = array[array.length - i]
-        array[array.length - i] = storage;
+        array[i] = array[array.length-1 - i]
+        array[array.length-1 - i] = storage;
     }
+    return array;
 }
 
 reverseInPlace([1, 2, 3, 4, 5, 6, 7])
