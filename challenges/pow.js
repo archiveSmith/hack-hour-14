@@ -2,14 +2,6 @@
  * Use recursion!
  */
 
-// function powNoRe(base, power) {
-// let value=base
-// for (let i=power-1;i>0;i--){
-//     value = value*base
-// }
-// return value;
-// }
-
 function pow(base,power){
     if(power === 0){return 1};
     if(power ===1){return base};
