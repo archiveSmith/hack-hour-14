@@ -24,7 +24,6 @@ function drawStairs(n) {
         console.log(str);
     }
 }
-
 function drawStairs(n) {
 
 }
