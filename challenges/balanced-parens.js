@@ -25,7 +25,23 @@
  */
 
 function balancedParens(input){
-
+	let arr = input.split('');
+	let store = [];
+	for (let i = 0; i <= arr.length - 1; i++) {
+		if (arr[i] === '(' || arr[i] === '[' || arr[i] === '{') store.push(arr[i]);
+		if (arr[i] === ')') {
+			if (store.pop() !== '(') return false;
+		}
+		if (arr[i] === ']') {
+			if (store.pop() !== '[') return false;
+		}
+		if (arr[i] === '}') {
+			if (store.pop() !== '{') return false;
+		}
+		
+	}
+	
+	return store.length === 0;
 }
 
 module.exports = balancedParens;
