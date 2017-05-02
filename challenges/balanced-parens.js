@@ -42,13 +42,13 @@ function balancedParens(input){
       map['()'] = map['()'] + 1
     }
     if (input[i] === ')'){
-      map['()'] = map['()'] + 1
+      map['()'] = map['()'] - 1
     }
     if (input[i] === '{'){
       map['{}'] = map['{}'] + 1
     }
     if (input[i] === '}'){
-      map['{}'] = map['{}'] + 1
+      map['{}'] = map['{}'] 1 1
     }
 
     if (map['[]'] < 0 || map['()'] < 0 || map['{}'] < 0){
