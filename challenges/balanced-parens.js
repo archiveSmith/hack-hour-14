@@ -25,7 +25,34 @@
  */
 
 function balancedParens(input){
+    let square = 0,smooth = 0,curly = 0;
+    let lastOpen = [];
+    for (let char of input){
+        if(char === '['){
+            lastOpen.push(char);
+            square++;
+        } else if (char === '('){
+            lastOpen.push(char);
+            smooth++;
+        } else if (char === '{'){
+            lastOpen.push(char);
+            curly++;
+        }
 
+        if((char === ']' && lastOpen[lastOpen.length-1] === '[')){
+            lastOpen.pop();
+            square--
+        } else if ((char === '}' && lastOpen[lastOpen.length-1] === '{')){
+            lastOpen.pop();
+            curly-- 
+        } else if ((char === ')' && lastOpen[lastOpen.length-1] === '(')){
+            lastOpen.pop();
+            smooth--
+        }
+
+    }
+
+    return (square === 0 && curly === 0 && smooth === 0)
 }
 
 module.exports = balancedParens;
