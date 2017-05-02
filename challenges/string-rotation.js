@@ -20,3 +20,5 @@ function stringRotation(s1, s2) {
   return isSubstring(s1+s1, s2)
 
 }
+
+module.exports = stringRotation;
