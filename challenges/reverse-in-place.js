@@ -14,6 +14,7 @@
  */
 
 function reverseInPlace(array) {
+<<<<<<< HEAD
   let len = array.length
   if (len === 0 || !array){
     return [];
@@ -26,6 +27,8 @@ function reverseInPlace(array) {
 
   return array
 
+=======
+>>>>>>> 08cbd72e2485516a7f508be8df267916de71f1ba
 
 }
 
