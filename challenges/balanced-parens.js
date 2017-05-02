@@ -23,7 +23,7 @@
  *
  *
  */
-
+console.log('hello')
 function balancedParens(string){
   let allParens = string.replace(/\{|\[/g, '(').replace(/\}|\]/g, ')');
   let counter = 0;
