@@ -18,6 +18,8 @@
 
 function fizzbuzz(num) {  
 
+return  Array.apply(null, Array(num)).
+        map((c, i) => ((i+1) % 3) === 0 && ((i+1) %5 ) === 0 ? 'fizzbuzz' : !((i+1) % 3) ? 'fizz' : !((i+1) % 5) ? 'buzz' : i+1)
 }
 
 module.exports = fizzbuzz;
