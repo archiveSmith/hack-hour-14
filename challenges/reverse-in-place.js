@@ -14,18 +14,17 @@
  */
 
 function reverseInPlace(array) {
+
   let len = array.length
   if (len === 0 || !array){
     return [];
   }
 
-  //remove elements from the end and insert at the beginning
   while(len--){
     array.unshift(array.pop())
   }
 
   return array
-
 
 }
 
