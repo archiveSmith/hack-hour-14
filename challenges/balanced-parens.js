@@ -23,10 +23,11 @@
  *
  *
  */
-
 function balancedParens(input){
     const openCount = [0,0,0];
     const closedCount = [0,0,0];
+    
+    if(input[0] === ")" || input[0] === "]" || input[0] === "}") return false;
 
     for(let i=0; i<input.length; i++) {
         let char = input[i];
