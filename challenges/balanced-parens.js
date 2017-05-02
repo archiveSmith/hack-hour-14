@@ -25,7 +25,47 @@
  */
 
 function balancedParens(input){
+    const openCount = [0,0,0];
+    const closedCount = [0,0,0];
 
+    for(let i=0; i<input.length; i++) {
+        let char = input[i];
+        
+        switch(char) {
+          case "(":
+            openCount[0]++
+            break;
+          case "[":
+            openCount[1]++
+            break;
+          case "{":
+            openCount[2]++
+            break;
+            
+          case ")" :
+            closedCount[0]++
+            break;
+          case "]":
+            closedCount[1]++
+            break;
+          case "}":
+            closedCount[2]++
+            break;
+        }
+    }
+    
+    return isEqual(openCount, closedCount);
+
+}
+
+function isEqual(a1, a2) {
+  if(a1.length !== a2.length) return false;
+  for(let i=0; i< a1.length; i++) {
+    if(a1[i] !== a2[i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 module.exports = balancedParens;
