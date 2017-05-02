@@ -13,6 +13,7 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
+<<<<<<< HEAD
  function reverseInPlace(array) {
  	let arrLen = array.length
  	for (let i = arrLen - 1; i >= 0; i--) {
@@ -23,4 +24,10 @@
  	return array
  	
  }
+=======
+function reverseInPlace(array) {
+
+}
+
+>>>>>>> 08cbd72e2485516a7f508be8df267916de71f1ba
 module.exports = reverseInPlace;
