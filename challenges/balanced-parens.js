@@ -27,6 +27,7 @@
 function balancedParens(input) {
   const arr = input.split('');
   // console.log(arr);
+  if (arr.length === 1) return false;
   let leftBracket = 0;
   let leftParens = 0;
   let leftCurly = 0;
@@ -40,7 +41,7 @@ function balancedParens(input) {
     else if (arr[i] === ']') { rightBracket += 1; }
     else if (arr[i] === '(' && arr.indexOf(')') > i) { leftParens += 1; }
     else if (arr[i] === ')') { rightParens += 1; }
-    else if (arr[i] === '{' && arr.indexOf('}') > i ) { leftCurly += 1; }
+    else if (arr[i] === '{' && arr.indexOf('}') > i) { leftCurly += 1; }
     else if (arr[i] === '}') { rightCurly += 1; }
   }
   if (leftBracket === rightBracket && leftParens === rightParens && leftCurly === rightCurly) {
@@ -49,6 +50,13 @@ function balancedParens(input) {
   return false;
 }
 
-console.log(balancedParens('[(]{)}'));
+// currently very hacky
+
+// console.log(balancedParens('('));  // false
+// console.log(balancedParens('()')); // true
+// console.log(balancedParens(')('));  // false
+// console.log(balancedParens('(())'));  // true
+// console.log(balancedParens('[](){}')); // true
+// console.log(balancedParens('[(]{)}')); // false - won't pas
 
 module.exports = balancedParens;
