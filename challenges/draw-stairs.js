@@ -18,7 +18,7 @@ function drawStairs(n) {
   const space = ' ';
   let x = n - 1;
   for (let i = 1; i <= n; i++) {
-    console.log(space.repeat(x) + step.repeat(i));
+    // console.log(space.repeat(x) + step.repeat(i));
     x--;
   }
 }
