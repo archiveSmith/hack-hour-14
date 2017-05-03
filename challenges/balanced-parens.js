@@ -24,6 +24,7 @@
  *
  */
 
+<<<<<<< HEAD
 function balancedParens(input){  
   
   if(input.length % 2 !== 0) return false; 
@@ -51,6 +52,10 @@ function balancedParens(input){
   
  return stack.length === 0 ? true : false;
   
+=======
+function balancedParens(input){
+
+>>>>>>> a286996bff73140ab888ba0adf4c4178aacd8dc8
 }
 
 module.exports = balancedParens;
