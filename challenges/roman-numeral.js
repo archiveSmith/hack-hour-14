@@ -18,19 +18,21 @@
  */
 
 function romanNumeral(n) {
-    let chart = {I:1, IV:4, V:5, IX:9, X:10, XL:40, L:50, XC:90, C:100, CD:400, D:500, CM:900, M:1000};
-    let beginingVal;
-    let endVal = "";
+    let chart = {'I':1, 'IV':4, 'V':5, 'IX':9, 'X':10, 'XL':40, 'L':50, 'XC':90, 'C':100, 'CD':400, 'D':500, 'CM':900, 'M':1000};
+    let beginingVal, endVal = "", val;
 
     for (let key in chart){
         if (chart[key] <= n) {
             beginingVal = key;
-        }
+            val = chart[key];
+        } 
     }
+    
     endVal += beginingVal;
-    endVal += romanNumeral(n - chart[key]);
-    return endVal;
-
+     let diff = n - val;
+     if (diff > 0) { endVal += romanNumeral(diff)};
+  
+  return endVal;
 }
 
 module.exports = romanNumeral;
