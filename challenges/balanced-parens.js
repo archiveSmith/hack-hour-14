@@ -39,9 +39,13 @@ function balancedParens(input) {
     arr.indexOf('(') > arr.indexOf(']') &&
     arr.indexOf('{') > arr.indexOf(']')) { leftBracket += 1; }
     else if (arr[i] === ']') { rightBracket += 1; }
-    else if (arr[i] === '(' && arr.indexOf(')') > i) { leftParens += 1; }
+    else if (arr[i] === '(' && arr.indexOf(')') > i &&
+    arr.indexOf('[') > arr.indexOf(')') &&
+    arr.indexOf('{') > arr.indexOf(')')) { leftParens += 1; }
     else if (arr[i] === ')') { rightParens += 1; }
-    else if (arr[i] === '{' && arr.indexOf('}') > i) { leftCurly += 1; }
+    else if (arr[i] === '{' && arr.indexOf('}') > i &&
+    arr.indexOf('(') > arr.indexOf('}') &&
+    arr.indexOf('[') > arr.indexOf('}')) { leftCurly += 1; }
     else if (arr[i] === '}') { rightCurly += 1; }
   }
   if (leftBracket === rightBracket && leftParens === rightParens && leftCurly === rightCurly) {
