@@ -29,7 +29,7 @@ function romanNumeral(n,string = '') {
     }
 
     for(let num in numbers){
-        if(n - numbers[num]>0){
+        if(n - numbers[num]>=0){
             string += numerals[numbers[num]];
             string = romanNumeral(n-numbers[num],string);
             break;
@@ -39,5 +39,9 @@ function romanNumeral(n,string = '') {
     return string;
 }
 
+console.log(romanNumeral(8))
+console.log(romanNumeral(20))
+console.log(romanNumeral(19))
+console.log(romanNumeral(44))
 
 module.exports = romanNumeral;
