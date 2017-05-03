@@ -24,13 +24,9 @@
  *
  */
 
+<<<<<<< HEAD
 function balancedParens(input) {
-    if (input.indexOf("(") === -1 &&
-        input.indexOf("{") === -1 &&
-        input.indexOf("[") === -1 &&
-        input.indexOf(")") === -1 &&
-        input.indexOf("}") === -1 &&
-        input.indexOf("]") === -1) { return true }
+    if(input.indexOf("(")===-1 && input.indexOf("{")===-1 && input.indexOf("[")===-1){return true}
     let counter = 0;
     let bracket;
     for (let i = 0; i < input.length; i++) {
@@ -39,22 +35,25 @@ function balancedParens(input) {
             input.charAt(i) === '[') {
             bracket = input.charAt(i)
             counter++
-            for (let j = i + 1; j < input.length; j++) {
+            for (let j = i+1; j < input.length; j++) {
                 if (input.charAt(j) === bracket) { counter++ }
-                if (bracket === '(' && input.charAt(j) === ')' ||
-                    bracket === '{' && input.charAt(j) === '}' ||
-                    bracket === '[' && input.charAt(j) === ']') {
+                if (bracket ==='(' && input.charAt(j) === ')' ||
+                    bracket ==='{' && input.charAt(j) === '}' ||
+                    bracket ==='[' && input.charAt(j) === ']') {
                     counter--;
-                    if (counter === 0) {
-                        return true &&
-                            balancedParens(input.substring(i + 1, j) &&
-                                balancedParens(input.substring(j + 1, input.length)));
-                    }
+                    if (counter === 0) { 
+                        return true && 
+                        balancedParens(input.substring(i + 1, j) &&
+                        balancedParens(input.substring(j+1,input.length))); }
                 }
             }
         }
     }
     return false;
+=======
+function balancedParens(input){
+
+>>>>>>> a286996bff73140ab888ba0adf4c4178aacd8dc8
 }
 
 module.exports = balancedParens;
