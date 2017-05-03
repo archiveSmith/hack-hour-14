@@ -24,8 +24,19 @@
  *
  */
 
-function balancedParens(input){
 
+function balancedParens(input) {
+  const simplified = input.replace(/[^(){}\[\]]/g, '');
+  const stack = [];
+
+  for (let i = 0; i < simplified.length; i += 1) {
+    if (simplified[i] === ']' || simplified[i] === '}' || simplified[i] === ')') stack.pop();
+    else stack.push(simplified[i]);
+  }
+  if (stack.length === 0) return true;
+  return false;
 }
+
+console.log(balancedParens('var hubble = function() { telescopes.awesome();'));
 
 module.exports = balancedParens;
