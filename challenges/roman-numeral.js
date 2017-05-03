@@ -18,7 +18,19 @@
  */
 
 function romanNumeral(n) {
-
+    const intArr = [1,4,5,9,10,40,50,90,100,400,500,900,1000,Infinity];
+    const romArr = ['I','IV','V','IX','X','XL','L','XC','C','CD','D','CM','M'];
+    let outStr = '';
+    if(!Number.isInteger(n) || n <= 0) return 'not convertable';
+    while(n>0){
+        for(let i=0; i<intArr.length-1; i++){
+            if(intArr[i+1] > n){
+                outStr +=romArr[i];
+                n -= intArr[i];
+                break;
+            }
+        }
+    }
+    return outStr;
 }
-
 module.exports = romanNumeral;

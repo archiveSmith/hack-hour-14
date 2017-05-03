@@ -25,9 +25,12 @@
  */
 
 function balancedParens(input){
-    return (input.match(/\(/g) ? input.match(/\(/g).length : 0) === (input.match(/\)/g) ? input.match(/\)/g).length : 0) &&
+    return (input.match(/\(/g) ? input.match(/\(/g).length : 0) === (input.match(/\)/g) ? input.match(/\)/g).length : 0) && 
+           (input.indexOf('(')<input)
            (input.match(/\[/g) ? input.match(/\[/g).length : 0) === (input.match(/\]/g) ? input.match(/\]/g).length : 0) &&
            (input.match(/\{/g) ? input.match(/\{/g).length : 0) === (input.match(/\}/g) ? input.match(/\}/g).length : 0);
 }
 
-module.exports = balancedParens;
+// module.exports = balancedParens;
+console.log(balancedParens(')(( var wow  = { yo: thisIsAwesome() }')); // true
+balancedParens(' var hubble = function() { telescopes.awesome();'); 
