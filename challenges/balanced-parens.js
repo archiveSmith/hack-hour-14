@@ -25,42 +25,24 @@
  */
 
 function balancedParens(input) {
-  const arr = input.split('');
-  // console.log(arr);
-  if (arr.length === 1) return false;
-  let leftBracket = 0;
-  let leftParens = 0;
-  let leftCurly = 0;
-  let rightBracket = 0;
-  let rightParens = 0;
-  let rightCurly = 0;
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] === '[' && arr.indexOf(']') > i &&
-    arr.indexOf('(') > arr.indexOf(']') &&
-    arr.indexOf('{') > arr.indexOf(']')) { leftBracket += 1; }
-    else if (arr[i] === ']') { rightBracket += 1; }
-    else if (arr[i] === '(' && arr.indexOf(')') > i &&
-    arr.indexOf('[') > arr.indexOf(')') &&
-    arr.indexOf('{') > arr.indexOf(')')) { leftParens += 1; }
-    else if (arr[i] === ')') { rightParens += 1; }
-    else if (arr[i] === '{' && arr.indexOf('}') > i &&
-    arr.indexOf('(') > arr.indexOf('}') &&
-    arr.indexOf('[') > arr.indexOf('}')) { leftCurly += 1; }
-    else if (arr[i] === '}') { rightCurly += 1; }
+  const stack = [];
+  const open = { '(': ')', '[': ']', '{': '}' };
+  for (let i = 0; i < input.length; i += 1) {
+    const char = input[i];
+    if (open[char]) {
+      stack.push(char);
+    } else if (char === ')' || char === ']' || char === '}') {
+      if (open[stack.pop()] !== char) { return false; }
+    }
   }
-  if (leftBracket === rightBracket && leftParens === rightParens && leftCurly === rightCurly) {
-    return true;
-  }
-  return false;
+  return stack.length === 0;
 }
-
-// currently very hacky
 
 // console.log(balancedParens('('));  // false
 // console.log(balancedParens('()')); // true
 // console.log(balancedParens(')('));  // false
 // console.log(balancedParens('(())'));  // true
 // console.log(balancedParens('[](){}')); // true
-// console.log(balancedParens('[(]{)}')); // false - won't pas
+// console.log(balancedParens('[(]{)}')); // false
 
 module.exports = balancedParens;
