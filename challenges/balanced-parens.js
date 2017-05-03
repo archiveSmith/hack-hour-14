@@ -26,6 +26,7 @@
 function balancedParens(input){
     const openCount = [0,0,0];
     const closedCount = [0,0,0];
+    let current;
     
     if(input[0] === ")" || input[0] === "]" || input[0] === "}") return false;
 
@@ -35,6 +36,7 @@ function balancedParens(input){
         switch(char) {
           case "(":
             openCount[0]++
+            current = 
             break;
           case "[":
             openCount[1]++
