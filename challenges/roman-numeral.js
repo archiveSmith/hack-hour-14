@@ -19,11 +19,17 @@
 
 function romanNumeral(n) {
   let result = '';
-  const numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  const roman = ['M', 'CM','D','CD','C', 'XC', 'L', 'XL', 'X','IX','V','IV','I'];
-
+  let numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  let roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X','IX','V','IV','I'];
+  for (let i = 0; i <= numbers.length; i += 1){
+    while (n % numbers[i] < n){ // while n is not yet 0
+      result += roman[i];
+      n -= numbers[i];
+    }
+  }
+  return result;
 }
 
-console.log(romanNumeral(2349)) // MMCCCXLIX
+// console.log(romanNumeral(2349)) // MMCCCXLIX
 
 module.exports = romanNumeral;
