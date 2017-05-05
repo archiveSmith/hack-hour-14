@@ -20,22 +20,27 @@
 function romanNumeral(n) {
   let number = n;
   let output = '';
-  while (number > 0) {
-    if (number >= 1000) {
-        let numberOfTimes = Math.floor(number/1000);
-        output = output.concat('M'.repeat(numberOfTimes));
-        number -= numberOfTimes * 1000;
+
+  if (number >= 1000) {
+    let numberOfTimes = Math.floor(number/1000);
+    output = output.concat('M'.repeat(numberOfTimes));
+    number -= numberOfTimes * 1000;
+  }
+  if (number >= 500) {
+    let numberOfTimes = Math.floor(number/500);
+    output = output.concat('D'.repeat(numberOfTimes));
+    number -= numberOfTimes * 500;
+  }
+  if (number >= 100) {
+    let numberOfTimes = Math.floor(number/100);
+    if (numberOfTimes === 4) {
+      
     }
-    if (number >= 500) {
-        let numberOfTimes = Math.floor(number/500);
-        output = output.concat('D'.repeat(numberOfTimes));
-        number -= numberOfTimes * 500;
+    else {
+      output = output.concat('C'.repeat(numberOfTimes));
     }
-    if (number >= 100) {
-        let numberOfTimes = Math.floor(number/100);
-        output = output.concat('C'.repeat(numberOfTimes));
-        number -= numberOfTimes * 100;
-    }
+    number -= numberOfTimes * 100;
+  }
     if (number >= 50) {
         let numberOfTimes = Math.floor(number/50);
         output = output.concat('L'.repeat(numberOfTimes));
@@ -83,6 +88,5 @@ function romanNumeral(n) {
   }
 
   return output;
-}
 
 module.exports = romanNumeral;
