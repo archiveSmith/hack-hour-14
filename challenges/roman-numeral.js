@@ -19,11 +19,6 @@
 
 function romanNumeral(n) {
 	let romStr = '';
-	const matches = {
-		'I':1,
-		'V':5,
-		'X':10
-	}
 	const romArr = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
 	const numArr = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
 	
