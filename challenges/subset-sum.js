@@ -9,28 +9,29 @@
  */
 
  // helper func to get all possible subArrays
- function getSubArrays(arr){
-   if (arr.length === 1) return [arr];
-   else {
-   	subarr = getSubArrays(arr.slice(1));
-   	return subarr.concat(subarr.map(e => e.concat(arr[0])), [[arr[0]]]);
-   }
- }
+function getSubArrays(arr) {
+  if (arr.length === 1) return [arr];
+  else {
+    const subarr = getSubArrays(arr.slice(1));
+    return subarr.concat(subarr.map(e => e.concat(arr[0])), [[arr[0]]]);
+  }
+}
 
 function subsetSum(array, target) {
-  let subSets = getSubArrays(array);
-  let sums = [];
+  if (array === []) return false;
+  const subSets = getSubArrays(array);
+  const sums = [];
   // get the sum for each el in each subSet and push to a new array
-  subSets.forEach(function (el) {
+  subSets.forEach((el) => {
     let sum = 0;
-    for(let i = 0; i < el.length; i++){
+    for (let i = 0; i < el.length; i += 1) {
       sum += el[i];
     }
     sums.push(sum);
-  })
+  });
   // compare each sum to the target and return true or false accordingly
-  for (let j = 0; j < sums.length; j++) {
-    if (sums[j] === target) { return true }
+  for (let j = 0; j < sums.length; j += 1) {
+    if (sums[j] === target) { return true; }
   }
   return false;
 }
