@@ -18,7 +18,7 @@ function getSubArrays(arr) {
 }
 
 function subsetSum(array, target) {
-  if (array === []) return false;
+  if (array.length === 0) return false;
   const subSets = getSubArrays(array);
   const sums = [];
   // get the sum for each el in each subSet and push to a new array
@@ -42,3 +42,4 @@ module.exports = subsetSum;
 // console.log(subsetSum([3, 34, 4, 12, 5, 12], 32)) // -> true, 3 + 12 + 5 + 12 = 32
 // console.log(subsetSum([8, 2, 4, 12], 13)) // -> false
 // console.log(subsetSum([8, -2, 1, -3], 6))  //-> true, 8 + 1 + (-3) = 6
+// console.log(subsetSum([], 3));
