@@ -14,7 +14,29 @@
  */
 
 function binToDec(binary) {
+    const array = binary.split("");
+    return array.reduce((acc, el, index) => {
+        acc = acc + (Number(el) * Math.pow(2, index));
+        return acc;
+    }, 0)
+}
+
+function dectoBin(decimal) {
+    const output = [];
+    //keep dividing until it cannot be divided by 2
+    while (decimal !== 0) {
+
+        if (decimal % 2 === 0) {
+            decimal = decimal / 2;
+            output.push('0');
+        } else {
+            decimal = (decimal -1)/2;
+            output.push('1');
+        }
+    }
+    return output.join();
 
 }
+
 
 module.exports = binToDec;
