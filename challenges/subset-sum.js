@@ -10,16 +10,11 @@
 
 function subsetSum(array, target) {
     
-    const min = MATH.min(array);
-    const max = MATH.max(array);
-
     // base cases
-    if (target=0) return true;
-    if (target < min) return false;
+    if(target === 0) return true;
+    if(array.length === 0) return false;
 
-    for (let i=0 ; i<array.length ; i++){
-        return subsetSum(array.slice(i))
-    }
+    return subsetSum(array.slice(1),target) || subsetSum(array.slice(1),target-array[0]);
 
 }
 
