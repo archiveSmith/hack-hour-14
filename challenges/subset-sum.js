@@ -13,18 +13,13 @@ function subsetSum(array, target) {
       if (sum === target){
         return true;
       }else if(sum > target || array[i] === array.length){
-        return null;
+        return false;
       }else{
         return lookingForMatch(sum + array[i], array[i] + 1) || lookingForMatch(sum,array[i]+1);
       }
-
     }
-
-
-    return lookingForMatch(0,0) || false;
-
-
-
+    return lookingForMatch(0,0);
 }
 
+subsetSum([3, 34, 4, 12, 5, 12], 32)
 module.exports = subsetSum;
