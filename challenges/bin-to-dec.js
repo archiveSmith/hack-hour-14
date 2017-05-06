@@ -14,7 +14,13 @@
  */
 
 function binToDec(binary) {
-
+    binary = binary.toString();
+    num = 0;
+    for(let i = 0; i < binary.length; i++){
+        num += binary[binary.length-1-i] * (Math.pow(2,i))
+    }
+    return num
 }
+
 
 module.exports = binToDec;
