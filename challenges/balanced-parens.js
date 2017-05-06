@@ -24,7 +24,6 @@
  *
  */
 
-<<<<<<< HEAD
 function balancedParens(input) {
     if(input.indexOf("(")===-1 && input.indexOf("{")===-1 && input.indexOf("[")===-1){return true}
     let counter = 0;
@@ -50,10 +49,6 @@ function balancedParens(input) {
         }
     }
     return false;
-=======
-function balancedParens(input){
-
->>>>>>> a286996bff73140ab888ba0adf4c4178aacd8dc8
 }
 
 module.exports = balancedParens;
