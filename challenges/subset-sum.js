@@ -9,17 +9,20 @@
  */
 
 function subsetSum(array, target) {
-  let sum = target;
-  for (let i = 0; i < array.length && sum > 0; i++) {
-    if (array[i] > sum) {
-      continue;
-    }
-    sum -= array[i];
-    if (sum === 0) {
+  let sumList = {};
+  
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
       return true;
     }
+    if (sumList[target-array[i]] !== undefined) {
+      return true;
+    }
+    for (let sum in sumList) {
+      sumList[parseInt(sum) + array[i]] = '';
+    }
+    sumList[array[i]] = '';
   }
-  
   return false;
 }
 
