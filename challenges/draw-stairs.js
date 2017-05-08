@@ -14,10 +14,10 @@
 */
 
 function drawStairs(n) {
-  var star = '';
-  for(var i = 1; i <= n; i++){
-     star += '*';
-    console.log(star);
+  let star = '*';
+  let space = ' '
+  for(let i = 1; i <= n; i++){
+     console.log(space.repeat(n-i) + star.repeat(i));
   }
 }
 
