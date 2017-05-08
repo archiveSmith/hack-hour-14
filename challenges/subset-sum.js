@@ -8,7 +8,15 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
+//start with target and selectively take away from it values in the array until the target reaches 0
 function subsetSum(array, target, selectorSize) {
+    if(target === 0) return true;
+    if(!array.length) return false;     //
+    //for each number in the array , either take the number away from target or  skip  ---> whiever route reaches true will retun up
+    return subsetSum(array.slice(1), target - array[0]) || subSetSum(array.slice(1), target);
+
+} 
+/*  
     //get all possible permutations of adding the sub set sums together
     const uniqueNumbers = [];
    // let selectorSize = 0;
@@ -43,5 +51,6 @@ function subsetSum(array, target, selectorSize) {
     // return false;
     
 }
+*/
 
 module.exports = subsetSum;
