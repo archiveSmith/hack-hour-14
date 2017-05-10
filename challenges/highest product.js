@@ -14,4 +14,4 @@ function highestProduct(array) {
 }
 
 module.exports = highestProduct;
-//hello hey yo
+//hello hey yo hey
