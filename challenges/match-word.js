@@ -13,33 +13,22 @@
 
 function matchWord(str) {
   let lower = str.toLowerCase();
+  let char = false;
   let punctuation = false;
-  let firstChar = false;
   let stack = [];
   for (let i = 0; i < lower.length; i++) {
     if (lower.charAt(i).match(/[a-z]/)) {
-      if (!firstChar) {
-        firstChar = true;
+      if (!punctuation) {
+        char = true;
       }
-      if (punctuation) {
-        if (lower.charAt(i) === stack[stack.length-1]) {
-          stack.pop();
-        }
-        else {
-          stack.push(lower[i]);
-        }
+      if (char && punctuation && lower.charAt(i) === stack[stack.length-1]) {
+        stack.pop();
+        continue;
       }
-      else {
-        stack.push(lower[i]);
-        punctuation = false;
-      }
+      stack.push(lower[i]);
     }
     else {
-      if (firstChar) {
-        if (!punctuation) {
-          punctuation = true;
-        }
-      }
+      punctuation = char ? true : false;
     }
   }
   return !stack.length;
