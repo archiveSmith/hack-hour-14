@@ -1,0 +1,11 @@
+
+/**
+ * Given an array of integers, find the highest product you can get from three of the integers.
+ */
+function highestProduct(array) {
+    if(array.length < 3) return 'array must be at least three';
+    array.sort((a,b)=>(b-a));
+    if(isNaN(array[0]) || isNaN(array[1]) || isNaN(array[2]) ) return 'array must be of numbers';
+    else return array[0]*array[1]*array[2];
+}
+module.exports = highestProduct;
