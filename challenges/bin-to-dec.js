@@ -14,12 +14,9 @@
  */
 
 function binToDec(binary) {
-  const arr = binary.split('').reverse();
   let decimal = 0;
-  let exp = 0;
-  arr.forEach((el) => {
+  binary.split('').reverse().forEach((el, exp) => {
     if (el === '1') decimal += Math.pow(2, exp);
-    exp += 1;
   });
   return decimal;
 }
