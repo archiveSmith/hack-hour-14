@@ -42,6 +42,19 @@ function binToDec(binary) {
                    return a + b;
                  });
 
+
+  //solution:
+
+  if(!/^[01]+$/.test(binary)) return  'Please pass binary string';
+
+  const binArray = binary.split('').reverse();
+  let answer = 0;
+  for(let i = 0; i < binArray.length; i++){
+    if(binArray[i]==='1'){
+      answer += Math.pow(2,i);
+    }
+  }
+return answer;
 }
 
 module.exports = binToDec;
