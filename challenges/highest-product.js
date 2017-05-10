@@ -4,6 +4,14 @@
  */
 
 function highestProduct(array) {
+  if (array.length < 3){
+    return "error";
+  }
+
+  if (!Array.isArray(array)){
+    return "error";
+  }
+  
   let sorted = array.sort(function(a, b) {
     return a - b;
   });
