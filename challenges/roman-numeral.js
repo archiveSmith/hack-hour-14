@@ -18,6 +18,7 @@
  */
 
 function romanNumeral(n) {
+<<<<<<< HEAD
  var obj = {
               M:1000,
              CM:900,
@@ -43,6 +44,9 @@ function romanNumeral(n) {
   }
   return roman ; 
 }
+=======
+
+>>>>>>> 3f2fba3175b1fbccfcb669a83fed31c293426626
 }
 
 module.exports = romanNumeral;

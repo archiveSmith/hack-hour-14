@@ -25,6 +25,7 @@
  */
 
 function balancedParens(input){
+<<<<<<< HEAD
   var stack = [];
   var open = { '{': '}', 
                '[': ']', 
@@ -52,6 +53,8 @@ function balancedParens(input){
 
   
   return stack.length === 0;
+=======
+>>>>>>> 3f2fba3175b1fbccfcb669a83fed31c293426626
 
 }
 

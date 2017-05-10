@@ -14,6 +14,7 @@
  */
 
 function binToDec(binary) {
+<<<<<<< HEAD
   let storage = [];
   let sum = 0;
   for (let i=0; i< binary.length; i++){
@@ -30,6 +31,9 @@ function binToDec(binary) {
   }
   }
   return sum;
+=======
+
+>>>>>>> 3f2fba3175b1fbccfcb669a83fed31c293426626
 }
 
 module.exports = binToDec;
