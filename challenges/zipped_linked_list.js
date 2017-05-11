@@ -20,7 +20,8 @@ function zip(l1, l2) {
   let curr = l1;
   let newNext = l2;
 
-  while(curr) {
+  //traverse zigzagged list
+  while(curr.next) {
     //save pointer to old next value
     let oldNext = curr.next;
 
@@ -32,6 +33,10 @@ function zip(l1, l2) {
     
     //update new next value to the saved pointer
     newNext = oldNext;
+  }
+  //if still stuff to traverse in one list then just point to it
+  if(newNext) {
+    curr.next = newNext;
   }
   
   return head;
