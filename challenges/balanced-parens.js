@@ -24,50 +24,24 @@
  *
  */
 function balancedParens(input){
-    const openCount = [0,0,0];
-    const closedCount = [0,0,0];
-    let current;
+  //dictionary
+  const ref = {"(" : ")", "[":"]", "{":"}"}
+  
+  //clean up array
+  let inputArr = input.split("").filter(el=>/^[\(\)\[\]\{\}]/.test(el));
+  console.log(inputArr)
+  if(inputArr.length % 2 !== 0) return false;
+  
+  //traverse arr
+  for(let i=1; i< inputArr.length; i++) {
+    let b = inputArr[i];
+    let a = inputArr[0]
     
-    if(input[0] === ")" || input[0] === "]" || input[0] === "}") return false;
-
-    for(let i=0; i<input.length; i++) {
-        let char = input[i];
-        
-        switch(char) {
-          case "(":
-            openCount[0]++
-            current = 
-            break;
-          case "[":
-            openCount[1]++
-            break;
-          case "{":
-            openCount[2]++
-            break;
-            
-          case ")" :
-            closedCount[0]++
-            break;
-          case "]":
-            closedCount[1]++
-            break;
-          case "}":
-            closedCount[2]++
-            break;
-        }
-    }
+    console.log("a",a,"b",b)
     
-    return isEqual(openCount, closedCount);
-
-}
-
-function isEqual(a1, a2) {
-  if(a1.length !== a2.length) return false;
-  for(let i=0; i< a1.length; i++) {
-    if(a1[i] !== a2[i]) {
-      return false;
-    }
+    if(ref[a] === b) inputArr = inputArr.slice(1);
   }
+  //if traversed and no problems
   return true;
 }
 
