@@ -23,32 +23,36 @@ function zip(l1, l2) {
     return l1;
   }
 
-  let list = l1;
+  let head = l1;
+  let tail = l1;
+  
   let l1Head = l1.next;
   let l2Head = l2;
   let first = false;
   
   while (l1Head && l2Head) {
     if (first) {
-      list.next = l1Head;
+      tail.next = l1Head;
+      tail = tail.next;
       l1Head = l1Head.next;
       first = false;
     }
     else {
-      list.next = l2Head;
+      tail.next = l2Head;
+      tail = tail.next;
       l2Head = l2Head.next;
       first = true;
     }
   }
   
   if (l1Head) {
-    list.next = l1Head;
+    tail.next = l1Head;
   }
   else if (l2Head) {
-    list.next = l2Head;
+    tail.next = l2Head;
   }
   
-  return list;
+  return head;
 }
 
 module.exports = {Node: Node, zip: zip};
