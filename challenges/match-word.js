@@ -7,43 +7,44 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+// MY SOLUTION:
+
+// function matchWord(str) {
+//   if (str === '') return true;
+//   let array = str.split(/[^a-zA-Z]/);
+//   let wordArr = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array[i] !== '') wordArr.push(array[i].toLowerCase());
+//   };
+//   let stack = [];
+//   for (let i = 0; i < wordArr.length; i += 1) {
+//     let reversed = wordArr[i].split('').reverse().join('');
+//     if (stack[stack.length - 1] === reversed) stack.pop();
+//     else if (!stack.includes(wordArr[i])) stack.push(wordArr[i]);
+//   }
+//   if (stack.length === 0) return true;
+//   else return false;
+// }
+
+// FELLOW SOLUTION:
+
 function matchWord(str) {
-  if (str === '') return true;
-  let array = str.split(/[^a-zA-Z]/);
-  let wordArr = [];
-  for (let i = 0; i < array.length; i += 1) {
-    if (array[i] !== '') wordArr.push(array[i].toLowerCase());
-  };
-  console.log(wordArr)
-  let stack = [];
-  for (let i = 0; i < wordArr.length; i += 1) {
-    let reversed = wordArr[i].split('').reverse().join('');
-    if (stack[stack.length - 1] === reversed) stack.pop();
-    else if (!stack.includes(wordArr[i])) stack.push(wordArr[i]);
+  if (!str) return true;
+  const strArr = str.replace(/[^\w\s]|/g, '').replace(/\s+|_/g, ' ').toLowerCase().split(' ');
+  if (strArr.length % 2 === 1) return false;
+  const checkArr = [strArr[0]];
+  let j;
+  for (j = 1; j < str.length; j += 1) {
+    let reversed = strArr[j].split('').reverse().join('');
+    if (reversed === checkArr[checkArr.length - 1]) {
+      checkArr.pop()
+    } else {
+      checkArr.push(strArr[j]);
+    }
   }
-  if (stack.length === 0) return true;
-  else return false;
+  return checkArr.length === 0;
 }
 
 console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 
 module.exports = matchWord;
-
-//check if reverse() is substring of str
-//split string into array of words
-
-// for (let i = 0; i < newArr.length; i += 1) {
-//   for (let j = 0; j < newArr.length; j += 1) {
-//     let word1 = newArr[i].split('');
-//     let word2 = newArr[j].split('');
-//     console.log(arr1);
-//     let reversed = .reverse();
-//     if (arr1 === reversed) return true;
-//   }
-// }
-
-// console.log(newArr);
-// let matches = {};
-// for (let i = 0; i < newArr.length; i += 1) {
-//   let reversed = newArr[i].split('').reverse().join('');
-// }

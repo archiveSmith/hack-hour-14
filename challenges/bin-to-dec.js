@@ -21,6 +21,18 @@ function binToDec(binary) {
   return newArr.reduce((a,c) => { return a + c; });
 }
 
+// function binToDec(binary) {
+//   if (! /^[01]+$/.test(binary)) return 'Please pass binary string';
+//   let binArray = binary.split('').reverse();
+//   let answer = 0;
+//   for (let i = 0; i < binArray.length; i++) {
+//     if (binArray[i] === '1') {
+//       answer += Math.pow(2,i);
+//     }
+//   }
+//   return answer;
+// }
+
 console.log(binToDec('101'));
 
 module.exports = binToDec;
