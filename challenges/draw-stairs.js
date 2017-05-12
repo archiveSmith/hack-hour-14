@@ -13,7 +13,11 @@
 
 */
 
-function drawStairs(n) {
+function drawStairs(n,stairs = '',stars = 1) {
+  if(!n) return stairs;
+  let theseStairs = ' '.repeat(n - 1) + '*'.repeat(stars);
+  return x(n - 1,stairs + theseStairs + '\n', stars + 1);
+
 
 }
 
