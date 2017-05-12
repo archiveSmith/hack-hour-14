@@ -14,6 +14,7 @@
  */
 
 function binToDec(binary) {
+
     // console.log(binary);
     // if(binary === '') {
     //     return;

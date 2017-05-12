@@ -13,3 +13,4 @@ console.log(highestProduct([5,1,2,3]));
 console.log(highestProduct([4,8,4,2]));
 console.log(highestProduct([3,7,1,9]));
 module.exports = highestProduct;
+

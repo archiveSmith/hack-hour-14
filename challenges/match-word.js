@@ -1,3 +1,4 @@
+
 // Some languages have "if" statements that are closed by "fi" instead of curly brackets.
 // Or they close a "case" with "esac", i.e. the same keyword backwards. 
 //for this problem we'll check that all words in a string are "closed". 
@@ -12,6 +13,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+
     // split words
     // iterate through words and compare using stack
     const words = str.split(/[^a-z]/gi).filter((ele) => ele !== '').map(ele => ele.toLowerCase());
