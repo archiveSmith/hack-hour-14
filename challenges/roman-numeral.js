@@ -18,7 +18,75 @@
  */
 
 function romanNumeral(n) {
+  let number = n;
+  let output = '';
 
-}
+  if (number >= 1000) {
+    let numberOfTimes = Math.floor(number/1000);
+    output = output.concat('M'.repeat(numberOfTimes));
+    number -= numberOfTimes * 1000;
+  }
+  if (number >= 500) {
+    let numberOfTimes = Math.floor(number/500);
+    output = output.concat('D'.repeat(numberOfTimes));
+    number -= numberOfTimes * 500;
+  }
+  if (number >= 100) {
+    let numberOfTimes = Math.floor(number/100);
+    if (numberOfTimes === 4) {
+      
+    }
+    else {
+      output = output.concat('C'.repeat(numberOfTimes));
+    }
+    number -= numberOfTimes * 100;
+  }
+    if (number >= 50) {
+        let numberOfTimes = Math.floor(number/50);
+        output = output.concat('L'.repeat(numberOfTimes));
+        number -= numberOfTimes * 50;
+    }
+    if (number >= 10) {
+        let numberOfTimes = Math.floor(number/10);
+        output = output.concat('X'.repeat(numberOfTimes));
+        number -= numberOfTimes * 10;
+    }
+    if (number >= 5) {
+        let numberOfTimes = Math.floor(number/5);
+        output = output.concat('V'.repeat(numberOfTimes));
+        number -= numberOfTimes * 5;
+    }
+    if (number >= 1) {
+        let numberOfTimes = Math.floor(number/1);
+        output = output.concat('I'.repeat(numberOfTimes));
+        number -= numberOfTimes * 1;
+    }
+  }
+
+  if (output.indexOf('LXXXX') !== -1) {
+      output = output.replace('LXXXX', 'XC');
+  }
+
+  if (output.indexOf('DCCCC') !== -1) {
+      output = output.replace('DCCCC', 'CM');
+  }
+
+  if (output.indexOf('CCCC') !== -1) {
+      output = output.replace('CCCC', 'CD');
+  }
+
+  if (output.indexOf('XXXX') !== -1) {
+      output = output.replace('XXXX', 'XL');
+  }
+
+  if (output.indexOf('VIIII') !== -1) {
+      output = output.replace('VIIII', 'IX');
+  }
+
+  if (output.indexOf('IIII') !== -1) {
+      output = output.replace('IIII', 'IV');
+  }
+
+  return output;
 
 module.exports = romanNumeral;
