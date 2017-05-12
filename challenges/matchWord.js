@@ -17,7 +17,7 @@ function matchWord(str) {
 
   
   return match.length<=1 ? false: match[0]===reversed
-  
+  //test
 
 }
 
