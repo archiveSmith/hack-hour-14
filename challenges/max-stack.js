@@ -7,20 +7,20 @@
  */
 
 class Stack {
-  constructor() {
+  constructor () {
     this.store = {}
     this.index = 0
-    this.max
+    this.max = undefined
   }
 
-  push(item) {
+  push (item) {
     this.store[this.index++] = item
     if (!this.max) this.max = item
     else this.max = (item > this.max) ? item : this.max
     return this.index
   }
 
-  pop() {
+  pop () {
     let result = this.store[--this.index]
     if (result !== this.max) return result
     else {
@@ -34,7 +34,7 @@ class Stack {
     }
   }
 
-  getMax() {
+  getMax () {
     return this.max
   }
 }
