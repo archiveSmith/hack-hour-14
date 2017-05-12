@@ -23,5 +23,6 @@ Stack.prototype.pop = function(){
 Stack.prototype.getMax = function(){
   return Math.max(...this.stack)
 }
+//test
 
 module.exports = Stack;
