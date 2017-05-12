@@ -7,6 +7,7 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+<<<<<<< HEAD
 
 function matchWord(str) {
   
@@ -33,6 +34,10 @@ function matchWord(str) {
       strArr = strArr.slice(1);
     }
   return true;
+=======
+function matchWord(str) {
+
+>>>>>>> c4f344d6fc53288e9ce1210315367f0c6dea1718
 }
 
 module.exports = matchWord;
