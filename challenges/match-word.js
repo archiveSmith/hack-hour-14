@@ -7,7 +7,6 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-
 // module.exports = matchWord;
 
 
@@ -30,9 +29,5 @@ function matchWord(str) {
 }
 
 
-
-
-
-
-
+module.exports = matchWord;
 

@@ -3,11 +3,11 @@
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
 
-function highestProduct(array) {
-  return array.sort((a,b) => a-b).slice(-3).reduce((a,c) => a * c);
-}
+// function highestProduct(array) {
+//   return array.sort((a,b) => a-b).slice(-3).reduce((a,c) => a * c);
+// }
 
-module.exports = highestProduct;
+// module.exports = highestProduct;
 
 
 function highestProduct(array) {
@@ -23,3 +23,7 @@ function highestProduct(array) {
   let highProduct = array[array.length-3] * array[array.length-2];
   return (lowProduct > highProduct) ? lowProduct * highProduct : highProduct * highestNum;
 }
+
+
+module.exports = highestProduct;
+
