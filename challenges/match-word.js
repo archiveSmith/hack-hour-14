@@ -3,6 +3,7 @@
 // matchWord('__END_DNE-----');  -> true
 // matchWord('__ENDDNE__');  -> false       (not separated by a space)
 // matchWord('IF()()fi[]');  -> true        (should be case-insensitive)
+<<<<<<< HEAD
 // matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ]
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
@@ -46,5 +47,14 @@ function matchWord(str) {
 }
 
 console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+=======
+// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
+// matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
+// matchWord('');  -> true
+
+function matchWord(str) {
+
+}
+>>>>>>> c4f344d6fc53288e9ce1210315367f0c6dea1718
 
 module.exports = matchWord;
