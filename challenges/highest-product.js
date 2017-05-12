@@ -1,6 +1,7 @@
 /**
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
+
 function highestProduct(array, i = 0, j = 1, k = 2) {
     if(array.length<= 3) return array.reduce((a,c)=>a*c);
     array.sort()
