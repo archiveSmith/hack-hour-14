@@ -8,6 +8,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+<<<<<<< HEAD
     
   let newStr = str.toUpperCase().replace(/[^0-9a-z]/gi, ' ');
   
@@ -53,3 +54,9 @@ function matchWord(str) {
 
 
 module.exports = matchWord;
+=======
+
+}
+
+module.exports = matchWord;
+>>>>>>> c4f344d6fc53288e9ce1210315367f0c6dea1718

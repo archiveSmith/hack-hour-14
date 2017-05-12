@@ -13,6 +13,7 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
+<<<<<<< HEAD
 /* You are given a string that represents a binary number
  *
  * Write a function that converts the binary string to a decimal number
@@ -46,5 +47,10 @@ function binToDec(binary) {
     return retNumber;
 }
 
+=======
+function binToDec(binary) {
+
+}
+>>>>>>> c4f344d6fc53288e9ce1210315367f0c6dea1718
 
 module.exports = binToDec;
