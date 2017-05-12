@@ -8,6 +8,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+<<<<<<< HEAD
     str = str.toLowerCase();
     let start;
     for (let i = 0; i < str.length; i++) {
@@ -23,3 +24,9 @@ function matchWord(str) {
 }
 
 module.exports = matchWord;
+=======
+
+}
+
+module.exports = matchWord;
+>>>>>>> c4f344d6fc53288e9ce1210315367f0c6dea1718
