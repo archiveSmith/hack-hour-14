@@ -9,7 +9,27 @@
  */
 
 function subsetSum(array, target) {
+    let output = false;
+    const total = array.reduce((acc, num) => acc += num);
+console.log(array);
+    if (total === target || rec())
+        return true;
 
+    function rec() {
+        for (let i = 1; i <= array.length - 1; i++) {
+            const newArr = array.slice(i, array.length);
+
+            return subsetSum(newArr, target);
+        }
+    }
+
+
+    return false;;
 }
+
+console.log(subsetSum([3, 7, 4, 2], 5));//;// - > true, 3 + 2 = 5
+// console.log(subsetSum([3, 34, 4, 12, 5, 12], 32));// -> true, 3 + 12 + 5 + 12 = 32
+// console.log(subsetSum([8, 2, 4, 12], 13));// -> false
+// console.log(subsetSum([8, -2, 1, -3], 6));// -> true, 8 + 1 + (-3) = 6
 
 module.exports = subsetSum;
