@@ -8,6 +8,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+<<<<<<< HEAD
   let strArr = str.match(/[a-zA-Z]+/g)
   if (strArr.length % 2 !== 0){
     return false;
@@ -35,3 +36,9 @@ function matchWord(str) {
 
 
 module.exports = matchWord;
+=======
+
+}
+
+module.exports = matchWord;
+>>>>>>> c4f344d6fc53288e9ce1210315367f0c6dea1718
