@@ -1,4 +1,5 @@
 /**
+<<<<<<< HEAD
  * Given an array of integers, find the highest product you can get from three
  of the integers.
  */
@@ -74,3 +75,14 @@ if(array[array.length - 1] < 0){
   let highSum = array[array.length -3] * array[array.length-2];
   return (lowSum > highSum) ? lowSum * highestNum : highSum * highestNum
 }
+=======
+ * Given an array of integers, find the highest product you can get from three of the integers.
+ */
+
+function highestProduct(array) {
+
+}
+
+
+module.exports = highestProduct;
+>>>>>>> c4f344d6fc53288e9ce1210315367f0c6dea1718
