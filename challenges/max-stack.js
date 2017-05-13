@@ -18,8 +18,8 @@ function Stack() {
   this.max;
   this.length = 0;
   this.storage = {};
-
-  this.push = function (value) {
+}
+  Stack.prototype.push = function (value) {
     this.storage[this.length] = value;
     this.length += 1;
 
@@ -30,17 +30,18 @@ function Stack() {
     return this.length;
   }
 
-  this.pop = function () {
+ Stack.prototype.pop = function () {
     let temp = this.storage[this.length - 1];
     delete this.storage[this.length - 1];
     this.length -= 1;
     return temp;
+
+    //REMEMBER TO CHECK IF VALUE POPPED OFF
   }
 
-  this.getMax = function () {
+Stack.prototype.getMax = function () {
     return this.max;
-  }
-}
+ }
 module.exports = Stack;
 
 
