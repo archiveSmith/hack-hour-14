@@ -8,13 +8,18 @@
  *
  */
 
-function Node(value) {
-    this.value = value;
-    this.next = null;
+class Node {
+  constructor (value) {
+    this.value = value
+    this.next = null
+  }
 }
 
-function reverseLinkedList(head) {
-
+let reverseLinkedList = head => {
+  let vals = []
+  for (let node = head; node !== null; node = node.next) vals.push(node.value)
+  for (let node = head, i = vals.length - 1; node !== null; node = node.next, i--) node.value = vals[i]
+  return head
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = {Node: Node, reverseLinkedList: reverseLinkedList}
