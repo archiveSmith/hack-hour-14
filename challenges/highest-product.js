@@ -25,7 +25,7 @@
 function highestProduct(array) {
   // verify that the array contains at least three values
   if (array.length < 3) return 0;
-  // sort the array
+  // sort the array from lowest to highest
   array = array.sort((low, high) => (low - high));
   // if the highest value is negative, handle all negative array
   if (array[array.length - 1] < 0) {
@@ -43,6 +43,6 @@ function highestProduct(array) {
 }
 
 console.log(highestProduct([-5, -1, 1, 2, 3])); //should return 15
-//console.log(highestProduct([-5, -4, -3, -2, -1])); // should return -6
+console.log(highestProduct([-5, -4, -3, -2, -1])); // should return -6
 
 module.exports = highestProduct;

@@ -23,16 +23,20 @@ function zip(l1, l2) {
 
   while(curr1 && curr2) {
 
+    //temp variables hold on to each list's next node
     if (temp1) temp1 = temp1.next;
     if (temp2) temp2 = temp2.next;
 
+    //do reassigning here
     curr1.next = curr2;
     if (temp1) curr2.next = temp1;
 
+    //have curr1 and curr2 point to next nodes so we can keep moving down the list
     curr1 = temp1;
     curr2 = temp2;
   }
 
+  //if l1 isn't null, return l1
   return l1 ? l1 : l2;
 }
 
