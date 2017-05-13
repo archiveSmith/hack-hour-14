@@ -30,6 +30,8 @@ Stack.prototype.getMax = function() {
   return this.max;
 };
 
+// TO DO - WILL NOT ACCOUNT FOR POPPING THE MAX VALUE OFF THE STACK
+
 module.exports = Stack;
 
 // let pile = new Stack()
