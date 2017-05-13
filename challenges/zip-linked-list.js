@@ -10,24 +10,37 @@ function Node(val) {
   this.next = null
 }
 
-// function zip(l1, l2) {
-//   let len = Math.max([l1.length, l2.length])
-//   for (let i = 0; i < len; i++) {
-//     if (l1[0].value.length > 0 )
-//   }
-// }
+//codesmith way
+function zip(l1, l2) {
+  // Setting pointer variables.
+  let curr1 = temp1 = l1;
+  let curr2 = temp2 = l2;
+
+  // Zip until we reach the end of one/both of the lists.
+  while (curr1 && curr2) {
+
+    // Moving temp pointers.
+    if (temp1) temp1 = temp1.next;
+    if (temp2) temp2 = temp2.next;
+
+    // Zipping / alternating.
+    curr1.next = curr2;
+    if (temp1) curr2.next = temp1;
+
+    // Moving curr pointers.
+    [curr1, curr2] = [temp1, temp2];
+
+  }
+
+  // Return first list if it exists, second if first is null.
+  // Will return null (via l2) if both are null.
+  return l1 ? l1 : l2;
+}
 
 
-// function zip(l1, l2) {
-//   let len = Math.min([l1.length, l2.length]);
-//   for (let i = 0; i < len; i++) {
-//     if (l1[i].value.length > 0 && l2[i].value.length > 0) {
-//       l1[i].next = l2[i]
-//     }
-//   }
-// }
 
 
+//my way
 function zip(l1, l2) {
   
   let head = l1;
@@ -48,4 +61,6 @@ function zip(l1, l2) {
   temp.next = l2 ? l2 : l1;
   return head;
 }
+
+
 
