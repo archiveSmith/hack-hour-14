@@ -9,46 +9,44 @@
  function Stack() {
    this.storage = {};
    this.index = 0;
+
+   this.sortedStorage = [];
  }
 
  Stack.prototype.push = function(value){
+
    this.storage[this.index] = value;
+   this.sortedStorage.push(value);
+   this.sortedStorage.sort(function(a,b){
+     return b - a;
+   })
+
    this.index++;
+
  }
 
  Stack.prototype.pop = function(){
    if(this.index === 0) return undefined;
 
-   let output = this.storage[this.index - 1];
+   let idx = this.index - 1
 
-   delete this.storage[this.index - 1];
+   let output = this.storage[idx];
+
+   delete this.storage[idx];
 
    this.index--;
+
+   let sortIndexSlice = this.sortedStorage.indexOf(output);
+   this.sortedStorage.splice(sortIndexSlice,1)
+
+
 
    return output;
 
  }
 
  Stack.prototype.getMax = function(){
-   let max = this.storage[0];
-   for(let prop in this.storage){
-     if(this.storage[prop] > max){
-       max = this.storage[prop]
-     }
-   }
-   return max;
+   return this.sortedStorage[0];
  }
 
 module.exports = Stack;
-
-
-// let checkIndex = (this.index-1);
-// if (this.index === 0){
-//   return undefined;
-// }
-// if (checkIndex > -1){
-//   let output = this.storage[checkIndex]
-//   delete this.storage[checkIndex];
-//   this.index = checkIndex;
-//   return output;
-// }
