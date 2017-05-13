@@ -10,36 +10,35 @@ function Node(val) {
   this.next = null;
 }
 
-// function zip(l1, l2) {
-//   let a = l1;
-//   let b = l2;
-//   if (l1.next === null) {
-//     l1.next = l2;
-//     return l1;
-//   }
-//   else {
-//     while (a.next !== null) {
-//       let temp = a.next;
-//       a.next = b;
-//       a = a.next.next;
-//       b = temp;
-//     }
-//   }
-//   // let temp = l1.next;
-//   // l1.next = l2;
-//   // temp2 = l2.next;
-//   // l2.next = temp;
-//   // temp.next = temp2;
-//   return JSON.stringify(a);
-// };
-
 function zip(l1, l2) {
+  let curr1 = l1;
+  let temp1 = l1;
 
+  let curr2 = l2;
+  let temp2 = l2;
+
+  //more elegant:
+  // let curr1 = temp1 = l1;
+  // let curr2 = temp2 = l2;
+
+  while(curr1 && curr2) {
+
+    if (temp1) temp1 = temp1.next;
+    if (temp2) temp2 = temp2.next;
+
+    curr1.next = curr2;
+    if (temp1) curr2.next = temp1;
+
+    curr1 = temp1;
+    curr2 = temp2;
+  }
+
+  return l1 ? l1 : l2;
 }
 
 list1 = { value: 1, next: { value: 3, next: null } };
 list2 = { value: 2, next: { value: 4, next: null } };
 
-console.log(zip(list1, list2));
+console.log(JSON.stringify(zip(list1, list2)));
 
 module.exports = {Node: Node, zip: zip};
