@@ -29,6 +29,6 @@ function reverseLinkedList(head) {
     return returnList;
 }
 
-reverseLinkedList({ value: 1, next: { value: 3, next: { value: 5, next: { value: 7, next: { value: 9, next: null } } } } })
+// reverseLinkedList({ value: 1, next: { value: 3, next: { value: 5, next: { value: 7, next: { value: 9, next: null } } } } })
 
 module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
