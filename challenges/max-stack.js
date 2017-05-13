@@ -11,7 +11,7 @@ function Stack() {
     length: 0,
     max: [],
     push: function (val) {
-      if(val > obj.max[obj.max.length-1]|| obj.max.length ===0){obj.max.push(val)}
+      if(val >= obj.max[obj.max.length-1]|| obj.max.length ===0){obj.max.push(val)}
       obj[obj.length] = val;
       obj.length++; return obj.length;
     },
