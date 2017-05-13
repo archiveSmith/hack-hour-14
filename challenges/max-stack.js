@@ -6,6 +6,9 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
+// TO DO REMOVE WONT RECALCULATE MAX
+  // have a sorted stack??
+
 function Stack() {
   // body...
   this.elements = {};
