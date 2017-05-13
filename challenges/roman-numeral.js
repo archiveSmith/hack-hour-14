@@ -39,9 +39,8 @@ function romanNumeral(n,string = '') {
     return string;
 }
 
-console.log(romanNumeral(8))
-console.log(romanNumeral(20))
-console.log(romanNumeral(19))
-console.log(romanNumeral(44))
+console.log(romanNumeral(899))
+console.log(romanNumeral(901))
+
 
 module.exports = romanNumeral;

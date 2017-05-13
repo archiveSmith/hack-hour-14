@@ -23,12 +23,15 @@ function modemean(array) {
 
     numbers = Object.keys(meanObj);
     values = Object.values(meanObj);
-    maxValue = values.reduce((max,curr)=>Math.max(max,curr));
-    mode = numbers[values.indexOf(maxValue)]
-    console.log(mode)
+    maxValue = values.reduce((max,curr)=> Math.max(max,curr));
+    mode = numbers[values.lastIndexOf(maxValue)]
 
     //determine if they're equal
+    console.log(mean)
+    console.log(mode)
     return (mean == mode)
 }
+
+console.log(modemean([1,2,3,4,5,3,3,3]))
 
 module.exports = modemean;
