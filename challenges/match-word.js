@@ -8,7 +8,37 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+<<<<<<< HEAD
+  let strArr = str.match(/[a-zA-Z]+/g)
+  if (strArr.length % 2 !== 0){
+    return false;
+  }
+
+
+  for (let i=0; i<strArr.length; i++){
+    for (let j=i+1; j<strArr.length; j++){ 
+      if (strArr[i] === strArr[j].split('').reverse().join('')){
+        if ((j - i) % 2 === 1){      
+          strArr.splice(i,1)
+          strArr.splice(j-1,1)
+          j = i+1;
+          i--;
+        }
+      }
+    }
+  }
+  
+  if (strArr.length === 0){
+    return true;
+  }
+  return false;
+}
+
+
+module.exports = matchWord;
+=======
 
 }
 
 module.exports = matchWord;
+>>>>>>> c4f344d6fc53288e9ce1210315367f0c6dea1718

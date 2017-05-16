@@ -18,7 +18,35 @@
  */
 
 function romanNumeral(n) {
+<<<<<<< HEAD
+ var obj = {
+              M:1000,
+             CM:900,
+             D:500,
+             CD:400,
+             C:100,
+             XC:90,
+             L:50,
+             XL:40,
+             X:10,
+             IX:9,
+             V:5,
+             IV:4,
+             I:1
+            }
+  
+  var roman = '';
+  for (var key in obj){
+    while (n>=obj[key]){
+      roman += key;
+      n -= obj[key]
+    }
+  }
+  return roman ; 
+}
+=======
 
+>>>>>>> 3f2fba3175b1fbccfcb669a83fed31c293426626
 }
 
 module.exports = romanNumeral;

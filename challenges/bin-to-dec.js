@@ -14,7 +14,26 @@
  */
 
 function binToDec(binary) {
+<<<<<<< HEAD
+  let storage = [];
+  let sum = 0;
+  for (let i=0; i< binary.length; i++){
+      storage.push(parseInt(Math.pow(2,i)))
+  }
+  let reverse = storage.reverse()
+  
+  for (let j=0; j <binary.length; j++){
+    if (parseInt(binary[j]) === 1){
+      sum += parseInt(storage[j])
+    }
+    else{
+    continue;
+  }
+  }
+  return sum;
+=======
 
+>>>>>>> 3f2fba3175b1fbccfcb669a83fed31c293426626
 }
 
 module.exports = binToDec;

@@ -9,7 +9,30 @@
  */
 
 function subsetSum(array, target) {
+<<<<<<< HEAD
+      let arr = array;
+  let tar = target;
+  let storage = [];
+  var sum =  array.reduce(function(accu, curr){
+    return accu + curr
+  })
+  
+  if (sum === target){
+    return true;
+  }
+  else{
+    for (let i=0; i<arr.length; i++){
+    let mod = arr.slice[i];
+    let shifted = array.shift();
+    storage.push(shifted)
+    while (arr.length !== 0){
+    return subsetSum(arr, tar)
+    }
+    }
+  }
+=======
 
+>>>>>>> 3f2fba3175b1fbccfcb669a83fed31c293426626
 }
 
 module.exports = subsetSum;
