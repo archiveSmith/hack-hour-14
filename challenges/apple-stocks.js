@@ -13,7 +13,22 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    let priceMax = 0;
+    let priceMin = 0;
 
+    let openingPrice = stock_prices_yesterday[0];
+
+    priceMax = stock_prices_yesterday.reduce((max, curr) => {
+        return priceMax < openingPrice ? openingPrice : priceMax;
+    }, priceMax)
+
+    priceMin = stock_prices_yesterday.reduce((max, curr) => {
+        return priceMin > openingPrice ? openingPrice : priceMin;
+    }, priceMin)
+
+    let profit = priceMax - priceMin
+    if (profit < 0 || typeof profit !== 'number' || profit === undefined) { return 0 }
+    else return profit
 }
 
 module.exports = bestProfit;
