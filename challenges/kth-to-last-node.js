@@ -16,13 +16,18 @@
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
+ function Node(val) {
+ 	this.value = val;
+ 	this.next = null;
+ }
 
 function kthToLastNode(k, head) {
-
+	let length = 0;
+	for (let i = head; i !== null; i = i.next) length++;
+	let target = length - k;
+	for (let i = head, count = 0; i !== null; i = i.next, count++) {
+		if (count === target) return i.value
+	}
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+ module.exports = {Node: Node, kthToLastNode: kthToLastNode};
