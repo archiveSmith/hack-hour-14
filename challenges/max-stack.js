@@ -32,6 +32,8 @@ function Stack() {
       max = this.stack[this.stack.length-1].max;
     }
     this.stack.push(new Node(value, value > max ? value : max));
+
+    return this.stack.length;
   }
   
   this.getMax = function() {
