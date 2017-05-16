@@ -13,7 +13,24 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  if (!stock_prices_yesterday || stock_prices_yesterday.length === 0) {
+    return 0;
+  }
+  
+  let min = stock_prices_yesterday[0];
+  let profit = 0;
+  
+  for (let i = 1; i < stock_prices_yesterday.length; i++) {
+    let sale = stock_prices_yesterday[i] - min;
+    if (sale > profit) {
+      profit = sale;
+    }
+    if (stock_prices_yesterday[i] < min) {
+      min = stock_prices_yesterday[i];
+    }
+  }
+  
+  return profit;
 }
 
 module.exports = bestProfit;
