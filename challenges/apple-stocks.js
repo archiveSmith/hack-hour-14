@@ -19,29 +19,30 @@ function bestProfit(stock_prices_yesterday) {
     let highTime = 0;
     let profit = 0;
     const arr = [];
-    
-    for (let index = 0; index < stock_prices_yesterday.length; index++) {
-        const spy = stock_prices_yesterday[index];
-        if (index === 0) {
-            low = spy;
-            lowTime = index;
-            continue;
+    if (stock_prices_yesterday instanceof Array){
+        for (let index = 0; index < stock_prices_yesterday.length; index++) {
+            const spy = stock_prices_yesterday[index];
+            if (index === 0) {
+                low = spy;
+                lowTime = index;
+                continue;
+            }
+            if (spy < low) {
+                low = spy;
+                lowTime = index;
+            } else if (spy >= high) {
+                high = spy;
+                highTime = index;
+            }
+            if (lowTime < highTime)
+                arr.push(high-low);
         }
-        if (spy < low) {
-            low = spy;
-            lowTime = index;
-        } else if (spy >= high) {
-            high = spy;
-            highTime = index;
+        
+        while (arr.length != 0) {
+        const item = arr.pop();
+        if (profit < item)
+            profit = item;
         }
-        if (lowTime < highTime)
-            arr.push(high-low);
-    }
-    
-    while (arr.length != 0) {
-      const item = arr.pop();
-      if (profit < item)
-        profit = item;
     }
     return profit;
 }
