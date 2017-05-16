@@ -1,5 +1,5 @@
 /**
- *  I have an array stock_prices_yesterday where:
+ *  I have an stock_prices_yesterdayay stock_prices_yesterday where:
  *
  *    - The indices are the time in minutes past trade opening time, which was 9:30am local time
  *    - The values are the prices in dollars of Apple stock at the time
@@ -11,9 +11,36 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
+// stock_prices_yesterday[60] = 500
+
+
 
 function bestProfit(stock_prices_yesterday) {
+  let sellIdx = 1;
+  let buyIdx = 0;
+  let currMin = 0;
+  let maxProft = 0;
+
+  for(let i = 1; i < stock_prices_yesterday.length; i++) {
+
+      // new current min.
+      if(stock_prices_yesterday[i] < stock_prices_yesterday[currMin]) {
+        currMin = i;
+      }
+
+      // new best profit
+      if(stock_prices_yesterday[sellIdx] - stock_prices_yesterday[buyIdx] < stock_prices_yesterday[i] - stock_prices_yesterday[currMin]) {
+              sellIdx = i;
+            buyIdx = currMin;
+      }
+
+  }
+
+  maxProfit  = stock_prices_yesterday[sellIdx] - stock_prices_yesterday[buyIdx];
+  return maxProfit;
 
 }
+
+// bestProfit([11, 4, 6, 11, 9, 8, 1]);
 
 module.exports = bestProfit;
