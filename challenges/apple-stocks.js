@@ -15,6 +15,7 @@
 function bestProfit(stock_prices_yesterday) {
 
   if (stock_prices_yesterday[0] === Math.max(...stock_prices_yesterday)
+    || stock_prices_yesterday.some(isNaN)
     || stock_prices_yesterday.length < 2) {
       return 0;
   }
@@ -28,7 +29,7 @@ function bestProfit(stock_prices_yesterday) {
   return maxDiff;
 }
 
-const arr = [10, 9, 8, 'hi'];
+const arr = [1, 9, 8, 'hi'];
 console.log(bestProfit(arr));
 
 module.exports = bestProfit;
