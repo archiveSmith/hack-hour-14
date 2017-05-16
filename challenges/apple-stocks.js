@@ -12,8 +12,39 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+//find min and max
+//subtract
+//get number of index
+
 function bestProfit(stock_prices_yesterday) {
+    let a = stock_prices_yesterday;
+    
+    //if not array or empty return 0
+    if(!Array.isArray(a) || !a) return 0;
+    
+    //cut anything past midnight yesterday
+    if(a.length> 870) a = a.slice(0, 869);
+
+
+    const sellPrice = a.reduce((acc, el)=> {
+        if(el > acc) return el;
+        return acc;
+    }, 0);
+
+    const buyPrice = a.reduce((acc, el)=> {
+        if(el < acc) return el;
+        return acc;
+    }, Infinity);
+
+    return sellPrice-buyPrice;
 
 }
+
+/*
+let b = [-1000,-1000,-1000]
+let apple = [100,-50, 0,, 0, 0, 0,  0, 0 , 0,   0, 0, -1000]
+bestProfit(b)
+//------------0, 1, 2, 3, 4, 5,  6, 7, 8  , 9, 10, 11  12
+*/
 
 module.exports = bestProfit;
