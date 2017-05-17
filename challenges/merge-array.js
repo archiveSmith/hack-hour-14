@@ -35,7 +35,7 @@ function mergeArrays(arr1, arr2) {
     merge = merge.concat(arr1.slice(i));
   }
   else if (j < arr2.length) {
-    merge = merge.concat(arr1.slice(i));
+    merge = merge.concat(arr1.slice(j));
   }
   
   return merge;
