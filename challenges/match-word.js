@@ -7,8 +7,27 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
+// module.exports = matchWord;
 
+
+//regexr.com; regex101.com : Reference for regular expressions
+function matchWord(str) {
+  if (!str) return true;
+  const strArr = str.replace(/[^\w\s]|/g, '').replace(/\s+|_/g, ' ').toLowerCase().split(' ');
+  if (strArr.length % 2 === 1) return false;
+  const checkArr = [strArr[0]];
+
+  for (let j = 1; j < strArr.length; j++) { 
+    let reversed = strArr[j].split('').reverse().join('');
+    if (reversed === checkArr[checkArr.length - 1]) {
+      checkArr.pop();
+    } else {
+      checkArr.push(strArr[j]);
+    }
+  }
+  return checkArr.length === 0;
 }
 
+
 module.exports = matchWord;
+
