@@ -4,7 +4,7 @@
 <<<<<<< HEAD
  *
 =======
- * 
+ *
 >>>>>>> 3300049fcfbcdc457c1bbadb16cef893654056f1
  * subsetSum([3, 7, 4, 2], 5) - > true, 3 + 2 = 5
  * subsetSum([3, 34, 4, 12, 5, 12], 32) -> true, 3 + 12 + 5 + 12 = 32
@@ -12,25 +12,30 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-<<<<<<< HEAD
-  let elements = [];
-    let check = target
 
-    for(let i = 0; i < array.length; i++){
-      let curr = array[i];
-      let obj = {};
-      obj[curr] = target - curr;
-      elements.push(obj);
+
+  function subsetSum(array, target){
+
+    //brute force
+  const subsets = [[]]
+  for(let i =0; i<array.length; i+= 1){
+    for(let j=0; len = subsets.length;j<len; j+=1){
+      const subset = subset[j].concat(array[i]);
+      if(subset.reduce((a,c)=> a + c) === target) return true;
+      subsets.push(subset)
     }
+  }
+  return false;
+  }
 
-    //
+  //better way
+  //recursion, tree
 
-
-    return elements;
-=======
-
->>>>>>> 3300049fcfbcdc457c1bbadb16cef893654056f1
+  function subsetSum(array, target){
+  if(!target) return true;
+  if(!array.length) return false;
+  return subsetSum(array.slice(1), target - array[0] || array.slice(1) target)
+  }
 }
 
 module.exports = subsetSum;
