@@ -9,6 +9,12 @@
  */
 
 function subsetSum(array, target) {
+    
+    // base cases
+    if(target === 0) return true;
+    if(array.length === 0) return false;
+
+    return subsetSum(array.slice(1),target) || subsetSum(array.slice(1),target-array[0]);
 
 }
 

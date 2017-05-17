@@ -13,7 +13,21 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  let buyPrice, sellPrice;
+  let bestProfit = 0;
+  for (let i=0 ; i<stock_prices_yesterday.length-1 ; i++){
+    buyPrice = stock_prices_yesterday[i];
+    // can't have negative stock price
+    if (buyPrice < 0) return 0;
+    // can't have non-number stock price
+    if (typeof(buyPrice) !== 'number') return 0;
+        remArr = stock_prices_yesterday.slice(i+1);
+        sellPrice = Math.max(...remArr);
+        currProfit = sellPrice - buyPrice;
+        if (currProfit > bestProfit) bestProfit = currProfit;
+    }
+	return bestProfit;
 }
+
 
 module.exports = bestProfit;

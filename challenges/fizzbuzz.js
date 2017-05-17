@@ -17,7 +17,35 @@
 //                     16 ]
 
 function fizzbuzz(num) {  
-
+	const output = [];
+	// iterate from 1 to num
+	for (let i=1 ; i<=num ; i++){
+		// check if i is divisible by both 3 and 5
+		if (i%3===0 && i%5===0){output.push("fizzbuzz");}
+		// check if i is divisible by 3
+		else if (i%3===0){output.push("fizz");}
+		// check if i is divisible by 5
+		else if (i%5===0){output.push("buzz");}
+		// default case: number is not divisible by 3 or 5
+		else {output.push(i)}
+	}
+	return output;
 }
+
+// function fizzbuzzAlt(num) {
+// 	const output = [];
+// 	for (let i=1 ; i<=num ; i++){
+// 		(i%3===0 && i%5===0) ? 
+// 			output.push("fizzbuzz") :
+// 		(i%3===0) ?
+// 			output.push("fizz") :
+// 		(i%5===0) ?
+// 			output.push("buzz") :
+// 			output.push(i)
+// 	}
+// 	return output;
+// }
+
+// console.log(fizzbuzz(16));
 
 module.exports = fizzbuzz;

@@ -14,7 +14,15 @@
  */
 
 function reverseInPlace(array) {
-
+	let string = JSON.stringify(array);
+	let sliced = string.slice(1,string.length-1);
+	console.log(sliced)
+	
+	for (let i=0 ; i<string.length-1 ; i+=2){
+		array[array.length-1-i/2] = parseInt(sliced[i])
+	}
+	console.log(array);
 }
+
 
 module.exports = reverseInPlace;
