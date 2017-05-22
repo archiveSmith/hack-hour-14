@@ -15,6 +15,17 @@
  *
  * BONUS: Do this in place
  */
+
 function rotateGrid(grid, n) {
+  const result = []
+  for (let i = 0; i < n; i++) {
+    const inner = []
+    for (let j = n - 1; j >= 0; j--) {
+      inner.push(grid[j][i])
+    }
+    result.push(inner)
+  }
+  return result
 }
-module.exports = rotateGrid;
+
+module.exports = rotateGrid
