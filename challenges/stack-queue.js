@@ -15,6 +15,7 @@ Stack.prototype.push = function(value){
 
 
 Stack.prototype.pop = function(){
+  if(this.index === 0 ) return undefined
   let pop = this.storage[this.index - 1];
   delete this.storage[this.index- 1]
   return pop;
