@@ -34,6 +34,17 @@ function Queue() {
         while(this.stackTwo.index > 0) this.stackOne.push(this.stackTwo.pop());
         return retVal;
     }
+
+    this.unshift = function(val) {
+        this.stackOne.push(val);
+    }
+
+    this.shift = function(){
+        while(this.stackOne.index > 0) this.stackTwo.push(this.stackOne.pop());
+        const retVal = this.stackTwo.pop();
+        while(this.stackTwo.index > 0) this.stackOne.push(this.stackTwo.pop());
+        return retVal;
+    }
 }
 
 module.exports = { Stack: Stack, Queue: Queue };
