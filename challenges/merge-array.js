@@ -13,19 +13,14 @@
  *
  */
 
- function mergeArrays(arr1, arr2) {
-   const mergedArr = [];
-   const first = arr1[0] < arr2[0] ? arr1 : arr2;
-   const second = arr1[0] > arr2[0] ? arr1 : arr2;
-   while (first.length || second.length) {
-     if (!first.length) mergedArr.push(second.shift());
-     else if (!second.length) mergedArr.push(first.shift());
-     else {
-      mergedArr.push(first.shift(), second.shift());
-     }
-   }
-   return mergedArr;
- }
+function mergeArrays(arr1, arr2) {
+  const merged = [];
+  while (arr1.length && arr2.length) {
+    if (arr1[0] < arr2[0]) merged.push(arr1.shift());
+    else merged.push(arr2.shift());
+    }
+  return merged.concat(arr1, arr2);
+}
 
 // function mergeArrays(arr1, arr2) {
 //   return arr1.concat(arr2).sort((low, high) => {
@@ -33,7 +28,7 @@
 //   })
 // }
 
-let arr1 = [3,4,6,10,11,15,21];
+let arr1 = [6,10,11,15, 21];
 let arr2 = [1,5,8,12,14,19];
 console.log(mergeArrays(arr1, arr2));
 
