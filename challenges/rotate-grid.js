@@ -35,9 +35,4 @@ console.log(rotateGrid(sampleGrid, 3));
 
 module.exports = rotateGrid;
 
-//create result array
-//loop through sampleGrid, unshift samplegrid[i] into subArray
-
-// for (let j = 0; j < grid[i].length; j += 1) { //loop through each item in subArray
-//   subArray.push(grid[i][j]);
-// }
+//pseudocode in place:
