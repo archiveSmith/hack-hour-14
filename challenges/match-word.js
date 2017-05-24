@@ -8,7 +8,44 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  str = str.toUpperCase() + ' ';
+  let words = [];
+  let currWord = '';
+  for (let index = 0; index < str.length; index++) {
+    let currChar = str.charAt(index);
+    if ((/^[a-zA-Z]+$/).test(currChar)) {
+      currWord += currChar;
+    }
+    else{
+      if (currWord != '') {
+        if (words.includes(currWord.split("").reverse().join(""))) {
+          if(words.pop() === currWord.split("").reverse().join("")) {
+            currWord = '';
+            continue;
+          }
+          else 
+            return false; 
+        }
+        else
+          words.push(currWord);
+        currWord = '';
+      }
+      else {
+        continue;
+      }
+    }
+  }
+  if (words.length === 0)
+    return true
+  if (words.length%2 != 0)
+    return false;
 }
 
 module.exports = matchWord;
+
+// console.log(matchWord('__END_DNE-----'));
+// console.log(matchWord('__ENDDNE__'));
+// console.log(matchWord('IF()()fi[]'));
+// console.log(matchWord('for__if__rof__fi'));
+// console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+// console.log(matchWord(''));
