@@ -12,8 +12,19 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-
+function bestProfit(stock) {
+  if (Array.isArray(stock) === false) return 0; // input has to be an array.
+  let sorted = stock.slice();
+  sorted.sort((high, low) => { return high - low; });
+  // console.log(stock);
+  // console.log(sorted);
+  if (sorted[0] < 0) return 0; // stocks cannot be negative
+  const profit = sorted[sorted.length - 1] - sorted[0];
+  return profit;
 }
-
 module.exports = bestProfit;
+
+// TAKE INTO ACCOUNT YOU CANNOT SELL TO THE PAST
+
+const test = [7, 2, 7, 4]; // 5
+console.log(bestProfit(test));

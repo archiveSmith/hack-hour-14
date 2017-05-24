@@ -18,6 +18,6 @@ function highestProduct(array) {
   return (lowProduct > highProduct) ? lowProduct * highestNumber : highProduct * highestNumber;
 }
 
-// console.log(highestProduct([-1, -5, 1, 2]));
+console.log(highestProduct([7, -10, 0, 4, 2, 1, -7, 8, 5, 2, 11, 23]));
 
 module.exports = highestProduct;
