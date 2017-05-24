@@ -14,7 +14,37 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    let prevNode = head;
+    let currNode = head.next;
+    let tempNode = currNode.next;
+    let tailNode = head;
 
+    while (currNode !== null) {
+        tempNode = currNode.next;
+        currNode.next = prevNode;
+
+
+        prevNode = currNode;
+        currNode = tempNode;
+    }
+    head.next = null;
+    
+    return prevNode;
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+const first = new Node(0);
+let currNode = first;
+
+for (let i = 1; i < 5; i++) {
+    currNode.next = new Node(i);
+    currNode = currNode.next;
+}
+
+let test = reverseLinkedList(first);
+
+while (test) {
+    console.log(test.value);
+    test = test.next;
+}
+
+module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };

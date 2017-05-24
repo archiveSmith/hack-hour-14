@@ -18,7 +18,37 @@
  */
 
 function romanNumeral(n) {
+    if(n === 0) return '';
 
+    const romanMap = {
+        'M': 1000,
+        'CM': 900,
+        'D': 500,
+        'CD': 400,
+        'C': 100,
+        'XC': 90,
+        'L': 50,
+        'XL': 40,
+        'X': 10,
+        'IX': 9,
+        'V': 5,
+        'IV': 4,
+        'I': 1
+    }
+
+    for(romanNum in romanMap){
+        const num = romanMap[romanNum];
+
+        if ((n - num) >= 0) {
+            return romanNum + romanNumeral(n - num);
+        }
+    }
 }
+
+
+console.log(romanNumeral(0));
+console.log(romanNumeral(1000));
+console.log(romanNumeral(1001));
+console.log(romanNumeral(997));
 
 module.exports = romanNumeral;

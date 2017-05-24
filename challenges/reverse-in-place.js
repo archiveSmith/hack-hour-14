@@ -14,7 +14,20 @@
  */
 
 function reverseInPlace(array) {
+    for (let i = 0; i < array.length / 2; i++) {
+        // let temp = array[i];
+        [array[i], array[array.length - i - 1]] = [array[array.length - i - 1], array[i]];
+        // array[array.length - i - 1] = temp;
+    }
 
+    return array;
 }
+
+
+console.log(reverseInPlace('cats'.split('')));
+console.log(reverseInPlace('cat'.split('')));
+
+// 'cats' -> 'stac'
+// 'cat' -> 'tac'
 
 module.exports = reverseInPlace;
