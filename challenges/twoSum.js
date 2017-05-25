@@ -3,14 +3,14 @@
  */
 
 function twoSum(arr, n) {
-	let output;
+	let val1, val2, remArr, output;
 	for (let i=0 ; i<arr.length ; i++){
 		val1 = arr[i];
 		remArr = arr.slice(0,i).concat(arr.slice(i+1,arr.length));
 		output = remArr.reduce((acc,val2)=>{
-			if (val1+val2 === n) return true
+			if (val1+val2 === n) return true;
 		}, false);
-		if (output) return true
+		if (output) return true;
 	}
 	return false;
 }
