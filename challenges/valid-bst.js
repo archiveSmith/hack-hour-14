@@ -16,27 +16,15 @@ function validBST(tree) {
     return true;
   }
   
-  let returnVal;
-  
-  if (tree.left) {
-    if (tree.left.value <= tree.value) {
-      returnVal = validBST(tree.left);
-    }
-    else {
-      return false;
-    }
+  if (tree.left && tree.left.value > tree.value) {
+    return false;
   }
   
-  if (tree.right) {
-    if (tree.right.value >= tree.value) {
-      returnVal = validBST(tree.right);
-    }
-    else {
-      return false;
-    }
+  if (tree.right && tree.right.value < tree.value) {
+    return false;
   }
   
-  return returnVal;
+  return validBST(tree.left) && validBST(tree.right);
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
