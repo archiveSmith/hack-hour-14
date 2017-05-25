@@ -19,4 +19,4 @@ function validBST(tree) {
 	
 }
 
-module.exports = {BinaryTree: BinaryTree, validBST: validBST};```
+module.exports = {BinaryTree: BinaryTree, validBST: validBST};
