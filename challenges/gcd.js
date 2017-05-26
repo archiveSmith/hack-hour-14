@@ -8,11 +8,11 @@
  */
 
 function gcd(a, b) {
-    let evaluator = (a <= b) ? a : b;
-    for(let i = 0; i < evaluator; i++){
-        if (a % (evaluator - i) === 0 && b % (evaluator - i) === 0){return true}
+    let min = (a <= b) ? a : b;
+    for(min; min > 0; min--){
+        if (a % min === 0 && b % min === 0){return a}
     }
-    return false;
+    return 1;
 }
 
 module.exports = gcd;
