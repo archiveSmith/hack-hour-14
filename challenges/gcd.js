@@ -10,13 +10,19 @@
  *
  */
 function gcd(a, b) {
-    let max = Math.max(a,b);
-    let min = Math.min(a,b);
+    let dividend = Math.abs(Math.max(a,b));
+    let divisor = Math.abs(Math.min(a,b));
+    let remainder = dividend % divisor;
+    
+    console.log("max", dividend, "min", divisor, "remainder", remainder)
 
-    if(max % min === 0) return Math.abs(min);
+    //if divisor goes perfectly into the bigger number
+    if(remainder === 0) return divisor;
 
     else {
-        return Math.abs(max % min);
+        //recursive call to find the gcd for the smaller num & remainder
+        return gcd(divisor, remainder);
     }
 }
+
 module.exports = gcd;
