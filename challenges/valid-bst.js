@@ -5,30 +5,28 @@
  */
 
 function validBST(tree) {
-    const retArr = [];
-    console.log(tree);
+    const status = true;
+    
 
     function helper(tree) {
-        retArr.push(tree.value);
-        if (tree.left !== null) {
+        if (!tree.left) {
             if (tree.left.value <= tree.value) {
                 helper(tree.left);
             } else {
-                retArr.push(false)
+                status = false
             }
         }
         if (tree.right !== null) {
             if (tree.right.value > tree.value) {
                 helper(tree.right);
             } else {
-                retArr.push(false)
+                status = false
             }
         }
-
     }
     helper(tree)
 
-    return retArr.includes(false) ? false : true
+    return status
 }
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
