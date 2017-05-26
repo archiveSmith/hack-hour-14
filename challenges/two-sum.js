@@ -10,4 +10,20 @@ function twoSum(arr, n) {
   return false;
 }
 
+// Create an empty object to hold the values needed to sum to n
+// Loop through the array
+// The values we are searching for are n - arr[i]
+// If the value being checked fits, return true
+// Else, add the current value as a property
+// If loop finishes without matches, return false
+
+function twoSum(arr, n) {
+  let obj = {};
+  for (let i = 0; i < arr.length; i += 1) {
+    if (obj[n - arr[i]]) return true;
+    obj[arr[i]] = 1;
+  }
+  return false;
+}
+
 module.exports = twoSum;
