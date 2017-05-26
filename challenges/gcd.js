@@ -14,4 +14,5 @@ function gcd(a, b) {
     }
     return false;
 }
+
 module.exports = gcd;
