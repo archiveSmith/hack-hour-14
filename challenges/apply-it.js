@@ -26,7 +26,7 @@
  */
 
 function applyIt(func, args) {
-
+  return arguments => func.apply(this, args)
 }
 
 module.exports = applyIt;
