@@ -26,12 +26,7 @@
  */
 
 function applyIt(func, args) {
-  let cachedFunc = func;
-  let argsArray = args;
-
-  return function(){
-    return func(...argsArray)   
- }
+  return () => func(...args);
 }
 
 module.exports = applyIt;
