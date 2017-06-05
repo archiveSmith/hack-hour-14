@@ -26,7 +26,11 @@
  */
 
 function applyIt(func, args) {
+  let str = 'func(' + args.map((cur, idx) => {
+    return `args[${idx}]`
+  }).join(',') + ')'
 
+  return () => eval(str);
 }
 
 module.exports = applyIt;
