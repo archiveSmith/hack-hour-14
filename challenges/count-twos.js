@@ -13,7 +13,7 @@
 const countTwos = (num) => {
   let count = 0
   for (let i = 1; i <= num; i++) {
-    count += i.toString().split('').reduce((acc, cur) => (cur === '2') ? acc + 1 : acc, 0)
+    count += i.toString().replace(/[^2]/g, '').length
   }
   return count
 }
