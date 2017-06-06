@@ -26,7 +26,7 @@
  */
 
 function applyIt(func, args) {
-
+    setTimeout("func"+args.join(','),0)
 }
 
 module.exports = applyIt;
