@@ -8,7 +8,11 @@
 
 
 function countTwos(num) {
-
+    let sum = 0;
+    for(let i=0; i < num+1; i++) {
+            let arr = i.toString().split("");
+            sum += arr.reduce((acc, el) => el === "2"? ++acc : acc, 0)  
+    }
+  return sum;
 }
-
 module.exports = countTwos;
