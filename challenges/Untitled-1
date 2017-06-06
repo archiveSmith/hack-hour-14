@@ -1,0 +1,14 @@
+chriscano [9:27 AM] 
+added this Plain Text snippet: perm-palin.js
+/**
+ * Given a string, determine if any of the permutations of that string is a palindrome
+ *
+ * Example:
+ * - permPalin('abab') => true
+ * - permPalin('cbaba') => true
+ * - permPalin('cbac') => false
+ * - permPalin('a') => true
+ *
+ */
+
+ 
