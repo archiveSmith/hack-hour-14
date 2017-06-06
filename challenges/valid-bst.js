@@ -12,11 +12,15 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-    if (tree.left === null && tree.right === null) { return true }
-    if (tree.left === null && tree.value < tree.right.value) { return validBST(tree.right) }
-    if (tree.right === null && tree.value > tree.left.value) { return validBST(tree.left) }
-    if (tree.value < tree.right.value && tree.value > tree.left.value) { return validBST(tree.left) && validBST(tree.right) }
-    return false;
+ const checkedValues=[-Infinity];
+    function x(tree) {
+        if (tree.left === null && tree.right === null) { return checkedValues.push(tree.value)}
+        if (tree.left === null && tree.value < tree.right.value) {return validBST(tree.right) }
+        if (tree.right === null && tree.value >= tree.left.value) {return validBST(tree.left) }
+        if (tree.value < tree.right.value && tree.value >= tree.left.value) {return validBST(tree.left) && validBST(tree.right) }
+        return false;
+    }
+    console.log(checkedValues)
 }
 
 let node1 = new BinaryTree(1);
@@ -28,8 +32,10 @@ let node6 = new BinaryTree(6);
 let node7 = new BinaryTree(7);
 let node8 = new BinaryTree(8);
 let node9 = new BinaryTree(9);
+let node10 = new BinaryTree(10);
 
-node2.right = node1;
+node2.left = node1;
+node2.right = node10;
 node3.left = node2;
 node5.left = node3;
 node3.right = node4;
