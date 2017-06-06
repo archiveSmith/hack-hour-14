@@ -14,8 +14,18 @@
 */
 
 function drawStairs(n) {
-
+    var hash = "";
+    for (var i = 1 ; i <= n; i++){
+        var string = "";
+        for (var j = n-i; j > 0; j--){
+            string += " ";
+        }
+        hash += "*";
+        console.log(string + hash);
+    }
 }
+
+
 
 
 module.exports = drawStairs;
