@@ -26,7 +26,19 @@
  */
 
 function applyIt(func, args) {
-  return () => func(...args);
+  let textFunc = 'func( '
+
+  for(let i = 0; i < args.length; i++){
+    i > 0 ? textFunc += ',' : 0;
+    textFunc += typeof args[i] === 'string' ? "'" + args[i] + "'" : String(args[i]);
+  }
+
+  textFunc = 'function f(){ return ' + textFunc + ');};'
+  eval(textFunc);
+  
+  return () => {
+    return f();
+  };
 }
 
 module.exports = applyIt;
