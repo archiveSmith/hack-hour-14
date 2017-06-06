@@ -36,9 +36,7 @@ function applyIt(func, args) {
   textFunc = 'function f(){ return ' + textFunc + ');};'
   eval(textFunc);
   
-  return () => {
-    return f();
-  };
+  return () =>  f();
 }
 
 module.exports = applyIt;
