@@ -26,7 +26,16 @@
  */
 
 function applyIt(func, args) {
-
+  // console.log(args.join('","'))
+  return () => eval(`func("${args.join('","')}")`);
 }
+
+// IS MY TESTING WRONG
+// const jae = function(name, age, location) {
+//   return name + " is " + age + " and he lives in " + location;
+// };
+//
+// const jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
+// console.log(jaero()); // Returns "Jae is 19 and he lives in South Carolina"
 
 module.exports = applyIt;
