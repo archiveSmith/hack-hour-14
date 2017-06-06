@@ -16,11 +16,9 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  
   if (s2.length !== s1.length) {
     return false;
   } 
-  
   let concated = s1.concat(s1);
   return isSubstring(concated.substring(), s2)
 }
