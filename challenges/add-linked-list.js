@@ -18,7 +18,31 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let head = new Node();
+  let curr = head;
+  let carry = 0;
+  
+  //traverse l1 and l2 until there are no next nodes in both lists
+  while(l1 && l2) {
+      let sum  = l1.value + l2.value;
+      carry? sum++ : sum;
 
+      if( sum > 9 ) {
+        carry = 1;
+        sum -= 10;
+      } else {
+        carry = 0
+      }
+      curr.value = sum;
+
+      //go to next node
+      l1 = l1.next;
+      l2 = l2.next;
+      
+      curr.next = new Node();
+      curr = curr.next;
+  }
+  return head;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
