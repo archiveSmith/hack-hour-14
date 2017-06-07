@@ -13,8 +13,9 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
-function binToDec(binary) {
-
+function binToDec(binary, power=0) {
+    if (binary.length === 1) return binary.charAt(0)*Math.pow(2,power);
+    return binary.charAt(binary.length-1)*(Math.pow(2,power)) + binToDec(binary.slice(0,binary.length-1), power+1);
 }
 
 module.exports = binToDec;

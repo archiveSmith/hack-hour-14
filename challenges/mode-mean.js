@@ -11,7 +11,23 @@
 
 
 function modemean(array) {
-
+    let mean; 
+    let mode;
+    let numCount = {};
+    let total = 0;
+    for (let index = 0; index < array.length; index++){
+        let currNum = array[index];
+        total += currNum;
+        if (!numCount[currNum]){
+            numCount[currNum] = 0;
+        }
+        numCount[currNum]++;
+        if(numCount[currNum] > numCount[mode] || !mode){
+            mode = currNum;
+        }
+    }
+    mean = Math.floor(total/array.length);
+    return mean === mode;
 }
 
 module.exports = modemean;

@@ -14,7 +14,26 @@
 */
 
 function drawStairs(n) {
+<<<<<<< HEAD
+    let retStr = ''
+    for (let index = 1; index <= n; index++){
+        let spaces = n-index;
+        let asterisks = index;
+        let currLine = '';
+        while(spaces){
+            spaces--;
+            currLine += ' ';
+        }
+        while(asterisks){
+            asterisks--;
+            currLine += '*';
+        }
+        retStr = retStr + currLine + '\n';
+    }
+    console.log(retStr);
+=======
 
+>>>>>>> 8d64490be6d782e922ccc3b9574f2c5ca346c908
 }
 
 
