@@ -25,8 +25,6 @@ function addLinkedList(l1, l2) {
   let head = null;
   
   while (l1Curr && l2Curr) {
-    console.log('l1', l1Curr);
-    console.log('l2', l2Curr);
     let sum = l1Curr.value + l2Curr.value + carryOver;
     if (sum >= 10) {
       carryOver = 1;
@@ -36,7 +34,6 @@ function addLinkedList(l1, l2) {
       carryOver = 0;
     }
     let node = new Node(sum);
-    console.log('node', node);
     
     if (total === undefined) {
       total = node;
