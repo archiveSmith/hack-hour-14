@@ -12,6 +12,7 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+<<<<<<< HEAD
 function bestProfit(arr) {
     if(arr.length < 2) return 0;
     high
@@ -28,4 +29,4 @@ function bestProfit(arr) {
 
 console.log(bestProfit([5,8,12,1,6,10]));
 
-// module.exports = bestProfit;
+module.exports = bestProfit;
