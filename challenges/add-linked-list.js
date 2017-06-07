@@ -18,7 +18,39 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let l1Curr = l1;
+  let l2Curr = l2;
+  let carryOver = 0;
+  let total;
+  let head = null;
+  
+  while (l1Curr && l2Curr) {
+    console.log('l1', l1Curr);
+    console.log('l2', l2Curr);
+    let sum = l1Curr.value + l2Curr.value + carryOver;
+    if (sum >= 10) {
+      carryOver = 1;
+      sum = 10 - sum;
+    }
+    else {
+      carryOver = 0;
+    }
+    let node = new Node(sum);
+    console.log('node', node);
+    
+    if (total === undefined) {
+      total = node;
+      head = node;
+    }
+    else {
+      total.next = node;
+      total = node;
+    }
+    l1Curr = l1Curr.next;
+    l2Curr = l2Curr.next;
+  }
+  
+  return head;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
