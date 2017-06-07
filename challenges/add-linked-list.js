@@ -46,6 +46,24 @@ function addLinkedList(l1, l2) {
     l1Curr = l1Curr.next;
     l2Curr = l2Curr.next;
   }
+
+  if (l1Curr) {
+    while (l1Curr) {
+      let node = new Node(l1Curr.value);
+      total.next = node;
+      total = node;
+      l1Curr = l1Curr.next;
+    }
+  }
+
+  if (l2Curr) {
+    while (l2Curr) {
+      let node = new Node(l2Curr.value);
+      total.next = node;
+      total = node;
+      l1Curr = l2Curr.next;
+    }
+  }
   
   return head;
 }
