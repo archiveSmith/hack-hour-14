@@ -24,7 +24,7 @@ function addLinkedList(l1, l2) {
   let power = 0;
   while (l1 || l2 || carryOver) {
     let sum;
-    if (l1 && l2){
+    if (l1 && l2) {
       sum = l1.value + l2.value + carryOver;
       if (sum > 9) carryOver = 1;
       else carryOver = 0;
@@ -32,11 +32,11 @@ function addLinkedList(l1, l2) {
       l1 = l1.next;
       l2 = l2.next;
     }
-    else if (l1 && !l2){
+    else if (l1 && !l2) {
       sum = l1.value + carryOver;
       l1 = l1.next;
     }
-    else if(!l1 && l2) {
+    else if (!l1 && l2) {
       sum = l2.value + carryOver;
       l2 = l2.next;
     }
@@ -48,9 +48,8 @@ function addLinkedList(l1, l2) {
     currNode.next = new Node(sum % 10);
     currNode = currNode.next;
     power++;
-    
   }
   return head.next;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node: Node, addLinkedList: addLinkedList };
