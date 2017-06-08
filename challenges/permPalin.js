@@ -9,5 +9,5 @@
  * - permPalin('a') => true
  *
  */
-function
+// function
  
