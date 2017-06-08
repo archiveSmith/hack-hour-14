@@ -14,7 +14,39 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  // base case
+  if (!tree) return true;
+
+  return Math.abs(findMaxDepth(tree.left) - findMaxDepth(tree.right)) <= 1;
+}
+
+function findMaxDepth(tree){
+  // base case
+  if (!tree) return 0;
+
+  return Math.max(
+    findMaxDepth(tree.left),
+    findMaxDepth(tree.right)
+  ) + 1;
 
 }
+
+balancedBST = new BinaryTree (5);
+balancedBST.left = new BinaryTree (3);
+balancedBST.right = new BinaryTree (15);
+balancedBST.right.right = new BinaryTree (16);
+
+// console.log(findMaxDepth(balancedBST));
+
+unbalancedBST = new BinaryTree (5);
+unbalancedBST.left = new BinaryTree (3);
+unbalancedBST.right = new BinaryTree (15);
+unbalancedBST.right.right = new BinaryTree (16);
+unbalancedBST.right.right.right = new BinaryTree (17);
+
+// console.log(findMaxDepth(unbalancedBST));
+
+console.log(superbalanced(unbalancedBST));
+
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
