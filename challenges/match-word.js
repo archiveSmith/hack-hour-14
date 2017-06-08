@@ -8,7 +8,25 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  let lower = str.toLowerCase();
+  let checkStack = false;
+  let char = false;
+  let stack = [];
+  for (let i = 0; i < lower.length; i++) {
+    if (lower.charAt(i).match(/[a-z]/)) {
+      if (checkStack && lower.charAt(i) === stack[stack.length-1]) {
+        stack.pop();
+        continue;
+      }
+      stack.push(lower[i]);
+      char = true;
+    }
+    else {
+      checkStack = char ? true : false;
+    }
+  }
+  return !stack.length;
 }
 
 module.exports = matchWord;
+}
