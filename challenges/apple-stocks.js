@@ -12,7 +12,17 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+function bestProfit(spy) {
+  const valArr = [];
+  
+  for(let i = 0; i < spy.length ; i++){
+    if(isNaN(spy[i])) return 0;
+    for(let j = i+1; j < spy.length; j++){
+      valArr.push(spy[j] - spy[i])
+    }
+  }
+  const retVal = valArr.reduce((a,b) => a > b ? a : b);
+  return retVal < 0 ? 0 : retVal;
 
 }
 
