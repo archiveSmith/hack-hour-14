@@ -42,6 +42,7 @@ function addLinkedList(l1, l2) {
     outputTail.next = new Node(sum);
     outputTail = outputTail.next;
   }
+  if(carryOver) outputTail.next = new Node(1);
   return output;
 }
 

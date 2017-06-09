@@ -13,8 +13,8 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-
+function superbalanced(tree, left=0, right=0) {
+if ()
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
