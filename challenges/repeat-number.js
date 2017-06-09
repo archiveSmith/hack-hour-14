@@ -11,7 +11,14 @@
  */
 
 function repeatNumbers(array) {
-
+  let duplicate = -1;
+  array
+  .sort((a,b) => a-b)
+  .reduce((acc, el) => {
+    acc === el? duplicate = acc : null;
+    return el;
+  }, 0)
+  return duplicate;
 }
 
 module.exports = repeatNumbers;
