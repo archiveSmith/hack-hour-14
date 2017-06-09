@@ -26,7 +26,10 @@
  */
 
 function applyIt(func, args) {
-
+  args.forEach(function(element) {
+    func(element)
+  })
+  return args
 }
 
 module.exports = applyIt;
