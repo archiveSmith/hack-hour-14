@@ -18,7 +18,37 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let s1,
+    s2
+  let currentNode1 = l1.value
+  let currentNode2 = l2.value
+  let newNode = Node(null)
+  let newResult = result.toString().split('')
+
+  while (currNode1.next) {
+    s1 += currNode1.value.toString()
+    currNode = currNode1.next
+  }
+  while (currNode2.next) {
+    s1 += currNode2.value.toString()
+    currNode = currNode2.next
+  }
+
+  let result = parseInt(s1.split('').reverse().join('')) + parseInt(s2.split('').reverse().join(''))
+  let newResult = result.toString().split('').reverse()
+
+  newResult.forEach(function(numString) {
+    let currentNode3 = newNode
+    currentNode3.value = parseInt(numString)
+    currentNode3.next = new Node(null)
+    currentNode3 = currentNode3
+  })
+
+  return currentNode3
 
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = {
+  Node: Node,
+  addLinkedList: addLinkedList
+};
