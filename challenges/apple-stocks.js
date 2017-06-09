@@ -12,7 +12,6 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-<<<<<<< HEAD
 function bestProfit(arr) {
     if(arr.length < 2) return 0;
     high
