@@ -14,51 +14,51 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function getHeight (tree, height = 0) {
-  let lh = 0;
-  let rh = 0;
-  
-  //traverse to lowest node 
-  if(!tree.left && !tree.right) {
+function getHeight(tree, height = 0) {
+  if (!tree) {
     return height;
   }
-  
-  if(tree.left) {
-    lh = getHeight(tree.left, ++height);
-  }
-  
-  if(tree.right) {
-    rh = getHeight(tree.right, ++height)
-  }
+  let lh = getHeight(tree.left, height + 1);
+  let rh = getHeight(tree.right, height + 1);
   
   return Math.max(lh, rh);
 }
 
 
 function superbalanced(tree) {
+  //Base case
+  if (!tree) return true;
+  //Check if Tree left balanced
+  let leftBalanced = superbalanced(tree.left)
+  //check if Tree right balanced
+  let rightBalanced = superbalanced(tree.right)
+  //check if height difference is less than 2
+  let rh = getHeight(tree.right)
+  let lh = getHeight(tree.left)
+  let treeHeightDiffOK = Math.abs(rh - lh) <= 1;
 
-  //IF EMPTY
-  if(!tree.left && !tree.right) return true;
-  
-  else{
-    let lh = getHeight(tree.left)
-    let rh = getHeight(tree.right)
-    
-    if(Math.abs((rh-lh)) <= 1) {
-      return true
-    } else {
-      return false;
-    }
-  }
+  return leftBalanced && rightBalanced && treeHeightDiffOK;
 }
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
 
-// let t = new BinaryTree(5);
-// t.right = new BinaryTree(6);
-// t.right.right = new BinaryTree(8);
-// t.left = new BinaryTree(3);
-// t.left.right = new BinaryTree(4);
-// t.left.left = new BinaryTree(2);
-// t.left.left.left = new BinaryTree(1);
-// t.left.left.left.left = new BinaryTree(0);
-// console.log(superbalanced(t))
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+/* //test
+  let balanced = new BinaryTree(5);
+  balanced.right = new BinaryTree(6);
+  balanced.right.right = new BinaryTree(8);
+  balanced.left = new BinaryTree(3);
+  balanced.left.right = new BinaryTree(4);
+  balanced.left.left = new BinaryTree(2);
+  balanced.left.left.left = new BinaryTree(1);
+
+  let unbalanced = new BinaryTree(5);
+  unbalanced.right = new BinaryTree(6);
+  unbalanced.right.right = new BinaryTree(8);
+  unbalanced.left = new BinaryTree(3);
+  unbalanced.left.right = new BinaryTree(4);
+  unbalanced.left.left = new BinaryTree(2);
+  unbalanced.left.left.left.left = new BinaryTree(0);
+  unbalanced.left.left.left = new BinaryTree(1);
+
+
+  console.log(superbalanced(balanced))
+*/
