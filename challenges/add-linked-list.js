@@ -18,6 +18,7 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+<<<<<<< HEAD
   curr1 = l1;
   curr2 = l2;
   let digits = [];
@@ -50,3 +51,9 @@ node5.next = node6;
 
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
+=======
+
+}
+
+module.exports = {Node: Node, addLinkedList: addLinkedList};
+>>>>>>> 26572069885223de60b50fda92f39266f3cb3e4f

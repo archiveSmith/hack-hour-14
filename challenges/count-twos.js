@@ -8,7 +8,11 @@
 
 
 function countTwos(num) {
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 26572069885223de60b50fda92f39266f3cb3e4f
 }
 
 module.exports = countTwos;

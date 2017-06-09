@@ -58,3 +58,13 @@ return answer;
 }
 
 module.exports = binToDec;
+
+// function binToDec(binToDecary) {
+//   let answer = 0;
+//   for (let i = binToDecary.length - 1; i >= 0; i--) {
+//     if (bintoDecary[i] === '1'){
+//       answer += Math.pow(2, binToDecary.length - 1 - i);
+//     }
+//   }
+//   return answer;
+// }
