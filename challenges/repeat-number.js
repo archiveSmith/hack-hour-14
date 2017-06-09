@@ -10,8 +10,11 @@
  *
  */
 
-function repeatNumbers(array) {
-
+const repeatNumbers = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[Math.abs(array[i])] < 0) return -array[i]
+    else array[Math.abs(array[i])] = -array[Math.abs(array[i])]
+  }
 }
 
-module.exports = repeatNumbers;
+module.exports = repeatNumbers
