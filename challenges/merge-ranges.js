@@ -10,8 +10,31 @@
  */
 
 
-function mergeRanges(array) {
+function sortNumber(x, y) {
+  return x[0] - y[0];
+}
 
+function mergeRanges(array) {
+  if (array.length === 0) {
+    return array;
+  }
+  
+  let sortedArray = array.sort(sortNumber);
+  
+  let newArray = [];
+  let range = [sortedArray[0][0]];
+  for (let i = 1; i < sortedArray.length - 1; i++) {
+    if (sortedArray[i][0] - sortedArray[i-1][0] > 1) {
+      range.push(sortedArray[i-1][1]); 
+      newArray.push(range);
+      range = [sortedArray[i][0]];
+    } 
+  }
+  
+  range.push(sortedArray[sortedArray.length - 1][1]);
+  newArray.push(range);
+  
+  return newArray;
 }
 
 module.exports = mergeRanges;
