@@ -23,3 +23,20 @@ function drawStairs(n) {
 
 
 module.exports = drawStairs;
+
+// function drawStairs(n) {
+//   let spaces = ''; // string of spaces
+//   let splats = ''; // string of asterisks
+//
+//   for (let i = 1; i <= n; i++) {
+//     spaces = ' '.repeat(n - i);
+//     splats = '*'.repeat(i);
+//     console.log(spaces + splats);
+//   }
+// }
+//
+// function drawStairs(n) {
+//   for (let i =1; i <= n; i += 1) {
+//     console.log(' '.repeat(n - i) + '*'.repeat(i));
+//   }
+// }
