@@ -38,6 +38,7 @@ function mergeRanges(array) {
 
     if (curr && curr[0] <= prev[prev.length - 1]) {
       const merged = prev.concat(curr);
+      merged.sort((a,b) => a - b);
       merged.splice(1, merged.length - 2);
       console.log('merge', merged);
       sorted.splice(i - 1, 2, merged);
@@ -48,7 +49,7 @@ function mergeRanges(array) {
   return sorted;
 }
 
-var times = [[9, 10], [3, 5], [6, 7], [4, 8], [0, 2], [0,1], [10,11], [10, 12]];
+var times = [[9, 10], [3, 5], [6, 7], [4, 8], [0, 2], [0,1], [10,11], [10, 12], [0,12]];
 
 console.log(mergeRanges(times)); //-> [[0, 1], [3, 8], [9, 12]]
 
