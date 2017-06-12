@@ -11,6 +11,7 @@
  */
 
 function repeatNumbers(array) {
+<<<<<<< HEAD
     array = array.sort();
     let lastNum;
     for (let index = 0; index < array.length; index++){
@@ -19,6 +20,9 @@ function repeatNumbers(array) {
         else
             lastNum = array[index];
     }
+=======
+
+>>>>>>> f11560b4b50d594922810c2af85575a94eae735c
 }
 
 module.exports = repeatNumbers;
