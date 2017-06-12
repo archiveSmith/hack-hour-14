@@ -33,7 +33,21 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-
+  let map = new Map();
+  
+  let curr = head;
+  
+  while (curr) {
+    if (map.has(curr.value)) {
+      return true;
+    }
+    else {
+      map.set(curr.value, true);
+    }
+    curr = curr.next;
+  }
+  
+  return false;
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
