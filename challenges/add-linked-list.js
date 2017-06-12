@@ -73,4 +73,4 @@ print(node2_1);
 console.log('add: ');
 print(addLinkedList( node2_1, node1_1));
 
-// module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = {Node: Node, addLinkedList: addLinkedList};
