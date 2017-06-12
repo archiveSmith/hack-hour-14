@@ -24,13 +24,14 @@ function mergeRanges(array) {
   while (newArr.length > 0) {
     sorted.push(newArr.splice(0, 2));
   }
-  // console.log(sorted);
+  console.log(sorted);
   // loop through sorted array and compare values
   const merged = [];
   for (let j = 0; j < sorted.length - 1; j += 1) {
-    if (sorted[j][1] + 1 !== sorted[j + 1][0] && sorted[j][1] !== sorted[j + 1][0]) {
+    if (sorted[j][1] + 1 < sorted[j + 1][0]) {
       merged.push(sorted[j]); }
-    else { merged.push([sorted[j][0], sorted[j + 1][1]]); j += 1; }
+    else if (sorted[j][1] + 1 >= sorted[j + 1][0])
+    { merged.push([sorted[j][0], sorted[j + 1][1]]); j += 1; }
   }
   return merged;
 }
@@ -39,4 +40,4 @@ module.exports = mergeRanges;
 
 var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
 
-// console.log(mergeRanges(times)); //-> [[0, 1], [3, 8], [9, 12]]
+console.log(mergeRanges(times)); //-> [[0, 1], [3, 8], [9, 12]]
