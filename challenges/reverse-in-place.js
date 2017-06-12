@@ -1,20 +1,17 @@
 'use strict';
-/**
- * Write a function to reverse an array in place
- *
- * "In place" means "without creating a new object in memory"
- *
- * In some languages, strings are mutable (like in Ruby). In other languages,
- * such as Python and Javascript, strings are immutable, meaning they cannot
- * be changed after they're created.
- *
- * Since strings are immutable in javascript, we will be reversing an array of characters instead.
- *
- * DO NOT USE THE BUILT IN REVERSE METHOD
- */
 
 function reverseInPlace(array) {
+  let arr = array;
+  let times = Math.floor(arr.length / 2);
+  
+  for(let i = 0; i < times; i++){
+    let first = arr.splice(i,1)[0];
+    let last = arr.splice(arr.length - 1 - i,1)[0];
+    
+    arr.splice(i,0,last);
+    arr.splice(arr.length  - i,0, first);
+  }
+  return arr;
 
 }
-
 module.exports = reverseInPlace;

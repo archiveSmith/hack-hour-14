@@ -7,8 +7,19 @@
 // countTwos(11420);  -> 4483
 
 
-function countTwos(num) {
-
+function countTwos(n) {
+  let count = 0;
+  for(let i = 1; i <= n; i++){
+    console.log('n to string: ', i.toString());
+    if(i.toString().includes('2')){
+      console.log('found')
+      count += i.toString().split('').reduce((a,b) => {
+        if(b == 2) a++;
+        return a;
+      },0);
+    }
+  }
+  return count;
 }
 
 module.exports = countTwos;
