@@ -38,11 +38,11 @@ function hasCycle(head) {
   let curr = head;
   
   while (curr) {
-    if (map.has(curr.value)) {
+    if (map.has(curr.value) && curr.next === map.get(curr.value)) {
       return true;
     }
     else {
-      map.set(curr.value, true);
+      map.set(curr.value, curr.next);
     }
     curr = curr.next;
   }
