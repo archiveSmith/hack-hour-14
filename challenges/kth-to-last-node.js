@@ -23,13 +23,30 @@ function Node(val) {
 
 
 function kthToLastNode(k, head) {
-  let countArray = [];
-  while(head){
-    countArray.push(head.value); 
-    head = head.next;  
+  
+  //loop through the linked list
+  let curr = head;
+  let arr = [];
+  while(curr){
+    //store each value into an array
+    arr.push(curr.value);
+    //set curr to next node
+    curr = curr.next; 
   }
   
-  return countArray.reverse()[k-1]; 
+  return arr[arr.length - k]; 
 }
+
+
+
+// function kthToLastNode(k, head) {
+//   let countArray = [];
+//   while(head){
+//     countArray.push(head.value); 
+//     head = head.next;  
+//   }
+  
+//   return countArray.reverse()[k-1]; 
+// }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
