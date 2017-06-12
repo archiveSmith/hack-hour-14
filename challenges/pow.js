@@ -3,11 +3,12 @@
  */
 
 function pow(base, power) {
-
-   if(power === 0){
-        return 1;
+  //any number to power of 0 is 1
+    if(power === 0){
+      return 1;
     }else{
-      return base * pow(base, power - 1);
+ //decrement the power after each recursive call until we hit the base case
+      return base * pow(base, power-1); 
     }
 }
 

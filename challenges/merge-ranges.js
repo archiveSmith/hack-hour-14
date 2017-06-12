@@ -10,6 +10,7 @@
  */
 
 
+<<<<<<< HEAD
 // check if the starting number is less than 
 //
 //
@@ -27,5 +28,10 @@ function mergeRanges(array) {
  
 mergeRanges(times); //-> [[0, 1], [3, 8], [9, 12]]
 
+=======
+function mergeRanges(array) {
+
+}
+>>>>>>> bd030457b0e9f7a021bb578451d785803a1d195c
 
 module.exports = mergeRanges;
