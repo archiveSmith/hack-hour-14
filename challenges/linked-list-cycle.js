@@ -27,13 +27,19 @@
  *
  */
 
-var Node = function(value) {
-  this.value = value;
-  this.next = null;
+class Node {
+  constructor () {
+    this.value = value;
+    this.next = null;
+  }
 }
 
-function hasCycle(head) {
-
+const hasCycle = (head) => {
+  for (let i = head; i !== null; i = i.next) {
+    if (i.visited) return true
+    i.visited = true
+  }
+  return false
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
