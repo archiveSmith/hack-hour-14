@@ -27,13 +27,28 @@
  *
  */
 
-var Node = function(value) {
+var Node = function (value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
+  // let storage = [];
+  // let current = head;
+  // while (current.next) {
+  //   if(storage.indexOf(current)!==-1){
+  //     storage.push(current);
+  //     current = current.next;
+  //   }
+  //   else{
+  //     return true;
+  //   }
+  // }
+  // return false;
 
+  try { JSON.stringify(head) }
+  catch (e) { return true };
+  return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node: Node, hasCycle: hasCycle }
