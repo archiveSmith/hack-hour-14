@@ -31,13 +31,13 @@ var Node = function(value) {
   this.value = value;
   this.next = null;
 }
-
+//NOT THE RIGHT SOLUTION
 function hasCycle(head) {
   if (!head) return true;
 
   let headVal = this.head.value;
   let currNode = this.head;
-  
+
   while(currNode.next!==null) {
     currNode = currNode.next;
     if (currNode.value === headVal) return true;

@@ -35,44 +35,44 @@
   
 // }
 
-bestProfit([500,501,490,400,480])
+// bestProfit([500,501,490,400,480])
 
-
-function bestProfit(stock_prices_yesterday) {
-  let arr = stock_prices_yesterday
-  let max = Math.max(...arr);
-  let min = Math.min(...arr);
-  
-  while(arr.indexOf(max) < arr.indexOf(min)) {
-    arr.splice(arr.indexOf(max,1));
-    max = Math.max(...arr)
-  }
-  
-  return max - min;
-}
 
 // function bestProfit(stock_prices_yesterday) {
-//   let profit = 0;
-//   let arr = stock_prices_yesterday;
-// 	arr.reduce((a, c) => {
-// 		let max = Math.max(c - a, 0);
-		
-// 		max > profit ? profit = max : null;
-		
-// 		if (max === 0) {
-// 			return c;
-// 		} else {
-// 			return a;
-// 		}
-// 	});
-	
-// 	if (profit <= 0) {
-// 		return 0;
-// 	}
-// 	return profit;
+//   let arr = stock_prices_yesterday
+//   let max = Math.max(...arr);
+//   let min = Math.min(...arr);
+  
+//   while(arr.indexOf(max) < arr.indexOf(min)) {
+//     arr.splice(arr.indexOf(max,1));
+//     max = Math.max(...arr)
+//   }
+  
+//   return max - min;
 // }
+//CORRECT SOLUTION
+function bestProfit(stock_prices_yesterday) {
+  let profit = 0;
+  let arr = stock_prices_yesterday;
+	arr.reduce((a, c) => {
+		let max = Math.max(c - a, 0);
+		
+		max > profit ? profit = max : null;
+		
+		if (max === 0) {
+			return c;
+		} else {
+			return a;
+		}
+	});
+	
+	if (profit <= 0) {
+		return 0;
+	}
+	return profit;
+}
 
-// bestProfit([500,501,490,480,520,400])
+bestProfit([500,501,490,480,520,400])
 
 
 module.exports = bestProfit;
