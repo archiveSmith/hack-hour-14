@@ -30,6 +30,7 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
+
   
 }
 
@@ -57,4 +58,8 @@ while(current){
   node5.next = node2;
   console.log(hasCycle(node1)); // => true
 module.exports = {Node: Node, hasCycle: hasCycle}
+
+
+
+
 

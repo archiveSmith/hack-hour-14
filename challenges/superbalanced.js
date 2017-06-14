@@ -13,7 +13,6 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-<<<<<<< HEAD
 function minDepth(node){
   if(!node)return 0;
   return 1 + Math.min(minDepth(node.right), minDepth(node.left));
@@ -37,12 +36,8 @@ Tree.left.left = new BinaryTree(6)
 Tree.right = new BinaryTree(9)
 
 console.log(maxDepth(Tree))
+console.log(superBalanced(Tree))
 
 
-=======
-function superbalanced(tree) {
-
-}
->>>>>>> bd030457b0e9f7a021bb578451d785803a1d195c
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};

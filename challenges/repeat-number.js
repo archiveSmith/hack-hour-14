@@ -11,7 +11,6 @@
  */
 
 function repeatNumbers(array) {
-<<<<<<< HEAD
    let sorted = array.sort((a,b)=>a-b);
    for(i=0;i<sorted.length;i++){
        if(sorted[i]===sorted[i+1]){
@@ -21,9 +20,7 @@ function repeatNumbers(array) {
 }
 
 repeatNumbers([3,1,1,2])
-=======
-
-}
-
->>>>>>> bd030457b0e9f7a021bb578451d785803a1d195c
 module.exports = repeatNumbers;
+
+
+[,]
