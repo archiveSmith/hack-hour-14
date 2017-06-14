@@ -31,16 +31,18 @@ var Node = function(value) {
   this.value = value;
   this.next = null;
 }
-//NOT THE RIGHT SOLUTION
+
 function hasCycle(head) {
-  if (!head) return true;
+  let slow = head;
+  let fast = head;
 
-  let headVal = this.head.value;
-  let currNode = this.head;
+  while(fast.next !== null) {
+    fast = fast.next.next;
+    slow = slow.next;
 
-  while(currNode.next!==null) {
-    currNode = currNode.next;
-    if (currNode.value === headVal) return true;
+    if (fast === slow) {
+      return true;
+    }
   }
   return false;
 }
