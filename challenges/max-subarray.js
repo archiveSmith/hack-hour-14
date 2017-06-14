@@ -8,7 +8,7 @@
  */
 
 function maxSubarray(arr) {
-  let maxSum = 0;
+  let maxSum = Number.NEGATIVE_INFINITY;
   
   for (let i = 0; i < arr.length; i++) {
     let sum = 0;
