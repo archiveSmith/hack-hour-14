@@ -8,7 +8,15 @@
  */
 
 function maxSubarray(arr) {
+  let curMax = Number.NEGATIVE_INFINITY
+  let result = Number.NEGATIVE_INFINITY
 
+  for (let i = 0; i < arr.length; i++) {
+    curMax = (arr[i] > curMax + arr[i]) ? arr[i] : curMax + arr[i]
+    result = (result > curMax) ? result : curMax
+  }
+
+  return result
 }
 
 module.exports = maxSubarray;
