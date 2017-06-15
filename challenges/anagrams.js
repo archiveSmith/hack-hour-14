@@ -12,8 +12,22 @@
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-function anagrams(string) {
+// abc, bca, cab
+// cba, bac, acb
+// [ 'abc', 'cba', 'cab', 'acb', 'bca', 'bac' ]
 
+
+function anagrams(string) {
+  const rev = string.split('').reverse().join('')
+  const res = []
+  for (let i = 0; i < string.length; i++) {
+    res.push(shiftStr(string, i), shiftStr(rev, i))
+  }
+  return res
+}
+
+const shiftStr = (string, times) => {
+  return (times === 0) ? string : shiftStr(string.substr(-1) + string.substr(0, string.length - 1), times - 1)
 }
 
 module.exports = anagrams;
