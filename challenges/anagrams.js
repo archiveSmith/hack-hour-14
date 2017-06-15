@@ -14,6 +14,28 @@
 
 function anagrams(string) {
 
+  // base case
+  if (string.length < 2) return string;
+
+  const permutations = [];
+  let char;
+  let remainingString;
+
+  for (let i=0 ; i<string.length ; i++){
+
+    char = string[i];
+    if (string.indexOf(char) != i) continue;
+    remainingString = string.slice(0,i) + string.slice(i+1,string.length);
+    for (let subPermutation of anagrams(remainingString)) permutations.push(char+subPermutation)
+
+  }
+
+  return permutations;
+
 }
+
+var result = anagrams('abc');
+console.log(result);  // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+
 
 module.exports = anagrams;
