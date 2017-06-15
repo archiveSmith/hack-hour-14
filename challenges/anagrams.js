@@ -16,7 +16,6 @@ function anagrams(string) {
   let result = [];
   let stringArr = string.split("")
   const permute = (str, m = []) => {
-  	console.log(str);
     if (str.length === 0) {
       result.push(m)
     } else {
