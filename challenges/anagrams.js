@@ -13,7 +13,23 @@
   */
 
 function anagrams(string) {
-
+  let result = [];
+  let stringArr = string.split("")
+  const permute = (str, m = []) => {
+  	console.log(str);
+    if (str.length === 0) {
+      result.push(m)
+    } else {
+      for (let i = 0; i < str.length; i++) {
+        let curr = str.slice();
+        let next = curr.splice(i, 1);
+        permute(curr.slice(), m.concat(next))
+     }
+   }
+ }
+ permute(stringArr)
+ return result;
 }
+anagrams("abc")
 
 module.exports = anagrams;
