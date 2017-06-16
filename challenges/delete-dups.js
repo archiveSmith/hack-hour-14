@@ -43,7 +43,7 @@ function deleteDups(head) {
     current = current.next;
   }
 
-  return JSON.stringify(head);
+  return head;
 }
 
 const ll = { value: 1, next: { value: 1, next: { value: 3, next: { value: 3, next: null}}}};
