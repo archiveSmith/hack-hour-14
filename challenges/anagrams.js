@@ -27,9 +27,10 @@ function anagrams(string) {
     let picked = rest.splice(i, 1);
     // recursively call anagrams
     let restPerms = anagrams(rest.join(''));
-    console.log(restPerms);
+    // console.log(restPerms);
     for (let j = 0; j < restPerms.length; j++) {
       let next = picked.concat(restPerms[j]);
+      if (permutations.indexOf(next.join('')) === -1)
       permutations.push(next.join(''));
     }
   }
