@@ -49,12 +49,13 @@ function maxSubarray(arr) {
   let maxSum = - Infinity;
   // loop through the array looking for contiguous numbers that result in the highest sum
   arr.forEach(el => {
-    
+    // calc currSum  if we add a new value does it increase currSum?
+    // if so, add it in, otherwise we've moved the start of our sub Array
+    currentSum = Math.max(el, currentSum + el);
+    // if we've exceeded our previous max, update it with the new max
+    maxSum = Math.max(maxSum, currentSum);
   })
-  // calc currSum  if we add a new value does it increase currSum?
-  // if so, add it in, otherwise we've moved the start of our sub Array
-
-  // if we've exceeded our previous max, update it with the new max
+return maxSum;
 }
 
 // console.log(maxSubarray([1, 2, 3]));
