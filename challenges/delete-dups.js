@@ -19,6 +19,9 @@ function deleteDups(head) {
   
   while (curr) {
     if (set.has(curr.value)) {
+      while (curr.next && set.has(curr.next.value)) {
+        curr = curr.next;
+      }
       prev.next = curr.next;
     }
     else {
