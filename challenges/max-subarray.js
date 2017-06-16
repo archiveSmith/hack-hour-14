@@ -50,9 +50,9 @@ function maxSubarray(arr) {
   arr.forEach(el => {
     // calc currSum  if we add a new value does it increase currSum?
     // if so, add it in, otherwise we've moved the start of our sub Array
-    currentSum = Math.max(el, currentSum + el);
+    currSum = Math.max(el, currSum + el);
     // if we've exceeded our previous max, update it with the new max
-    maxSum = Math.max(maxSum, currentSum);
+    maxSum = Math.max(maxSum, currSum);
   })
 return maxSum;
 }
