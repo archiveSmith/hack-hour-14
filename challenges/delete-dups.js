@@ -21,10 +21,19 @@ function deleteDups(head) {
     let compNodeTail = head;
     let compNode = head.next;
 
+    // console.log('currNode --> ', currNode)
+    // console.log('compNodeTail --> ', compNodeTail)
+    // console.log('compNode --> ', compNode)
+
     // loop over linked list
     while (currNode) {
+        // console.log('currNode.value --> ', currNode.value)
+        // console.log('****')
         // for each node, loop over remaning of linked list
         while (compNode) {
+            // console.log('currNode.value --> ', currNode.value)
+            // console.log('compNode.value --> ', compNode.value)
+            // console.log('****')
             // check if there's a duplicate (value of currNode === value of comparisonNode)
             if (currNode.value === compNode.value) {
                 compNodeTail.next = compNode.next;
@@ -32,16 +41,18 @@ function deleteDups(head) {
             compNodeTail = compNode;
             compNode = compNode.next;
         }
+        compNodeTail = currNode.next;
+        if (currNode.next) compNode = currNode.next.next;
         currNode = currNode.next;
     }
+    return head;
 }
 
-let ll = new Node(1);
-ll.next = new Node(2);
-ll.next.next = new Node(3);
-ll.next.next.next = new Node(3);
+// let ll = new Node(1);
+// ll.next = new Node(1);
+// ll.next.next = new Node(1);
 // console.log('ll --> ', ll);         // --> 1->2->3->3
 
-console.log('deleteDups(ll) --> ', deleteDups(ll));        // --> 1->2->3
+// console.log('deleteDups(ll) --> ', deleteDups(ll));        // --> 1->2->3
 
 module.exports = deleteDups;
