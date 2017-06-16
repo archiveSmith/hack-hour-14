@@ -19,7 +19,6 @@
 //   return Math.max.apply(null, sums);
 // }
 //
-// module.exports = maxSubarray;
 //
 // // HELPER function from stack
 // var combine = function(a, min) {
@@ -57,6 +56,8 @@ function maxSubarray(arr) {
   })
 return maxSum;
 }
+
+module.exports = maxSubarray;
 
 // console.log(maxSubarray([1, 2, 3]));
 // console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])) // -> 18 from [3, 10, -4, 7, 2]
