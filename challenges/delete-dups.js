@@ -48,11 +48,11 @@ function deleteDups(head) {
     return head;
 }
 
-// let ll = new Node(1);
-// ll.next = new Node(1);
-// ll.next.next = new Node(1);
+let ll = new Node(1);
+ll.next = new Node(1);
+ll.next.next = new Node(1);
 // console.log('ll --> ', ll);         // --> 1->2->3->3
 
-// console.log('deleteDups(ll) --> ', deleteDups(ll));        // --> 1->2->3
+console.log('deleteDups(ll) --> ', deleteDups(ll));        // --> 1->2->3
 
 module.exports = deleteDups;
