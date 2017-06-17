@@ -26,16 +26,17 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
+  console.log(funcName);
   if (this.funcTable.funcName === undefined) {
-    this.funcTable.funcName = [func];
+    this.funcTable[funcName] = [func];
   }
   else {
-    this.funcTable.funcName.push(func);
+    this.funcTable[funcName].push(func);
   }
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-  let funcList = this.funcTable.funcName;
+  let funcList = this.funcTable[funcName];
   
   if (funcList === undefined) {
     return;
