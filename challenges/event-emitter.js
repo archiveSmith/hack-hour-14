@@ -1,4 +1,8 @@
 'use strict';
+
+const chalk = require('chalk');
+const log = console.log;
+
 /**
  * Make an EventEmitter that
  *
@@ -34,15 +38,15 @@ EventEmitter.prototype.trigger = function (funcName, ...args) {
     this.funcName(...args);
 };
 
-var instance = new EventEmitter();
-var counter = 0;
-instance.on('increment', () => counter++);
-console.log('counter 0 -->', counter)
-instance.trigger('increment'); // counter should be 1
-console.log('counter 1 -->', counter)
-instance.trigger('increment'); // counter should be 2
-console.log('counter 2 -->', counter)
-instance.on('sayGreeting', (name, weatherStatus) => console.log (`Well hello there, ${name}! Isn't the weather ${weatherStatus}?!`))
-instance.trigger('sayGreeting', 'friendo', 'super sunny')
+// var instance = new EventEmitter();
+// var counter = 0;
+// instance.on('increment', () => counter++);
+// console.log(chalk.blue.bgWhite.bold('counter 0 -->'), chalk.underline(counter))
+// instance.trigger('increment'); // counter should be 1
+// console.log('counter 1 -->', counter)
+// instance.trigger('increment'); // counter should be 2
+// console.log('counter 2 -->', counter)
+// instance.on('sayGreeting', (name, weatherStatus) => console.log (`Well hello there, ${name}! Isn't the weather ${weatherStatus}?!`))
+// instance.trigger('sayGreeting', 'friendo', 'super sunny')
 
 module.exports = EventEmitter;
