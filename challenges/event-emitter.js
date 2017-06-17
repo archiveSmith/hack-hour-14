@@ -22,15 +22,26 @@
  */
 
 function EventEmitter() {
-
+  this.funcTable = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  if (this.funcTable.funcName === undefined) {
+    this.funcTable.funcName = [func];
+  }
+  else {
+    this.funcTable.funcName.push(func);
+  }
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  let funcList = this.funcTable.funcName;
+  
+  if (funcList === undefined) {
+    return;
+  }
+  
+  funcList.forEach(func => func(...args));
 };
 
 module.exports = EventEmitter;
