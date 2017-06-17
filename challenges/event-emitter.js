@@ -26,27 +26,32 @@ const log = console.log;
  */
 
 function EventEmitter() {
-    this.greeting = 'hi';
+    this.functionStore = {};
 }
 
 EventEmitter.prototype.on = function (funcName, func) {
-    this.funcName = func;
+    if (!this.functionStore[funcName]) this.functionStore[funcName] = [func]
+    else this.functionStore[funcName].push(func)
 };
 
 EventEmitter.prototype.trigger = function (funcName, ...args) {
-    // console.log('...args --> ', ...args)
-    this.funcName(...args);
+    this.functionStore[funcName].forEach((e)=> e(...args))
 };
 
-// var instance = new EventEmitter();
-// var counter = 0;
-// instance.on('increment', () => counter++);
-// console.log(chalk.blue.bgWhite.bold('counter 0 -->'), chalk.underline(counter))
-// instance.trigger('increment'); // counter should be 1
-// console.log('counter 1 -->', counter)
-// instance.trigger('increment'); // counter should be 2
-// console.log('counter 2 -->', counter)
-// instance.on('sayGreeting', (name, weatherStatus) => console.log (`Well hello there, ${name}! Isn't the weather ${weatherStatus}?!`))
-// instance.trigger('sayGreeting', 'friendo', 'super sunny')
+var instance = new EventEmitter();
+var counter = 0;
+
+log('instance 1 --> ', instance)
+instance.on('increment', () => counter++);
+instance.on('increment', () => console.log('second event'));
+log('instance 2 --> ', instance)
+
+console.log('counter 0 -->', counter)
+instance.trigger('increment'); // counter should be 1
+console.log('counter 1 -->', counter)
+instance.trigger('increment'); // counter should be 2
+console.log('counter 2 -->', counter)
+instance.on('sayGreeting', (name, weatherStatus) => console.log (`Well hello there, ${name}! Isn't the weather ${weatherStatus}?!`))
+instance.trigger('sayGreeting', 'friendo', 'super sunny')
 
 module.exports = EventEmitter;
