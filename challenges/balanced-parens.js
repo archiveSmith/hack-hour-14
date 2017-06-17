@@ -14,7 +14,7 @@
  * Example:
  *  balancedParens('[](){}'); // true
  *  balancedParens('[({})]');   // true
- *  balancedParens('[(]{)}'); // false
+ *  balancedParens('[(]{)}'); // false - won't pass this
  *
  * Step 3:
  * ignore non-bracket characters
@@ -24,8 +24,25 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  const stack = [];
+  const open = { '(': ')', '[': ']', '{': '}' };
+  for (let i = 0; i < input.length; i += 1) {
+    const char = input[i];
+    if (open[char]) {
+      stack.push(char);
+    } else if (char === ')' || char === ']' || char === '}') {
+      if (open[stack.pop()] !== char) { return false; }
+    }
+  }
+  return stack.length === 0;
 }
+
+// console.log(balancedParens('('));  // false
+// console.log(balancedParens('()')); // true
+// console.log(balancedParens(')('));  // false
+// console.log(balancedParens('(())'));  // true
+// console.log(balancedParens('[](){}')); // true
+// console.log(balancedParens('[(]{)}')); // false
 
 module.exports = balancedParens;

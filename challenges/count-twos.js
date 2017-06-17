@@ -8,7 +8,22 @@
 
 
 function countTwos(num) {
-
+  let counter = 0;
+  let temp = [];
+  for (let i = 0; i <= num; i += 1) {
+    temp.push(i);
+  }
+  const str = temp.join('').split('')
+  for (let j = 0; j <= str.length; j += 1) {
+    if (str[j] === '2') counter += 1;
+  }
+  return counter;
 }
+
+console.log(countTwos(1));  // -> 0
+console.log(countTwos(3));  // -> 1
+console.log(countTwos(13));  // -> 2
+console.log(countTwos(1000));  // -> 300
+console.log(countTwos(11420));  // -> 4483
 
 module.exports = countTwos;
