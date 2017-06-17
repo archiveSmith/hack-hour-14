@@ -26,10 +26,16 @@ class EventEmitter {
     this.events = {}
   }
   on (eventName, cb) {
-    this.events[eventName] = cb
+    if (this.events[eventName] !== undefined) {
+      this.events[eventName].push(cb)
+    } else {
+      this.events[eventName] = [cb]
+    }
   }
   trigger (eventName, ...args) {
-    this.events[eventName](...args)
+    if (this.events[eventName] !== undefined) {
+      this.events[eventName].forEach(cur => cur(...args))
+    }
   }
 }
 
