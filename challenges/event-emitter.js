@@ -22,15 +22,27 @@
  */
 
 function EventEmitter() {
-
+    this.greeting = 'hi';
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function (funcName, func) {
+    this.funcName = func;
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function (funcName, ...args) {
+    // console.log('...args --> ', ...args)
+    this.funcName(...args);
 };
+
+var instance = new EventEmitter();
+var counter = 0;
+instance.on('increment', () => counter++);
+console.log('counter 0 -->', counter)
+instance.trigger('increment'); // counter should be 1
+console.log('counter 1 -->', counter)
+instance.trigger('increment'); // counter should be 2
+console.log('counter 2 -->', counter)
+instance.on('sayGreeting', (name, weatherStatus) => console.log (`Well hello there, ${name}! Isn't the weather ${weatherStatus}?!`))
+instance.trigger('sayGreeting', 'friendo', 'super sunny')
 
 module.exports = EventEmitter;
