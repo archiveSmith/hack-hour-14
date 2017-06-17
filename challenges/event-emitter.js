@@ -26,8 +26,7 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-  console.log(funcName);
-  if (this.funcTable.funcName === undefined) {
+  if (this.funcTable[funcName] === undefined) {
     this.funcTable[funcName] = [func];
   }
   else {
