@@ -10,6 +10,7 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
+<<<<<<< HEAD
 var Node = function(value) {
   this.value = value;
   this.next = null;
