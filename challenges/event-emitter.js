@@ -31,6 +31,6 @@ EventEmitter.prototype.on = function(funcName, func) {
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
  this.funcName.apply(this, args)
-};
+}
 
 module.exports = EventEmitter;
