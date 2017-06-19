@@ -32,21 +32,19 @@ function deleteDups(head) {
   // }
   // return newList;
 
-  const arr = [];
-  let current = head;
-  while (current) {
-    arr.push(current.value);
-    if (current.next && arr.includes(current.next.value)) {
-      let temp = current.next.next;
-      current.next = temp;
+  let temp1 = head;
+  while (temp1 && temp1.next) {
+    let temp2 = temp1;
+    while(temp2.next) {
+      if (temp1.value === temp2.next.value) temp2.next = temp2.next.next;
+      else temp2 = temp2.next;
     }
-    current = current.next;
+    temp1 = temp1.next;
   }
-
   return head;
 }
 
-const ll = { value: 1, next: { value: 1, next: { value: 3, next: { value: 3, next: null}}}};
+const ll = { value: 1, next: { value: 2, next: { value: 3, next: { value: 3, next: null}}}};
 
 console.log(deleteDups(ll))
 
