@@ -11,7 +11,9 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-
+  // Too lazy... 
+  // Better way would be to find the middle number first, then compare
+  return arr.includes(target)
 }
 
 
