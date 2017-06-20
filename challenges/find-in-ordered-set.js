@@ -9,6 +9,7 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
+<<<<<<< HEAD
 //comeback to this one
 function findInOrderedSet(arr, target) {
     let middleValue;
@@ -34,7 +35,7 @@ function findInOrderedSet(arr, target) {
     return false; 
 }
 
-var nums = [1, 4, 6, 7, 9, 17, 45]
+var nums = [1, 6, 7, 9, 17, 45, 4]
 console.log(findInOrderedSet(nums, 4));  //-> true
 console.log(findInOrderedSet(nums, 2));  //-> false
 
