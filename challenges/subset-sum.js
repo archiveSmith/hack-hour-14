@@ -10,6 +10,7 @@
 
 function subsetSum(array, target) {
 //write this later
+    
 }
 
 module.exports = subsetSum;

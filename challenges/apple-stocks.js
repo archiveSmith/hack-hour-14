@@ -13,6 +13,7 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+<<<<<<< HEAD
 let base = stock_prices_yesterday[0];
 let price =  stock_prices_yesterday.reduce((a,b)=>{
     if(a<b)return b
@@ -26,4 +27,9 @@ return price===base? 0: price-base;
 console.log(bestProfit([4,3,1]))
 console.log(bestProfit([4,6,2]))
 
+=======
+
+}
+
+>>>>>>> 48a6b11faf664dc65722d79bed83b1aa520750bd
 module.exports = bestProfit;
