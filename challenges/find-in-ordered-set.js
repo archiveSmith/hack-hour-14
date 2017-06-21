@@ -9,7 +9,6 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-<<<<<<< HEAD
 //comeback to this one
 function findInOrderedSet(arr, target) {
     let middleValue;
