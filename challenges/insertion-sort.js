@@ -23,6 +23,8 @@ function insertionSort(array) {
 
 module.exports = insertionSort;
 
+console.log(array);
+
 // let arr = [3, 5, 3, 6]
 // insertionSort(arr);
 // console.log(arr);
