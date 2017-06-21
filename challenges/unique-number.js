@@ -10,7 +10,20 @@
  *
  */
 function uniqueNumber(array) {
-
+  let set = new Set();
+  let sum = 0;
+  
+  for (let i = 0; i < array.length; i++) {
+    if (set.has(array[i])) {
+      sum -= array[i];
+    }
+    else {
+      set.add(array[i]);
+      sum += array[i];
+    }
+  }
+  
+  return sum;
 }
 
 module.exports = uniqueNumber;
