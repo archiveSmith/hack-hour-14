@@ -10,7 +10,18 @@
  *
  */
 function uniqueNumber(array) {
+  if (array.length === 1) return array[0]
+  let numCount = array.reduce(function(prev, curr) {
+    if (prev[curr]) prev[curr]++
+    else
+      prev[curr] = 1
+    return prev
+  }, {})
 
+  for (let key in numCount) {
+    if (numCount[key] === 1) return key
+    else return null
+  }
 }
 
 module.exports = uniqueNumber;
