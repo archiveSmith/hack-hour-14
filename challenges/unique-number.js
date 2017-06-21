@@ -20,7 +20,7 @@ function uniqueNumber(array) {
 
   for (let key in numCount) {
     if (numCount[key] === 1) return key
-    else return null
+
   }
 }
 
