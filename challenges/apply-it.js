@@ -32,4 +32,6 @@ function applyIt(func, args) {
     return func
 }
 
+//look into eval
+
 module.exports = applyIt;
