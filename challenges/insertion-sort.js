@@ -19,12 +19,12 @@ function insertionSort(array) {
     // set the value of the prevIdx = the saved temp Value
     array[j+1] = temp;
   }
+  return array;
 }
 
 module.exports = insertionSort;
 
-console.log(array);
+// console.log(array);
 
 // let arr = [3, 5, 3, 6]
-// insertionSort(arr);
-// console.log(arr);
+// console.log(insertionSort(arr));
