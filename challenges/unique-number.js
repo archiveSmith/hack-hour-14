@@ -10,6 +10,7 @@
  *
  */
 function uniqueNumber(array) {
+<<<<<<< HEAD
     let sortedArr = array.sort((a,b)=>a-b)
     for(let i = 0; i < array.length; i +=2){
        if(array[i]!==array[i+1]) return array[i]
@@ -19,4 +20,9 @@ function uniqueNumber(array) {
 
 
 console.log(uniqueNumber([1,2,1,3,3]))
+=======
+
+}
+
+>>>>>>> bd5b3654e432d61400e1b31aee840b65a3e169cf
 module.exports = uniqueNumber;
