@@ -9,8 +9,32 @@
  * Complete the challenge in O(1) space
  *
  */
+// function uniqueNumber(array) {
+
+//     const filtered = arr.filter((v, i, s) => {
+//         // console.log('v --> ', v)
+//         // console.log('i --> ', i)
+//         // console.log('s --> ', s)
+//         return s.lastIndexOf(v) === i && s.indexOf(v) === i
+//     })
+
+//     return filtered.shift()
+// }
+
+
 function uniqueNumber(array) {
 
+    // console.log([...new Set(array)])
+    for (let i=0 ; i<array.length ; i++){
+        
+    }
+
 }
+
+arr = [4, 4, 1, 2, 1, 3, 3];
+
+console.log(uniqueNumber(arr)); // -> 2
+
+
 
 module.exports = uniqueNumber;
