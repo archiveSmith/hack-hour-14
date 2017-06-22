@@ -36,9 +36,4 @@ function uniqueNumber(array) {
 }
 
 
-
-function uniqueNumber(array) {
-
-}
-
 module.exports = uniqueNumber;
