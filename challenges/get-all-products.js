@@ -14,6 +14,7 @@ function getAllProducts(array) {
     let output = []; 
     
     if(array.length === 1) return array; 
+    if(!array.length) return [0]; 
 
     for(let i = 0; i < array.length; i++){
         let arr = [];
