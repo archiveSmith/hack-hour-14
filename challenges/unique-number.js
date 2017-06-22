@@ -10,13 +10,11 @@
  *
  */
 function uniqueNumber(array) {
-    let count;
-    let obj = {};
     let sortedArr = array.sort((a,b)=>a-b)
     for(let i = 0; i < array.length; i +=2){
        if(array[i]!==array[i+1]) return array[i]
     }
-    return Object.keys(obj)[0]
+    return false;
 }
 
 
