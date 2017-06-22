@@ -9,10 +9,11 @@
  * Complete the challenge in O(1) space
  *
  */
-//only appears once
-//sort them
-//if the next number is not the same as the previous then it is the once numer
+
+
 function uniqueNumber(array) {
+
+    if(array.length % 2 === 0) return undefined; 
     let sorted = array.sort((a,b)=>{
         return a - b; 
     });
@@ -22,9 +23,22 @@ function uniqueNumber(array) {
             return sorted[i]; 
         }
     }
-    return undefined; 
+    return array[length-1]
+
+    //create a cache 
+    //if number is not in the cache then add it in the cache
+    //if the number is already in the cache then delete it in the cache
+    //take the keys from the cache and return at 0
+    
+    
+
+
 }
 
-console.log(uniqueNumber([1,2,1,3,3]))
+
+
+function uniqueNumber(array) {
+
+}
 
 module.exports = uniqueNumber;
