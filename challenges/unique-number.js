@@ -10,7 +10,19 @@
  *
  */
 function uniqueNumber(array) {
-
+    let cache = {}
+    array.forEach((el)=>{
+        if(!cache[el]) {
+            cache[el] = true;
+        }else {
+            cache[el] = false;
+        }
+    })
+    for (k in cache) {
+        if(!cache) {
+            return k;
+        }
+    }
 }
-
+//use xor and reduce
 module.exports = uniqueNumber;
