@@ -17,8 +17,27 @@
  * 
  */
 
-function romanNumeral(n) {
+ function romanNumeral(n) {
+ 	let newN = n.toString();
+ 	let one = 'I';
+ 	let five = 'V';
+ 	let ten = 'X';
+ 	let output;
 
-}
+ 	if (n <= 0 || isNaN(n)) return false;
 
-module.exports = romanNumeral;
+ 	for (let i = 0; i < newN.length; i++) {
+ 		if (parseInt(newN[i]) === 1) {
+ 			output += one;
+ 		}
+ 		if (parseInt(newN[i]) === 5) {
+ 			output += five;
+ 		}
+ 		if (parseInt(newN[i]) === 10) {
+ 			output += ten;
+ 		}
+ 	}
+ 	return output;
+ }
+
+ module.exports = romanNumeral;

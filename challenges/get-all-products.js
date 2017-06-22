@@ -10,7 +10,19 @@
  */
 
 function getAllProducts(array) {
-
+  let newArr = [];
+  let newProduct = 1;
+  for (let i = 0; i < array.length; i++) {
+    let curr = array[i];
+    for (let j = 0; j < array.length; j++) {
+      if (array.indexOf(array[j]) !== array.indexOf(array[i])) {
+        newProduct *= array[j];
+      }
+    }
+    newArr.push(newProduct)
+    newProduct = 1;
+  }
+  return newArr;
 }
 
 module.exports = getAllProducts;

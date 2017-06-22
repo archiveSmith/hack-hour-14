@@ -8,7 +8,37 @@
  */
 
 function maxSubarray(arr) {
-
+  let max = arr.reduce((a, c) => a + c)
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let sum = arr[i]
+    for (let j = i + 1; j < arr.length; j++) {
+      sum += arr[j];
+      if (sum > max) {
+        max = sum;
+      }
+    }
+  }
+  return max;
 }
 
 module.exports = maxSubarray;
+
+//Schno's Way
+function maxSubarray(arr) {
+  // create some variables to track:
+  // - the sum of our current sub array
+  let currentSum = -Infinity;
+  // - and the maximum value we've found
+  let maxSum = -Infinity;
+  // loop through the array, looking for the set of contiguous numbers that result in the highest sum
+  arr.forEach(el => {
+    // calculate currentSum.  If we add the new value, does it increase our current sum?
+    // if so, add it in, otherwise we've moved the start of our sub array
+    currentSum = Math.max(el, currentSum + el);
+    // if we've exceeded our previous max, update it with the new max
+    maxSum = Math.max(maxSum, currentSum);
+  })
+  // We're done, huzzah!
+  return maxSum;
+}

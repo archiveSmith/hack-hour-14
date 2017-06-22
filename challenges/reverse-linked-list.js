@@ -11,10 +11,20 @@
 function Node(value) {
     this.value = value;
     this.next = null;
+    // this.previous = null;
 }
 
 function reverseLinkedList(head) {
-
+    let next;
+    let last = null;
+    while(head.next !== null) {
+        next = head.next;
+        head.next = last;
+        last = head;
+        head = next;
+    }
+    head.next = last;
+    return head;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
