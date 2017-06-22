@@ -12,8 +12,20 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-
+function bestProfit(arr) {
+    if(arr.length < 2) return 0;
+    high
+    function testCombos(l, h){
+        if(h>l || lowStack.length === 0 || highStack.length === 0) return arr[h]-arr[l];
+        let nextHigh = testCombos(l, highStack.pop());
+        let nextLow = testCombos(lowStack.pop(), h);
+        return nextHigh > nextLow ? nextHigh : nextLow;
+    }
+    let h = arr.pop();
+    let l = arr.pop();
+    return testCombos(l, h);
 }
+
+console.log(bestProfit([5,8,12,1,6,10]));
 
 module.exports = bestProfit;
