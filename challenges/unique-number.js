@@ -10,6 +10,7 @@
  *
  */
 
+
 function uniqueNumber(array) {
 
     if(array.length % 2 === 0) return undefined; 
@@ -34,6 +35,10 @@ function uniqueNumber(array) {
 
 }
 
-console.log(uniqueNumber([1,2,1,3,3]))
+
+
+function uniqueNumber(array) {
+
+}
 
 module.exports = uniqueNumber;
