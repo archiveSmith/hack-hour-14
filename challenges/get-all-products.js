@@ -10,12 +10,13 @@
  */
 
 function getAllProducts(array) {
+  if (!array.length) return [0]
   let newArr = [];
   let newProduct = 1;
   for (let i = 0; i < array.length; i++) {
     let curr = array[i];
     for (let j = 0; j < array.length; j++) {
-      if (array[j] !==array[i]) {
+      if (array.indexOf(array[j]) !== array.indexOf(array[i])) {
         newProduct *= array[j];
       }
     }
