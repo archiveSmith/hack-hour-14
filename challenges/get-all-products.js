@@ -10,7 +10,9 @@
  */
 
 function getAllProducts(array) {
-
+  console.log(array);
 }
+
+console.log(getProducts([1, 7, 3, 4])); //->  [84, 12, 28, 21]
 
 module.exports = getAllProducts;
