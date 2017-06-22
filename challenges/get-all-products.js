@@ -12,7 +12,7 @@
 const log = console.log
 
 function getAllProducts(array) {
-
+    if (!arr.length) return [0]
     const output = []
     let remaining;
     for (let i=0 ; i<array.length ; i++){
