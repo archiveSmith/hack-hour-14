@@ -9,6 +9,12 @@
  * Complete the challenge in O(1) space
  *
  */
+
+//Bitwise operation - this is o(n) time & o(1) space
+// function uniqueNumber(array) {
+//   return array.reduce((a,c) => a^=c)
+// }
+
 function uniqueNumber(array) {
   let cache = {};
   array.forEach(e => {
@@ -20,10 +26,5 @@ function uniqueNumber(array) {
     }
   }
 }
-
-//Bitwise operation - this is o(n) time & o(1) space
-// function uniqueNumber(array) {
-//   return array.reduce((a,c) => a^=c)
-// }
 
 module.exports = uniqueNumber;
