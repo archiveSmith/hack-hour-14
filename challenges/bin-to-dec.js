@@ -14,7 +14,30 @@
  */
 
 function binToDec(binary) {
-
+  let arr = binary.split('').reverse();
+  let newArr = arr.map((num, index) => {
+    return num * Math.pow(2, index);
+  });
+  return newArr.reduce((a,c) => { return a + c; });
 }
 
+// function binToDec(binary) {
+//   if (! /^[01]+$/.test(binary)) return 'Please pass binary string';
+//   let binArray = binary.split('').reverse();
+//   let answer = 0;
+//   for (let i = 0; i < binArray.length; i++) {
+//     if (binArray[i] === '1') {
+//       answer += Math.pow(2,i);
+//     }
+//   }
+//   return answer;
+// }
+
+console.log(binToDec('101'));
+
 module.exports = binToDec;
+
+//split binary into array of numbers and reverse()
+//loop through array
+//multiply 2 x indexOf(array[i])
+//reduce to sum of all values
