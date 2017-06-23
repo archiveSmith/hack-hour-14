@@ -18,6 +18,5 @@ function mergeArrays(arr1, arr2) {
     return array.sort((a,b)=>{
       return a-b;
     });
-    return array;
 }
 module.exports = mergeArrays;

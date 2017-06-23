@@ -32,8 +32,27 @@ var Node = function(value) {
   this.next = null;
 }
 
-function hasCycle(head) {
 
+function hasCycle(head) {
+  let p1 = head;
+  let p2 = head;
+
+  while(p2.next) {
+    //move p2, 2 forward if exists and move p1 one forward
+    if(p2 === null) return false;
+    p2 = p2.next;
+    if(p2 === null) return false;
+    p2 = p2.next;
+    p1 = p1.next;
+
+    //if pointers meet, then there is a loop
+    if(p1 === p2) {
+      return true;
+    }
+  }
+  //if reached end then there is no loop
+  return false;
 }
+
 
 module.exports = {Node: Node, hasCycle: hasCycle}
