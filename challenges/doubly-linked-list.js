@@ -13,9 +13,6 @@ function Node(val) {
   this.prev = null;
 }
 
-/*
-Adds a node to the end of the list
- */
 LinkedList.prototype.add = function (val) {
   let newNode = new Node(val)
   if (this.head === null) { this.head = newNode; this.tail = newNode }
@@ -40,7 +37,7 @@ LinkedList.prototype.remove = function (val) {
   else {
     while (currNode.next) {
       if (currNode.next.val === val) {
-        if (currNode.next = this.tail) this.tail = this.tail.prev;
+        if (currNode.next === this.tail) this.tail = this.tail.prev;
         currNode.next = currNode.next.next || null;
         if (currNode.next)
           currNode.next.prev = currNode;
@@ -50,13 +47,13 @@ LinkedList.prototype.remove = function (val) {
     }
   }
 };
-let list = new LinkedList()
-list.add(1);
-list.add(2);
-list.add(3);
-list.add(4);
-list.add(5);
-list.add(6);
-list.remove(6);
+// let list = new LinkedList()
+// list.add(1);
+// list.add(2);
+// list.add(3);
+// list.add(4);
+// list.add(5);
+// list.add(6);
+// list.remove(2);
 
 module.exports = LinkedList;
