@@ -40,7 +40,7 @@ Removes the first node with the inputted value
 LinkedList.prototype.remove = function(val) {
   // loop through until you find the val
   let currNode = this.head;
-  while(currNode) {
+  while (currNode) {
     if (currNode.val === val) {
       // if only 1 node is left in the list
       if (this.length === 1) {
@@ -49,9 +49,10 @@ LinkedList.prototype.remove = function(val) {
         this.length = 0;
         // if val can be found in head and head has other nodes attached
       } else if (currNode === this.head) {
-        this.head = currNode.next
+        this.head = currNode.next;
         this.head.prev = null;
         this.length -= 1;
+        break;
         // if val can be found in tail
       } else if (currNode === this.tail) {
         this.tail = currNode.prev;
@@ -59,12 +60,13 @@ LinkedList.prototype.remove = function(val) {
         this.length -= 1;
       } else {
         // for middle Nodes
-        currNode.prev.next = currNode.next
-        currNode.next.prev = currNode.prev
+        currNode.prev.next = currNode.next;
+        currNode.next.prev = currNode.prev;
         this.length -= 1;
+        break;
       }
     }
-    currNode = currNode.next
+    currNode = currNode.next;
   }
 };
 
