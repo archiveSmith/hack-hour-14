@@ -13,16 +13,22 @@ function uniqueNumber(array) {
     let cache = {}
     array.forEach((el)=>{
         if(!cache[el]) {
-            cache[el] = true;
+            cache[el] = 1;
         }else {
-            cache[el] = false;
+            cache[el] += 1;
         }
     })
     for (k in cache) {
-        if(!cache) {
-            return k;
+        if(cache[k] === 1) {
+            return +k;
         }
     }
 }
+
 //use xor and reduce
+const uniqueNumber2 = (array) => {
+    return array.reduce((acc, number) => {
+        return acc ^ number;
+    }, 0)
+}
 module.exports = uniqueNumber;

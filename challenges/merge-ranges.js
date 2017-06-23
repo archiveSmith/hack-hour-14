@@ -13,11 +13,30 @@
  flatten range array and fill in gaps
   remake range
 */
+
+ //var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
+ 
+ //mergeRanges(times); //-> [[0, 1], [3, 8], [9, 12]]
+
 function mergeRanges(array) {
    array.sort((a,b)=>{ 
         return a[0] - b[0]
     })
     console.log("array",array)
+    
+    
+    const merged = [array[0].slice()]
+    console.log(merged)
+    
+    
+    //for rest of array: 
+    array.forEach((el)=>{
+      //overlap IF  
+      // r1 = [0-5], r2 = [4-6]| [0-6]
+      //r1[start] <= r2[start] <= r1[end]
+      //replace r1[end] with r2[end]
+    })
+
 }
 module.exports = mergeRanges;
 // function mergeRanges(array) {

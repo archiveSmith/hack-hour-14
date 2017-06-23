@@ -20,5 +20,10 @@ function repeatNumbers(array) {
   }, 0)
   return duplicate;
 }
-
+// function repeatNumbers(array) {
+//   let duplicate;
+//   array.forEach((el)=>{
+//     el = Math.abs(el)
+//   })
+// }
 module.exports = repeatNumbers;

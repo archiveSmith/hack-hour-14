@@ -9,8 +9,25 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-function getAllProducts(array) {
+// function getAllProducts(array) {
 
+/*
+  get first lements
+*/
+function getAllProducts(array) {
+  const result = [];
+  //choose your element
+  array.forEach((el)=>{
+      //multiply by everthing except itself
+      let product = 1;
+      array.forEach((multiple)=>{
+        if(multiple !== el) {
+          product *= multiple;
+        }
+      })
+      result.push(product);
+  })
+  return result;
 }
 
 module.exports = getAllProducts;
