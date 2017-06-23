@@ -18,7 +18,9 @@ function getAllProducts(array) {
         arr.forEach((ele)=>{acc*=ele});
         output.push(acc);
     });
+    if(output.length>0)
     return output;
+    return 0;
 }
 
 module.exports = getAllProducts;
