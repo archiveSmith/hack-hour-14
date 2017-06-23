@@ -19,9 +19,9 @@ Adds a node to the end of the list
 LinkedList.prototype.add = function (val) {
   let newNode = new Node(val)
   if (this.head === null) { this.head = newNode; this.tail = newNode }
-  newNode.prev = this.tail;
+  else{newNode.prev = this.tail;
   this.tail.next = newNode;
-  this.tail = newNode;
+  this.tail = newNode;}
 };
 
 /*
@@ -31,8 +31,11 @@ LinkedList.prototype.remove = function (val) {
   let currNode = this.head;
   //check for head
   if (currNode.val === val) {
+    if(currNode.next)
     currNode.next.prev = null;
-    this.head = currNode.next;
+    this.head = currNode.next||null;
+    if(currNode=== this.tail)
+    this.tail = null;
   }
   else {
     while (currNode.next) {

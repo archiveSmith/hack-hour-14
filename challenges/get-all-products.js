@@ -10,6 +10,7 @@
  */
 
 function getAllProducts(array) {
+    if(!array.length)return [0];
     let output = [];
     array.forEach(function (e, i, a) {
         let acc = 1;
@@ -18,9 +19,7 @@ function getAllProducts(array) {
         arr.forEach((ele)=>{acc*=ele});
         output.push(acc);
     });
-    if(output.length>0)
     return output;
-    return 0;
 }
 
 module.exports = getAllProducts;
