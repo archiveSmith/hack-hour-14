@@ -10,14 +10,12 @@
  */
 
 function getAllProducts(array) {
-  console.log(array);
   if (!array.length) return [0];
   const results = [];
   for (let i = 0; i < array.length; i += 1) {
     const temp = [];
     for (let j = 0; j < array.length; j += 1) {
-      if (j === i) continue;
-      else temp.push(array[j]);
+      if (j !== i) temp.push(array[j]);
     }
     results.push(temp.reduce((a,c) => {
       return a * c;
