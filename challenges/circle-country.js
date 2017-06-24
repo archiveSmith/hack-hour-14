@@ -22,8 +22,36 @@
  *
  */
 
-function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+function isInside(pos, circle) {
+    let xdiff = Math.pow(pos.x - circle.x, 2);
+    let ydiff = Math.pow(pos.y - circle.y, 2);    
+    let distance = Math.sqrt(xdiff + ydiff);
+    return distance <= circle.r? true : false; 
+}
 
+function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+    let intersection_count = 0;
+    let start = [];
+    let end = [];
+    let circles = [];
+  
+    start.x = start_x;
+    start.y = start_y;
+    end.x = end_x;
+    end.y = end_y;
+    
+    x.forEach((el, index) =>{
+        let circle = [];
+        circle.index = index;
+        circle.x = x[index];
+        circle.y = y[index];
+        circle.r = r[index];
+     //if both points are within the circle --> don't need to cross, if only one point --> then u have to cross (thx alyssa)
+        if(isInside(start, circle) && !isInside(end, circle) || !isInside(start, circle) && isInside(end, circle)) {
+          intersection_count += 1;
+        }
+    })
+    return intersection_count;
 }
 
 module.exports = circleCountry;
