@@ -10,18 +10,17 @@
  */
 
 function getAllProducts(array) {
-  if (!array.length) return [0];
-  const results = [];
-  for (let i = 0; i < array.length; i += 1) {
-    const temp = [];
-    for (let j = 0; j < array.length; j += 1) {
-      if (j !== i) temp.push(array[j]);
-    }
-    results.push(temp.reduce((a,c) => {
-      return a * c;
-    }));
-  }
-  return results;
+  console.log(array);
+  // if (!array.length) return [0];
+  // const results = [];
+  // for (let i = 0; i < array.length; i += 1) {
+  //   const temp = [];
+  //   for (let j = 0; j < array.length; j += 1) {
+  //     if (j !== i) temp.push(array[j]);
+  //   }
+  //   results.push(temp.reduce((a,c) => a * c));
+  // }
+  // return results;
 }
 
 console.log(getAllProducts([1, 7, 3, 4])); //->  [84, 12, 28, 21]
