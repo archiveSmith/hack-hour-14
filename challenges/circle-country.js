@@ -22,8 +22,57 @@
  *
  */
 
+const l = console.log;
+
+function Tree(x, y, r, i) {
+    this.x = x
+    this.y = y;
+    this.r = r;
+    this.i = i;
+    this.children = [];
+}
+
+function checkIfNested(x, y, r, X, Y, R) {
+    return Math.sqrt(Math.pow(x - X, 2) + Math.pow(y - Y, 2)) < R
+}
+
+function populateTreeArr(x, y, r, i, treeArr) {
+    for (let j=0 ; j<treeArr.length ; j++){
+        if (checkIfNested(x, y, r, treeArr[j].x, treeArr[j].y, treeArr[j].r)) {
+            return populateTreeArr (x, y, r, i, treeArr[j].children)
+        }
+    }
+    return treeArr.push(new Tree (x, y, r, i))
+}
+
+
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
+    console.log('arguments', [...arguments])
+    const treeArr = [];
+    for (let i = 0; i < x.length; i++) {
+        populateTreeArr(x[i], y[i], r[i], i, treeArr)
+    }
+    return treeArr
 }
+
+
+const x = [0, 6];
+const y = [0, 0];
+const r = [1, 2];
+const start_x = 0;
+const start_y = 0;
+const end_x   = 6;
+const end_y   = 0;
+l(circleCountry(x, y, r, start_x, start_y, end_x, end_y))
+
+// l(checkIfNested (0,0,2,   6,0,2))
+
+// function findCoords (xi, yi, ri, xArr, yArr, zArr){
+
+// }
+
+
+
 
 module.exports = circleCountry;
