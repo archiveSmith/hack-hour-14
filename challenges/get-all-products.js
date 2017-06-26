@@ -16,7 +16,7 @@ function getAllProducts(array) {
   for (let i = 0; i < array.length; i++) {
     let curr = array[i];
     for (let j = 0; j < array.length; j++) {
-      if (array.indexOf(array[j]) !== array.indexOf(array[i])) {
+      if (i!==j) {
         newProduct *= array[j];
       }
     }
