@@ -18,6 +18,7 @@ function bubbleSort(array) {
             newLength--
         }
     }
+    return array;
 }
 
 module.exports = bubbleSort;
