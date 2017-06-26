@@ -13,13 +13,8 @@ function bubbleSort(array) {
     while (stopPoint) {
         // for loop through the array
         for (let i = 0; i < stopPoint; i++) {
-            // compare each value to the next value
-            if (array[i] > array[i + 1]) {
-                // swap if next < curr
-                let temp = array[i + 1];
-                array[i + 1] = array[i];
-                array[i] = temp;
-            }
+            // compare each value to the next value and swap if next < curr
+            if (array[i] > array[i+1]) array[i] = array.splice(i+1, 1, array[i])[0];
         }
         // decrease stopPoint by 1
         stopPoint -= 1;
@@ -30,6 +25,6 @@ function bubbleSort(array) {
 arr1 = [5, 4, 7, 8, 1, 2, 0];
 arr2 = [3, 2, 1];
 
-console.log(bubbleSort(arr2))
+console.log(bubbleSort(arr1))
 
 module.exports = bubbleSort;
