@@ -2,7 +2,6 @@
 Create a doubly linked list with an add and remove method
  */
 
-
 function LinkedList() {
   this.head = null;
   this.tail = null;
@@ -13,8 +12,6 @@ function Node(val) {
   this.next = null;
   this.prev = null;
 }
-
-
 
 /*
 Adds a node to the end of the list
@@ -39,6 +36,7 @@ else if(this.head !== null){
 }
   
     
+
   
 };
 
@@ -46,7 +44,7 @@ else if(this.head !== null){
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  
+
   //check the value of each node
   let curr = this.head;
   while(curr){
@@ -83,7 +81,5 @@ LinkedList.prototype.remove = function(val) {
   
   return undefined; 
 };
-
-
 
 module.exports = LinkedList;
