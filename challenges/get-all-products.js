@@ -9,8 +9,13 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
+
 function getAllProducts(array) {
-
+    return array.map((outerNum, i) => {
+        return array.reduce((multi, innerNum, j) => {
+            return i !== j ? multi*innerNum : multi;
+        }, 1);
+    })
 }
-
+console.log(getAllProducts([]));
 module.exports = getAllProducts;

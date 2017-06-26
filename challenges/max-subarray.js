@@ -8,7 +8,13 @@
  */
 
 function maxSubarray(arr) {
-
+    return arr.reduce((max, curr, i) => 
+        arr.slice(i).reduce((obj, num) => 
+            ({sum: obj.sum+num, max: obj.sum+num > obj.max ? obj.sum+num : obj.max}), 
+            {sum: 0, max: max}).max, -Infinity);
 }
+
+console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])) // 18 from [3, 10, -4, 7, 2]
+console.log(maxSubarray([15,20,-5,10]))  // 40
 
 module.exports = maxSubarray;
