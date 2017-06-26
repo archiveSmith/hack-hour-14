@@ -14,10 +14,32 @@
  *      500   ->    D
  *      900   ->    CM
  *      1000  ->    M
- * 
+ *
  */
 
 function romanNumeral(n) {
+ var output = "";
+ var output5= "V"
+
+ for (var i = 1; i <= n; i++) {
+   if ( n < 4) {
+     output += "I";
+   }
+
+   if (i > 3 && n === 4) {
+     output += "IV";
+   }
+
+   // if (i > 4 && n === 5) {
+   //   output += "V";
+   // }
+
+   if (i > 5 && n < 9) {
+       output5 += "I";
+   }
+ }
+
+return output5;
 
 }
 

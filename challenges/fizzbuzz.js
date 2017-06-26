@@ -16,8 +16,26 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {  
-
+//initialize empty array of size n
+function range(n){
+  return Array.apply(null, Array(n)).map((_, i) => i);
 }
+//define conditions on which to fill each element in result array
+function fizzBuzzTest(n){
+  const by3 = n % 3 === 0;
+  const by5 = n % 5 === 0;
+
+  return  by3 && by5 ? 'fizzbuzz'
+               : by3 ? 'fizz'
+               : by5 ? 'buzz'
+                     : n;
+}
+//fill elements of array with number or string as defined by fizzBuzzTest function
+function fizzbuzz(num){
+  return range(num).map(x => fizzBuzzTest(x + 1));
+}
+
+
+
 
 module.exports = fizzbuzz;

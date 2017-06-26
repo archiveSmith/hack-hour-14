@@ -7,8 +7,29 @@
  *
  */
 
-function maxSubarray(arr) {
+function maxSubarray(array) {
+  //   let currentSum = -Infinity;
+  //   let maxSum = -Infinity;
+  //
+  // arr.forEach(el => {
+  //   currentSum = Math.max(el, currentSum + el);
+  //   maxSum = Math.max(maxSum, currentSum);
+  // });
+  //
+  // return maxSum
+  //
+  //
 
+
+
+  var currentMax = 0;
+  var max = 0;
+  for (var i = 0; i < array.length; i += 1) {
+    currentMax = Math.max(0, currentMax + array[i]);
+    max = Math.max(max, currentMax);
+  }
+  return max;
 }
+
 
 module.exports = maxSubarray;
