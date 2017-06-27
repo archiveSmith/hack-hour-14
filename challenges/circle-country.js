@@ -21,6 +21,10 @@
  *    - no circle borders intersect/touch (but they can be nested)
  *
  */
+let x = [0,2,4]
+let y = [1,3,5]
+let r = 
+
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
