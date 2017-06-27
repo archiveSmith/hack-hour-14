@@ -10,6 +10,7 @@
  */
 
 function getAllProducts(array) {
+
   if(!Array.isArray(array)) return;
 
   if(array.length <= 2) return array;
@@ -33,5 +34,6 @@ console.log(getAllProducts(4));
 console.log(getAllProducts([1,7]));
 console.log(getAllProducts([1,7,3,4]));
 console.log(getAllProducts([1,7,3,4,0]));
+
 
 module.exports = getAllProducts;
