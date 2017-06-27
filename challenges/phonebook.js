@@ -34,33 +34,32 @@ function findName(jazbook, name) {
   return false;
 }
 
-class PhoneBookObject {
-  constructor(jazbook) {
-    this.phoneBook = {}
-    for (let i = 0; i < jazbook.length; i += 1) {
-      this.phoneBook[jazbook[i][0]] = jazbook[i][1];
-    }
+// return an object literal representing the jazbook
+function makePhoneBookObject(jazbook){
+  this.phoneBookObj = {};
+  this.phoneBookObj.phoneBook = {};
+  
+  for (let i = 0; i < jazbook.length; i += 1) {
+    this.phoneBookObj.phoneBook[jazbook[i][0]] = jazbook[i][1];
   }
   
-  add(name, number) {
+  this.phoneBookObj.add = function(name, number) {
     this.phoneBook[name] = number;
   }
   
-  remove(name) {
+  this.phoneBookObj.remove = function(name) {
     if (name in this.phoneBook) {
       delete this.phoneBook[name];
     }
   }
   
-  lookup(name) {
-    return this.phoneBook[name]
+  this.phoneBookObj.lookup = function(name) {
+    return this.phoneBook[name];
   }
+  
+  return this.phoneBookObj;
 }
 
-// return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
-  return new PhoneBookObject(jazbook);
-}
 
 const objectToExport = {
   findName,
