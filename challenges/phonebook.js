@@ -25,18 +25,45 @@
 */
 
 //  return the number associated with the name in the jazbook
-function findName(jazbook, name) {
-
+const findName = (jazbook, name) => {
+  const result = jazbook.find(entry => entry[0] === name)
+  return result ? result[1] : false
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
+const makePhoneBookObject = (jazbook) => {
+  let phonebook = new PhoneBook()
 
+  jazbook.forEach(entry => {
+    phonebook.add(entry[0], entry[1])
+  })
+
+  return phonebook
+}
+
+class PhoneBook {
+  constructor () {
+    this.store = {}
+  }
+
+  add (name, number) {
+    this.store[name] = number
+  }
+
+  find (name) {
+    const result
+    result = this.store[name]
+    return result ? result : false
+  }
+
+  remove (name) {
+    if (name in this.store) delete this.store[name]
+  }
 }
 
 const objectToExport = {
   findName,
   makePhoneBookObject,
-};
+}
 
-module.exports = objectToExport;
+module.exports = objectToExport
