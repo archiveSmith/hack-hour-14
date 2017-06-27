@@ -10,8 +10,26 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 
-function findInOrderedSet(arr, target) {
+// function findInOrderedSet(arr, target) {
+//     let mid = Math.floor(arr.length / 2);
+//     if (arr[mid] === target) return true;
+    
+//     if (arr[mid] > target) findInOrderedSet()
+// }
 
+
+function findInOrderedSet(arr, target) {
+    function binSearch(start, end) {
+        const mid = Math.floor((start + end) / 2)
+        if (arr[mid] === target) return true;
+        if (start === end) return false;
+        if(arr[mid] > target){
+            return binSearch(start, mid - 1);
+        }else {
+            return binSearch(mid+1, end)
+        }
+    }
+    return binSearch(0, arr.length - 1)
 }
 
 

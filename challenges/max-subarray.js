@@ -7,6 +7,7 @@
  *
  */
 
+<<<<<<< HEAD
   function maxSubarray(array) {
     let currentMax = 0;
     let max = 0;
@@ -18,5 +19,10 @@
   }
 
   console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
+=======
+function maxSubarray(arr) {
+
+}
+>>>>>>> bd5b3654e432d61400e1b31aee840b65a3e169cf
 
 module.exports = maxSubarray;

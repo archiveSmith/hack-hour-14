@@ -22,6 +22,7 @@
  */
 
 function EventEmitter() {
+<<<<<<< HEAD
     
 }
 
@@ -37,6 +38,17 @@ EventEmitter.prototype.trigger = function (funcName, ...args) {
             this[funcName][i].apply(this, ...args);
         }
     }
+=======
+
+}
+
+EventEmitter.prototype.on = function(funcName, func) {
+
+};
+
+EventEmitter.prototype.trigger = function(funcName, ...args) {
+
+>>>>>>> bd5b3654e432d61400e1b31aee840b65a3e169cf
 };
 
 module.exports = EventEmitter;

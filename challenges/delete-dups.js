@@ -13,6 +13,7 @@
 
 
 function deleteDups(head) {
+<<<<<<< HEAD
 if(!head){return null};
 let array = [];
 let current = head;
@@ -45,6 +46,9 @@ while(prev.next){
 
     current = current.next;
 }
+=======
+
+>>>>>>> bd5b3654e432d61400e1b31aee840b65a3e169cf
 }
 
 module.exports = deleteDups;
