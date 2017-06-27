@@ -5,6 +5,7 @@
 
 
 function bubbleSort(array) {
+<<<<<<< HEAD
 for(let i = 0; i < array.length; i ++){
     for(let j = 0; j<array.length; j ++){
         temp = array[j]
@@ -20,5 +21,9 @@ return array;
 
 console.log(bubbleSort([1,3,4,2,1,4,5]))
 
+=======
+
+}
+>>>>>>> 0d808cb43ece14d6c765afdb86570a9d450c7e95
 
 module.exports = bubbleSort;
