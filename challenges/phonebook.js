@@ -41,7 +41,6 @@ function makePhoneBookObject(jazbook) {
     newBook[entry[0]] = entry[1]
   })
   return newBook
-
 }
 
 const objectToExport = {
