@@ -11,7 +11,7 @@
  */
 
 function repeatNumbers(array) {
-
+    return -1*array.reduce( (leftover, curr) => leftover-curr, (array.length-1+(array.length-1)*(array.length-1))/2 );
 }
 
 module.exports = repeatNumbers;

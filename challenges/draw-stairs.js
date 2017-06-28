@@ -10,12 +10,21 @@
   ****
  *****
 ******
-
 */
 
 function drawStairs(n) {
+    for(let i=1; i<=n; i++){
+        let str = '';
+        for(let j=i; j<n; j++){
+            str += ' ';
+        }
+        for(let k=1; k<=i; k++){
+            str += '*';
+        }
+        console.log(str);
+    }
+}
+function drawStairs(n) {
 
 }
-
-
 module.exports = drawStairs;
