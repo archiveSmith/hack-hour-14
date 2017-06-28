@@ -65,9 +65,9 @@ function makePhoneBookObject(jazbook) {
     }
 
     jaz.find = function(name) {
-      if (this[name])
+      // if (this[name])
         return this[name];
-      return "entry not found"
+      // return "entry not found"
     },
 
     jaz.remove = function(name) {
@@ -83,7 +83,8 @@ function makePhoneBookObject(jazbook) {
 // let jaz = makePhoneBookObject(jazbook);
 // jaz.add("john", "1")
 // jaz.remove("john")
-//
+// console.log(jaz.find('jae'))
+
 // console.log(jaz)
 
 const objectToExport = {
