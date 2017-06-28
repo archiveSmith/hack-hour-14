@@ -15,7 +15,8 @@
  */
 
 function countStairs(n) {
-    if ( n > 1 )    return countStairs(n - 2) + countStairs(n - 1)
+    if ( typeof n !== "number") return "Not a number";
+    if ( n > 1 ) return countStairs(n - 2) + countStairs(n - 1)
     else if (n > 0) return countStairs(n-1)
     return 1;
 }
