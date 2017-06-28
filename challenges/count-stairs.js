@@ -15,7 +15,15 @@
  */
 
 function countStairs(n) {
-
+   // find all permutations of 1's and 2's that add up to n
+   // use fibonacci
+   if (n <= 1) {
+     return 1;
+   } else {
+     return countStairs(n - 1) + (countStairs(n - 2));
+   }
 }
+
+// console.log(countStairs(5))
 
 module.exports = countStairs;
