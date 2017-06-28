@@ -21,13 +21,13 @@ function countStairs(n) {
 
     // base case
     if (n === 2) return 2
-    if (n === 1) return 1
+    if (n === 1 || n === 0) return 1
 
     // recursive step
     return countStairs(n-1) + countStairs(n-2)
 
 }
 
-l(countStairs(6))
+l(countStairs(0))
 
 module.exports = countStairs;
