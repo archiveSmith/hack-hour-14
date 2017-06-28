@@ -15,7 +15,7 @@
  */
 
 function countStairs(n) {
-    let cache = {'0':0,"1":1, "2":2}
+    let cache = {'0':1,"1":1, "2":2}
     function fib(n){
         if (cache[n]) return cache[n]
         cache[n]= fib(n - 1) + fib(n - 2)
