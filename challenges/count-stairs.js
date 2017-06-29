@@ -14,28 +14,34 @@
  * That is a total of 8 different ways to take 5 steps, given that you can take 1 or 2 steps at a time.
  */
 
+// function countStairs(n) {
+//     //check how many 1's can be subtracted
+//     //using only n-1 digits, find the combinations
+//     //n - 1 (2s * 1)
+//     //n - 2 (2s * 2)
+
+//     //set count to 1
+//     //check if n - 1 digits with n - 2 1s and one 2 equals n
+//         //if this works add n - 1 to count
+//     //n is now n n - 2 - 1 1s and add another 2
+
+//     let count = 0;
+//     let spaces
+//     for(let i = 0; 0 < n; i++){
+
+//     }
+//   return count
+// }
+
 function countStairs(n) {
-    //check how many 1's can be subtracted
-    //using only n-1 digits, find the combinations
-    //n - 1 (2s * 1)
-    //n - 2 (2s * 2)
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+  
+  if (n >= 2) {
+    return countStairs(n-1) + countStairs(n-2);
+  }
 
-    //set count to 1
-    //check if n - 1 digits with n - 2 1s and one 2 equals n
-        //if this works add n - 1 to count
-    //n is now n n - 2 - 1 1s and add another 2
-
-    let count = 0;
-    let spaces
-    for(let i = 0; 0 < n; i++){
-        if((n*1)+(2*i) === n){
-             
-        }
-        n = n - 2
-    }
-  return count
 }
-
-console.log(countStairs(5))
 
 module.exports = countStairs;
