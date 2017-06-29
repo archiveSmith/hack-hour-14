@@ -1,7 +1,8 @@
 /**
  *  Circle Country is a country that contains several circular-shaped districts.
  *  Some districts may be situated inside other districts, but their borders do not intersect or touch.
- *  Tyus is a resident of Circle Country. When he travels between two locations, he always tries to cross the fewest number of district borders as possible.
+ *  Tyus is a resident of Circle Country. When he travels between two locations, he always tries to cross
+ *  the fewest number of district borders as possible.
  *
  *  You are given an array x, an array y, and an array r
  *
@@ -21,9 +22,18 @@
  *    - no circle borders intersect/touch (but they can be nested)
  *
  */
+function distance(x, y, i, j){
+    return Math.sqrt(Math.pow((x-i),2)+Math.pow((y-j),2));
+}
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+    return r.reduce((count, radius, i) => {
+        let disStart = distance(start_x, start_y, x[i], y[i]);
+        let disEnd = distance(end_x, end_y, x[i], y[i]);
+        if(disStart <= radius && disEnd > radius) count++;
+        if(disStart > radius && disEnd <= radius) count++;
+        return count;
+    },0)
 }
 
 module.exports = circleCountry;
