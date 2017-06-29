@@ -1,3 +1,5 @@
+
+
 /**
  *
  * You are given an array x and an array y that represent the coordinates of several OLD points
@@ -18,6 +20,13 @@
  */
 
 function newIntersections(x, y){
+
+    minX = Math.min(x)
+    maxX = Math.max(x)
+    minY = Math.min(y)
+    maxY = Math.max(y)
+
+    return (maxX - minX) * (maxY - minY)
 
 }
 
