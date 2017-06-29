@@ -26,6 +26,7 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
+<<<<<<< HEAD
   return jazbook.reduce((all, item)=>{
     if(item[0] === name){
       all = item[1]; 
@@ -70,11 +71,6 @@ function makePhoneBookObject(jazbook){
 
   return obj; 
 }
-
-
-
-
-
 
 const objectToExport = {
   findName,
