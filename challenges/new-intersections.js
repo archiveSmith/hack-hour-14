@@ -17,8 +17,17 @@
  * 	 
  */
 
-function newIntersections(x, y){
+function newIntersections(x, y) {
+  const length = x.length > y.length ? y.length : x.length;
+  if (length < 4) return 0;
 
+  function factorial(n) {
+    if (n <= 1)
+      return 1;
+    return n * factorial(n - 1);
+  }
+
+  return factorial(length) / (factorial(4) * factorial(length - 4));
 }
 
 module.exports = newIntersections;
