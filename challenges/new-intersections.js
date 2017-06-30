@@ -17,21 +17,9 @@
  * 	 
  */
 
-<<<<<<< HEAD
-
-
-//'OLD directly above NEW' means the 
-//NEW x-coordinate = OLD x-coordinate & NEW y-coordinate < OLD y-coordinate
-
 
 function newIntersections(x, y){
-//get the distance between the x values 
-//get the distance between the y values
 
-
-=======
-function newIntersections(x, y){
->>>>>>> a6067b5cf9c0d9ffa020b7163afe94e376769a44
 
 }
 

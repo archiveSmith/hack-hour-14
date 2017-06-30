@@ -15,6 +15,31 @@
 
 function knightjumps(str) {
 
+  if (str.includes('8') && str.includes('1') || str.includes('1 1') || str.includes('8 8')) {
+    return 3;
+  }
+
+  if (str.includes('1') || str.includes('8')) {
+    return 5;
+  }
+  
+  return 8;
+
 }
 
 module.exports = knightjumps;
+
+
+// function knightjumps(str) {
+//   if (str.includes('8') && str.includes('1') || str.includes('1 1') || str.includes('8 8')) {
+//     return 3;
+//   }
+
+//   if (str.includes('1') || str.includes('8')) {
+//     return 5;
+//   }
+  
+//   return 8;
+// }
+
+
