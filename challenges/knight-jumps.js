@@ -20,33 +20,37 @@ function knightjumps(str) {
     // l('y--> ',y)
 
     const moves = [
-        [ 1, 2],
-        [ 2, 1],
-        [ 2,-1],
-        [ 1,-2],
-        [-1,-2],
-        [-2,-1],
+        [1, 2],
+        [2, 1],
+        [2, -1],
+        [1, -2],
+        [-1, -2],
+        [-2, -1],
         [-2, 1],
         [-1, 2]
     ];
 
     bounds = [1, 8];
 
-    return moves.reduce( (a,v)=>{
+    return moves.reduce((a, v) => {
         if (
             (x + v[0]) <= bounds[1] &&
             (x + v[0]) >= bounds[0] &&
-            (y + v[0]) <= bounds[1] &&
-            (y + v[0]) >= bounds[0]
-            ) {
-                return a = a + 1
-            }
-            return a
-    } , 0)
+            (y + v[1]) <= bounds[1] &&
+            (y + v[1]) >= bounds[0]
+        ) {
+            // l('x--> ',x)
+            // l('y--> ',y)
+            // l('y--> ',y)
+            // l('y--> ',y)
+            return a = a + 1
+        }
+        return a
+    }, 0)
 
 }
 
-l(knightjumps('(1 5)'))
+l(knightjumps('(1 1)'))
 
 
 module.exports = knightjumps;
