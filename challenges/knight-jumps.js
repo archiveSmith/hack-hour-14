@@ -12,8 +12,7 @@
 
 function knightjumps(str) {
   let temp = str.replace(/\((\d) (\d)\)/g, '$1,$2').split(',')
-  temp = {x: temp[0], y: temp[1]}
-  return calcJumps(temp)
+  return calcJumps({x: +temp[0], y: +temp[1]})
 }
 
 const calcJumps = ({ x, y }) => {
