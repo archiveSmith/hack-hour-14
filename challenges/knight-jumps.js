@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  let coords = str.split('');
+  // coords = [Number(coords[1]), Number(coords[3])]
+  let x = Number(coords[1])
+  let y = Number(coords[3])
+  // console.log(coords);
+  // set default amount of moves 8
+  let moves = 8;
+  if (x + 2 > 8 || y + 1 > 8) moves -= 1
+  if (x + 2 > 8 || y - 1 < 1) moves -= 1
+  if (x - 2 < 1 || y + 1 > 8) moves -= 1
+  if (x - 2 < 1 || y - 1 < 1) moves -= 1
+  if (x + 1 > 8 || y + 2 > 8) moves -= 1
+  if (x + 1 > 8 || y - 2 < 1) moves -= 1
+  if (x - 1 < 1 || y + 2 > 8) moves -= 1
+  if (x - 1 < 1 || y - 2 < 1) moves -= 1
+  return moves;
 }
+
+
+// console.log(knightjumps('(4 8)'))
 
 module.exports = knightjumps;
