@@ -17,22 +17,29 @@
 
 
 function countStairs(n) {
-    //store permutations result
-    const permutations = []
-    
-    //swap flag
-    let swapped = true;
-
-    //divide n into array of 1s to produe input array
-    let input = [];
-    for(let i=0; i<n; i++) {
-         input.push(1)
+    if(n < 0) return 0;
+    else if(n === 0) return 1;
+    else{
+        return countStairs(n-1) + countStairs(n-2)
     }
 
-    //while (swaps - or more than 1 one in array)
-    while(swapped) {
-        //set swapped to false
-        swapped = false;
+}
+    // //store permutations result
+    // const permutations = []
+    
+    // //swap flag
+    // let swapped = true;
+
+    // //divide n into array of 1s to produe input array
+    // let input = [];
+    // for(let i=0; i<n; i++) {
+    //      input.push(1)
+    // }
+
+    // //while (swaps - or more than 1 one in array)
+    // while(swapped) {
+    //     //set swapped to false
+    //     swapped = false;
 
         //use latest permutations array as input
         //loop through array

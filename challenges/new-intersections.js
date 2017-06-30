@@ -16,9 +16,63 @@
  *   - if a new point is bounded by old points and lands on an old point, then count it
  * 	 
  */
+ function getMaxOfArray(numArray) {
+  return Math.max.apply(null, numArray);
+}
+
+ function getMinOfArray(numArray) {
+  return Math.min.apply(null, numArray);
+}
 
 function newIntersections(x, y){
+    let count;
+    
+    let oldCoords = x.reduce((acc, xval, index) => {
+        if(acc.hasOwnProperty(xval)) {
+          acc[xval].push(y[index])
+          return acc;
+        }
+        else {
+          acc[xval] = [y[index]]
+          return acc;
+        }
+      }, {})
+      
+      console.log("old", oldCoords)
+      
+    //find 2 points with same x (directly above/below each other)
+    let dups = []
+    for(x in oldCoords) {
+      if(oldCoords[x].length > 1) {
+        dups.push([x, oldCoords[x]])
+      }
+    }
+  
+  //get their y-values (this will define upper and lower bounds for the new points)
+    console.log("duplicates", dups)
+    let xlock = dups[0][0]
+    let ymin = getMinOfArray(dups[0][1])
+    let ymax = getMaxOfArray(dups[0][1])
+    
+    console.log("y min", ymin, "ymax", ymax)
+    
+    //for each possible y value between that range:
+    for(let i=1; i<=8; i++) {
+        let right;
+        let left;
+        //check if there are OLD points to the left AND right 
+      console.log(xlock, i)
+        // such that one  x1-value < curr-point < x2-value
+            //increment count
+    }
 
+//return count.
 }
+
+
+let xar = [1, 5, 3, 3, 3, 6]
+let yar = [2, 0, 1, 8, 3 , 7]
+
+newIntersections(xar, yar)
 
 module.exports = newIntersections;
