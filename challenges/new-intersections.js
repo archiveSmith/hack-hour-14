@@ -19,15 +19,37 @@
  * 	 
  */
 
-function newIntersections(x, y){
+const l = console.log
 
-    minX = Math.min(x)
-    maxX = Math.max(x)
-    minY = Math.min(y)
-    maxY = Math.max(y)
+function newIntersections(x, y) {
 
-    return (maxX - minX) * (maxY - minY)
+    const xStore = [];
+    const yStore = [];
+    let intersections = 0;
+
+    const horizontalIndices = [];
+    const verticalIndices = [];
+
+    for (let i = 0; i < x.length; i++) {
+        let arr = x.slice(0, i)
+        if (arr.indexOf(x[i]) !== -1) horizontalIndices.push(arr.indexOf(x[i]), i);
+    }
+
+    for (let i = 0; i < y.length; i++) {
+        let arr = y.slice(0, i)
+        if (arr.indexOf(y[i]) !== -1) verticalIndices.push(arr.indexOf(y[i]), i);
+    }
+
+    l('horizontalIndices --> ', horizontalIndices)
+    l('verticalIndices --> ', verticalIndices)
+
+    return;
 
 }
+
+const x = [2, 2, 1, 9];
+const y = [2, 5, 4, 4];
+
+console.log(newIntersections(x, y))
 
 module.exports = newIntersections;
