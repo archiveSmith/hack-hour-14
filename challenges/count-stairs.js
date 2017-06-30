@@ -15,11 +15,10 @@
  */
 
 function countStairs(n) {
-    let cache = {'0':1,"1":1, "2":2}
-    function fib(n){
-        if (cache[n]) return cache[n]
-        cache[n]= fib(n - 1) + fib(n - 2)
-        return cache[n];
+    function fib(n,obj = {"0":1, "1":1}){
+        if (obj[n]) return obj[n]
+        obj[n]= fib(n - 1,obj) + fib(n - 2,obj)
+        return obj[n];
     }
     return fib(n)
 }
