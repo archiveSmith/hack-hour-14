@@ -9,9 +9,20 @@
 // from position x = 4 and y = 5.
 //  example input:
 // var str = "(4 5)"
-
-function knightjumps(str) {
-
+function isOnBoard(x, y){
+    return x<=8 && x>=1 && y<=8 && y>=1;
 }
 
+function knightjumps(str) {
+    let x = +str[1];
+    let y = +str[3];
+    let moves = 0;
+    for( let i = 1, j = 2, count = 0; count < 4; i *= -1, j = count === 1 ? -j : j, count++ ){
+        moves += isOnBoard(x+i, y+j) ? 1 : 0;
+        moves += isOnBoard(x+j, y+i) ? 1 : 0;
+    }
+    return moves;
+}
+
+console.log(knightjumps('(2 2)'));
 module.exports = knightjumps;
