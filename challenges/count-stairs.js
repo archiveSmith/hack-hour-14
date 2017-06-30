@@ -24,39 +24,8 @@ function countStairs(n) {
     }
 
 }
-    // //store permutations result
-    // const permutations = []
-    
-    // //swap flag
-    // let swapped = true;
-
-    // //divide n into array of 1s to produe input array
-    // let input = [];
-    // for(let i=0; i<n; i++) {
-    //      input.push(1)
-    // }
-
-    // //while (swaps - or more than 1 one in array)
-    // while(swapped) {
-    //     //set swapped to false
-    //     swapped = false;
-
-        //use latest permutations array as input
-        //loop through array
-            //for each element 
-                //keep track of current and next.
-                //if both ones
-                    //slice out from array
-                    //and replace original index with a 2
-                    //save permutation
-                    //set swapped to true
-        //update input array to permutations
-    }
-}
+module.exports = countStairs;
 
 //sum permutations of 1 and 2 
 //subtract 1 or 2 from n until you hit 0.
 //do this for all permutations of 1s and 2s
-
-
-module.exports = countStairs;

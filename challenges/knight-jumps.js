@@ -22,35 +22,34 @@ function knightjumps(str) {
     
     if(+pos[0]> 8 || +pos[0]< 1 ||  +pos[1]>8 ||  +pos[1]<1) return "enter position between 1 and 8"
     
-    let available = {'top':0, 'topright':1, 'topleft':2, 'left':3, 'right':4, 'bottomleft':5, 'bottomright':6, 'bottom':7}
+    let x = +pos[0]
+    let y = +pos[1]
     
-    //x = 1 ---> no left,   no top-left  no bottom-left
-    if(pos[0] === "1") {
-      delete available.left
-      delete available.topleft
-      delete available.bottomleft
-    }
-    //x = 8 ----->  no right, no top-right, no bottom-right
-    else if(pos[0] === "8") {
-      delete available.right
-      delete available.topright
-      delete available.bottomright
-    }
-    //y = 1 --->  no top,   no top-left,   no top-right
-    if(pos[1] === "1") {
-      delete available.top
-      delete available.topleft
-      delete available.topright
-    }
-    //y = 8 ---->   no bottom, no bottom-left , no bottom-right
-    else if(pos[1] === "8") {
-      delete available.bottom
-      delete available.bottomleft
-      delete available.bottomright
-    }
-    return Object.keys(available).length
+    
+    //get possible moves
+    let available = [];
+    available.push([x-2, y-1])
+    available.push([x-1, y-2])
+    available.push([x+1, y+2])
+    available.push([x+2, y-1])
+    available.push([x+2, y+1])
+    available.push([x+1, y+2])
+    available.push([x-1, y+2])
+    available.push([x-2, y+1])
+    
+    //check which moves are within the board
+    let moves = 0;
+    available.forEach((move) => {
+      if( 0 < move[0] && move[0] <=8 && 0 < move[1] && move[1] <= 8) {
+        moves++
+      }
+    })
+    
+    return moves;
+
+
 }
 
-// let s = "(0 1)"
+// let s = "(7 1)"
 // knightjumps(s)
 module.exports = knightjumps;
