@@ -17,6 +17,7 @@
  * 	 
  */
 
+<<<<<<< HEAD
 
 
 //'OLD directly above NEW' means the 
@@ -28,6 +29,9 @@ function newIntersections(x, y){
 //get the distance between the y values
 
 
+=======
+function newIntersections(x, y){
+>>>>>>> a6067b5cf9c0d9ffa020b7163afe94e376769a44
 
 }
 
