@@ -15,14 +15,14 @@ function knightjumps(str) {
   let y = str[3];
   let counter = 0;
   
-  if (x - 2 && y + 1) counter++
-  if (x - 2 && y - 1) counter++
-  if (y + 2 && x + 1) counter++
-  if (y + 2 && x - 1) counter++
-  if (x + 2 && y + 1) counter++
-  if (x + 2 && y - 1) counter++
-  if (y - 2 && x + 1) counter++
-  if (y - 2 && x - 1) counter++
+  if (x - 2 === 0 || x - 2 && y + 1) counter++
+  if (x - 2 === 0 || x - 2 && y - 1) counter++
+  if (y + 2 === 0 || y + 2 && x + 1) counter++
+  if (y + 2 === 0 || y + 2 && x - 1) counter++
+  if (x + 2 === 0 || x + 2 && y + 1) counter++
+  if (x + 2 === 0 || x + 2 && y - 1) counter++
+  if (y - 2 === 0 || y - 2 && x + 1) counter++
+  if (y - 2 === 0 || y - 2 && x - 1) counter++
   
   return counter;
 }
