@@ -10,8 +10,43 @@
 //  example input:
 // var str = "(4 5)"
 
+const l = console.log
+
 function knightjumps(str) {
 
+    const x = +str[1]
+    const y = +str[3]
+    // l('x--> ',x)
+    // l('y--> ',y)
+
+    const moves = [
+        [ 1, 2],
+        [ 2, 1],
+        [ 2,-1],
+        [ 1,-2],
+        [-1,-2],
+        [-2,-1],
+        [-2, 1],
+        [-1, 2]
+    ];
+
+    bounds = [1, 8];
+
+    return moves.reduce( (a,v)=>{
+        if (
+            (x + v[0]) <= bounds[1] &&
+            (x + v[0]) >= bounds[0] &&
+            (y + v[0]) <= bounds[1] &&
+            (y + v[0]) >= bounds[0]
+            ) {
+                return a = a + 1
+            }
+            return a
+    } , 0)
+
 }
+
+l(knightjumps('(1 5)'))
+
 
 module.exports = knightjumps;
