@@ -27,7 +27,7 @@ const calcJumps = ({ x, y }) => {
   result.push({x: x - 1, y: y - 2})
   result.push({x: x + 1, y: y + 2})
   result.push({x: x + 1, y: y - 2})
-  return result.filter(cur => cur.x > 0 && cur.y > 0 && cur.x < 8 && cur.y < 8).length
+  return result.filter(cur => cur.x > 0 && cur.y > 0 && cur.x <= 8 && cur.y <= 8).length
 }
 
 module.exports = knightjumps;
