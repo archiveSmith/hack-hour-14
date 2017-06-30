@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  let x = +str[1];
+  let y = +str[3];
+  // console.log('x', x);
+  // console.log('y', y);
+  const moves = [[-2, -1], [-2, +1], [+2, -1], [+2, +1], [-1, +2], [+1, +2], [-1, -2], [+1, -2]];
+  let counter = 0;
+  for (let i = 0; i < moves.length; i += 1) {
+    // console.log(x + moves[i][0])
+    // console.log(y + moves[i][1])
+    if (x + moves[i][0] > 0 && y + moves[i][1] > 0) {
+      counter += 1;
+      console.log('added')
+    } else {
+      console.log('skipped')
+    }
+  }
+  return counter;
 }
+
+console.log(knightjumps("(1 1)"));
 
 module.exports = knightjumps;
