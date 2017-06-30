@@ -11,7 +11,24 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+    str = str.split("")
 
+    //parse string into an array of two valeus
+    let position = [Number(str[1]), Number(str[3])]
+
+    //list of possible moves without restrictions
+    potMoves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]]
+
+    //if add the potential moves to the position keeps both values between 1 and 8, then it is a jump move
+    let totalMoves = 0;
+    potMoves.forEach((e) => {
+        let dx = position[0] + e[0];
+        let dy = position[1] + e[1];
+        if ((dx >= 1 && dx <= 8) && (dy >= 1 && dy <= 8)) {
+            totalMoves++
+        }
+    })
+    return totalMoves
 }
 
 module.exports = knightjumps;
