@@ -11,7 +11,23 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let temp = str.replace(/\((\d) (\d)\)/g, '$1,$2').split(',')
+  temp = {x: temp[0], y: temp[1]}
+  return calcJumps(temp)
+}
 
+const calcJumps = ({ x, y }) => {
+  let result = []
+  result.push({x: x - 2, y: y + 1})
+  result.push({x: x - 2, y: y - 1})
+  result.push({x: x + 2, y: y + 1})
+  result.push({x: x + 2, y: y - 1})
+
+  result.push({x: x - 1, y: y + 2})
+  result.push({x: x - 1, y: y - 2})
+  result.push({x: x + 1, y: y + 2})
+  result.push({x: x + 1, y: y - 2})
+  return result.filter(cur => cur.x > 0 && cur.y > 0 && cur.x < 8 && cur.y < 8).length
 }
 
 module.exports = knightjumps;
