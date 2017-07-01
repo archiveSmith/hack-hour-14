@@ -8,7 +8,6 @@
 
 
 function countTwos(num) {
-<<<<<<< HEAD
     let counter = 0;
     let checker = "";
     for (let i = 1; i <= num; i++) {
@@ -16,9 +15,6 @@ function countTwos(num) {
         checker.forEach((element) => { if (element === '2') counter++ });
     }
     return counter;
-=======
-
->>>>>>> abdb6b31102ef6e05a6e205a15d6c183fc72577d
 }
 
 module.exports = countTwos;
