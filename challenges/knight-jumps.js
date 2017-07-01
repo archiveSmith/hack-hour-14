@@ -19,7 +19,7 @@ function knightjumps(str) {
     //from posiition it movex x axis over 1
 
     //count how many spaces the knight can move
-    let count = 0; 
+    let count = 8; 
 
     //seperate x and y points
      str = str.replace(/\(/,'').replace(/\)/,'').split(' ');
