@@ -33,7 +33,27 @@
 */
 
 function pascalTriangle(numRows) {
-
+  if (numRows === 1) return [[1]]
+  else if (numRows === 2) return [[1], [1, 1]]
+  // add first two elements of the [1,1] array and insert it in the in the middle of the indices of its addends
+  else {
+    let pascal = [[1], [1, 1]];
+    let start = pascal[1];
+    while (pascal.length !== numRows) {
+      let copy = start.slice()
+      for (let i = 0; i < start.length - 1; i += 1) {
+        let j = i + 1;
+        let sum = start[i] + start[j];
+        copy.splice((i + 1), 0, sum);
+      }
+      let filtered = copy.filter((el) => { return el === 1 || !start.includes(el) })
+      pascal.push(filtered);
+      start = filtered;
+    }
+    return pascal;
+  }
 }
+
+// console.log(pascalTriangle(6));
 
 module.exports = pascalTriangle;
