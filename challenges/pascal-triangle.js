@@ -32,8 +32,20 @@
   ]
 */
 
-function pascalTriangle(numRows) {
-
+const pascalTriangle = (numRows) => {
+  let result = []
+  for (let i = 0; i < numRows; i += 1) {
+    let inner = []
+    for (let j = 0; j <= i; j += 1) {
+      if (j === 0) inner.push(1)
+      else if (j === i) inner.push(1)
+      else if (i >= 2) {
+        inner.push(result[i - 1][j - 1] + result[i - 1][j])
+      }
+    }
+    result.push(inner)
+  }
+  return result
 }
 
 module.exports = pascalTriangle;
