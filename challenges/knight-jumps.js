@@ -39,10 +39,6 @@ function knightjumps(str) {
             (y + v[1]) <= bounds[1] &&
             (y + v[1]) >= bounds[0]
         ) {
-            // l('x--> ',x)
-            // l('y--> ',y)
-            // l('y--> ',y)
-            // l('y--> ',y)
             return a = a + 1
         }
         return a
