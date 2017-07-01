@@ -32,8 +32,27 @@
   ]
 */
 
+const l = console.log
+
 function pascalTriangle(numRows) {
 
+  // create the top of the triangle
+  const tri = [[1]];
+  // loop over the number of rows
+  for (let i=1 ; i<numRows ; i++) {
+    // push a new row to the triangle
+    tri.push([1,1])
+    // loop over the previous row
+    for (let j=0 ; j<tri[i-1].length-1 ; j++){
+      // sum the two values above the current value
+      let sumAbove = tri[i-1][j] + tri[i-1][j+1]
+      // splice it in the current row
+      tri[i].splice(tri[i].length-1, 0, sumAbove)
+    }
+  }
+  return tri;
 }
+
+l(pascalTriangle(6))
 
 module.exports = pascalTriangle;
