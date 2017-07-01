@@ -14,29 +14,52 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-    function knightjumps(str) {
-    str = str.split("")
+    //up 2 over 1
+    //from position it moves y axis 2
+    //from posiition it movex x axis over 1
 
-    //parse string into an array of two valeus
-    let position = [Number(str[1]), Number(str[3])]
+    //count how many spaces the knight can move
+    let count = 0; 
 
-    //list of possible moves without restrictions
-    potMoves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]]
-
-    //if add the potential moves to the position keeps both values between 1 and 8, then it is a jump move
-    let totalMoves = 0;
-    potMoves.forEach((e) => {
-        let dx = position[0] + e[0];
-        let dy = position[1] + e[1];
-        if ((dx >= 1 && dx <= 8) && (dy >= 1 && dy <= 8)) {
-            totalMoves++
-        }
-    })
-    return totalMoves
+    //seperate x and y points
+     str = str.replace(/\(/,'').replace(/\)/,'').split(' ');
+    let x = Number(str[0]);
+    let y = Number(str[1]);
+     
+    //add to count if coordinates are greater than -1 and less than 9
+    //top moves
+        //add 2 to y, add 1 to x and subtract 1 from x  
+    //bottom moves
+        //subtract 2 from y, add 1 to x and subtract 1 from x
+    //right moves
+        //add 2 to x, subtract 1 from y and add 1 to y
+    //left moves 
+        //subtract 2 from x, subtract 1 from y and add 1 to y
+  
+    
+//       if(y + 2 < 9 && y + 2 > -1){
+//         if(x + 1 < 9 && x + 1 > -1){
+//           count++
+//         }
+//         if(x - 1 < 9 && x - 1 > -1){
+//           count++
+//         }
+//       }
+  
+  if (x + 2 > 8 || y + 1 > 8) count -= 1
+  if (x + 2 > 8 || y - 1 < 1) count -= 1
+  if (x - 2 < 1 || y + 1 > 8) count -= 1
+  if (x - 2 < 1 || y - 1 < 1) count -= 1
+  if (x + 1 > 8 || y + 2 > 8) count -= 1
+  if (x + 1 > 8 || y - 2 < 1) count -= 1
+  if (x - 1 < 1 || y + 2 > 8) count -= 1
+  if (x - 1 < 1 || y - 2 < 1) count -= 1
+     
+     //return count
+     return count;
 }
-}
 
-module.exports = knightjumps;
+module.exports = knightjumps(str);
 
 
 // function knightjumps(str) {
