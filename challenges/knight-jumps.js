@@ -20,16 +20,16 @@ function knightjumps(str) {
   for (let i = 0; i < moves.length; i += 1) {
     // console.log(x + moves[i][0])
     // console.log(y + moves[i][1])
-    if (x + moves[i][0] > 0 && y + moves[i][1] > 0) {
+    if (x + moves[i][0] > 0 && y + moves[i][1] > 0 && x + moves[i][0] < 9 && y + moves[i][1] < 9) {
       counter += 1;
-      console.log('added')
+      // console.log('added')
     } else {
-      console.log('skipped')
+      // console.log('skipped')
     }
   }
   return counter;
 }
 
-console.log(knightjumps("(1 1)"));
+console.log(knightjumps("(8 8)"));
 
 module.exports = knightjumps;
