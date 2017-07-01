@@ -15,10 +15,14 @@
  */
 
 function countStairs(n) {
+<<<<<<< HEAD
     if ( typeof n !== "number") return "Not a number";
     if ( n > 1 ) return countStairs(n - 2) + countStairs(n - 1)
     else if (n > 0) return countStairs(n-1)
     return 1;
+=======
+
+>>>>>>> e05a5bdca0729f38b0df42019f7d1f5ceee58fbe
 }
 
 module.exports = countStairs;
