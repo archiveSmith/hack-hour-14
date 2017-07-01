@@ -35,8 +35,14 @@
 function pascalTriangle(numRows) {
   const result = [];
   
-  result[0] = [1];
-  result[1] = [1, 1];
+  if(nuRows < 1){
+    result[0] = [1];
+  }
+
+  if (numRows > 1){
+    result[0] = [1];
+    result[1] = [1, 1];
+  }
   
   
   for (let row = 2; row < numRows; row++) {

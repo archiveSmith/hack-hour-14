@@ -86,9 +86,6 @@ module.exports = knightjumps(str);
 // }
 
 
-=======
+//Ryan solution
 
-}
 
-module.exports = knightjumps;
->>>>>>> c6106ce6537288ed53175b060628c747d496b5d5
