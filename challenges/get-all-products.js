@@ -10,7 +10,23 @@
  */
 
 function getAllProducts(array) {
-
+  if (array === undefined) return 'invalid input';
+  else if (!array.length) return [0];
+  const results = [];
+  for (let i = 0; i < array.length; i += 1) {
+    const temp = [];
+    for (let j = 0; j < array.length; j += 1) {
+      if (j !== i) temp.push(array[j]);
+    }
+    results.push(temp.reduce((a,c) => a * c, 1));
+  }
+  return results;
 }
+
+console.log(getAllProducts([1, 7, 3, 4])); //->  [84, 12, 28, 21]
+console.log(getAllProducts());
+console.log(getAllProducts([]));
+console.log(getAllProducts([1]));
+console.log(getAllProducts([5,0,2,3,4]));
 
 module.exports = getAllProducts;
