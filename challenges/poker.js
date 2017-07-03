@@ -25,8 +25,20 @@ function poker(hand1, hand2) {
   
   handOne.push(fourOfAKind(hand1), fullHouse(hand1), straight(hand1), threeOfAKind(hand1), twoPair(hand1), onePair(hand1))
   handTwo.push(fourOfAKind(hand2), fullHouse(hand2), straight(hand2), threeOfAKind(hand2), twoPair(hand2), onePair(hand2))
+  
+  console.log('HANDONE',handOne)
+  console.log('HANDTWO', handTwo)
+  
+  if (!handOne.includes(true) && !handTwo.includes(true)) {
+    console.log('hi')
+    let h1Sort = hand1.sort();
+    let h2Sort = hand2.sort();
+    return h1Sort[4] > h2Sort[4] ? 'Player One Wins' : 'Player Two Wins'
+  } 
+  
+  console.log('HFEKJW', handOne.indexOf('true'))
+  return handOne.indexOf('true') < handTwo.indexOf('true') ? 'Player One Wins' : 'Player Two Wins'
 
-  console.log(handOne, handTwo)
 }
 
 function fourOfAKind(hand) {
@@ -42,11 +54,7 @@ function fourOfAKind(hand) {
 function fullHouse(hand) {
   let cache = {};
   for (let i = 0; i < hand.length; i++) {
-    if (!cache[hand[i]]) {
-      cache[hand[i]] = 1;
-    } else {
-      cache[hand[i]] ++
-    }
+    !cache[hand[i]] ? cache[hand[i]] = 1 : cache[hand[i]]++
   }
 
   for (x in cache) {
@@ -73,11 +81,7 @@ function straight(hand) {
 function threeOfAKind(hand) {
   let cache = {};
   for (let i = 0; i < hand.length; i++) {
-    if (!cache[hand[i]]) {
-      cache[hand[i]] = 1
-    } else {
-      cache[hand[i]]++
-    }
+    !cache[hand[i]] ? cache[hand[i]] = 1 : cache[hand[i]]++
   }
   
   for (x in cache) {
@@ -91,11 +95,7 @@ function threeOfAKind(hand) {
 function twoPair(hand) {
   let cache = {};
   for (let i = 0; i < hand.length; i++) {
-    if(!cache[hand[i]]) {
-      cache[hand[i]] = 1;
-    } else {
-      cache[hand[i]]++
-    }
+    !cache[hand[i]] ? cache[hand[i]] = 1 : cache[hand[i]]++
   }
   
   for (x in cache) {
