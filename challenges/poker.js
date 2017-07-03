@@ -23,19 +23,9 @@ function poker(hand1, hand2) {
   let handOne = [];
   let handTwo = [];
   
-  handOne.push(fourOfAKind(hand1))
-  handTwo.push(fourOfAKind(hand2))
-  handOne.push(fullHouse(hand1))
-  handTwo.push(fullHouse(hand2))
-  handOne.push(straight(hand1))
-  handTwo.push(straight(hand2))
-  handOne.push(threeOfAKind(hand1))
-  handTwo.push(threeOfAKind(hand2))
-  handOne.push(twoPair(hand1))
-  handTwo.push(twoPair(hand2))
-  handOne.push(onePair(hand1))
-  handTwo.push(onePair(hand2))
-  
+  handOne.push(fourOfAKind(hand1), fullHouse(hand1), straight(hand1), threeOfAKind(hand1), twoPair(hand1), onePair(hand1))
+  handTwo.push(fourOfAKind(hand2), fullHouse(hand2), straight(hand2), threeOfAKind(hand2), twoPair(hand2), onePair(hand2))
+
   console.log(handOne, handTwo)
 }
 
