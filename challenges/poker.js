@@ -18,8 +18,119 @@
 * Example: poker([3,5,5,5,2], [4,6,7,8,8]) -> "Player 1 wins"
 */
 
+//NOT FINISHED
 function poker(hand1, hand2) {
+  let handOne = [];
+  let handTwo = [];
+  
+  handOne.push(fourOfAKind(hand1))
+  handTwo.push(fourOfAKind(hand2))
+  handOne.push(fullHouse(hand1))
+  handTwo.push(fullHouse(hand2))
+  handOne.push(straight(hand1))
+  handTwo.push(straight(hand2))
+  handOne.push(threeOfAKind(hand1))
+  handTwo.push(threeOfAKind(hand2))
+  handOne.push(twoPair(hand1))
+  handTwo.push(twoPair(hand2))
+  handOne.push(onePair(hand1))
+  handTwo.push(onePair(hand2))
+  
+  console.log(handOne, handTwo)
+}
 
+function fourOfAKind(hand) {
+  let sorted = hand.sort();
+  if (sorted[1] === sorted[2] && sorted[1] === sorted[3]) {
+    if (sorted[1] === sorted[0] || sorted[1] === sorted[4]) {
+      return true;
+    } 
+  }
+  return false;
+}
+
+function fullHouse(hand) {
+  let cache = {};
+  for (let i = 0; i < hand.length; i++) {
+    if (!cache[hand[i]]) {
+      cache[hand[i]] = 1;
+    } else {
+      cache[hand[i]] ++
+    }
+  }
+
+  for (x in cache) {
+    if (cache[x] === 3) {
+      for (y in cache) {
+        if (cache[y] === 2) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+function straight(hand) {
+  let sorted = hand.sort();
+  if (sorted[4] === sorted[3]+1 && sorted[3] === sorted[2]+1 && sorted[2] === sorted[1]+1 && sorted[1] === sorted[0]+1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function threeOfAKind(hand) {
+  let cache = {};
+  for (let i = 0; i < hand.length; i++) {
+    if (!cache[hand[i]]) {
+      cache[hand[i]] = 1
+    } else {
+      cache[hand[i]]++
+    }
+  }
+  
+  for (x in cache) {
+    if (cache[x] === 3) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function twoPair(hand) {
+  let cache = {};
+  for (let i = 0; i < hand.length; i++) {
+    if(!cache[hand[i]]) {
+      cache[hand[i]] = 1;
+    } else {
+      cache[hand[i]]++
+    }
+  }
+  
+  for (x in cache) {
+    if (cache[x] === 2) {
+      delete cache[x]
+      for (y in cache) {
+        if (cache[y] === 2) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+function onePair(hand) {
+  for (let i = 0; i < hand.length; i++) {
+    let a = hand[i];
+    for (let j = i+1; j < hand.length; j++) {
+      if (a === hand[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 module.exports = poker;
