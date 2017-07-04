@@ -51,8 +51,9 @@ const mapHand = (array) => {
 
 
 function poker(hand1, hand2) {
-  console.log(hand1);
-  console.log(hand2);
+  console.log('hand1 -->', hand1);
+  console.log('hand2 -->', hand2);
+  console.log('--------------------')
   const map1 = mapHand(hand1);
   const map2 = mapHand(hand2);
 
@@ -163,6 +164,6 @@ function poker(hand1, hand2) {
 const hand1 = [7,1,2,4,5];
 const hand2 = [1,2,3,5,4];
 
-console.log(poker(hand1, hand2));
+// console.log(poker(hand1, hand2));
 
 module.exports = poker;
