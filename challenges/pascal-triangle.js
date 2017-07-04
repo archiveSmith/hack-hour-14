@@ -34,6 +34,7 @@
 
 function pascalTriangle(numRows) {
 
+<<<<<<< HEAD
   let store = [];
   if(numRows === 1){
     store[0] = [1];
@@ -64,4 +65,8 @@ function pascalTriangle(numRows) {
   }
   return store;
 }
+=======
+}
+
+>>>>>>> 44d2d8ece11dbe95cfcdbb9a5e85c6f57ad33c2f
 module.exports = pascalTriangle;
