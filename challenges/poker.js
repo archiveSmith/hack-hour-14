@@ -51,6 +51,8 @@ const mapHand = (array) => {
 
 
 function poker(hand1, hand2) {
+  console.log(hand1);
+  console.log(hand2);
   const map1 = mapHand(hand1);
   const map2 = mapHand(hand2);
 
