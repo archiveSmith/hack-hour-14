@@ -25,7 +25,31 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+
+const l = console.log
+
+function missingNum(arr) {
+
+  // const len = arr.length;
+  // const maxNum = Math.max(...arr)
+  // l('max -->', maxNum)
+
+  let max = 0;
+  let sum = 0;
+
+  for (let i=0 ; i<arr.length ; i++) {
+    sum += arr[i];
+    if (max<arr[i]) max=arr[i];
+  }
+  const expectedSum = max * (1 + max) * .5
+  let delta = expectedSum - sum;
+  return delta
 }
+
+const arr1 = [2, 3, 1, 5, 6, 4, 8]
+  // n=4
+  // elements expected from 1 - 5
+
+l('output --> ', missingNum(arr1))
 
 module.exports = missingNum;
