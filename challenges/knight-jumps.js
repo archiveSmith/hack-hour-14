@@ -24,5 +24,4 @@ function knightjumps(str) {
     return moves;
 }
 
-console.log(knightjumps('(2 2)'));
 module.exports = knightjumps;
