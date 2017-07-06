@@ -17,9 +17,34 @@
 *
 * Example: poker([3,5,5,5,2], [4,6,7,8,8]) -> "Player 1 wins"
 */
-
-function poker(hand1, hand2) {
-
+function findCount(hand){
+    let obj = {four: [], three: [], two: [], straight: []}
+    hand = hand.sort((a,b) => a-b);
+    if(hand[4] - hand[0] === 5){
+        obj.straight.push(hand[4]);
+    }
+    hand.reduce((obj, curr) => {
+        curr in obj ? obj[curr]++ : obj[curr] = 1;
+        if(obj[curr] === 4){
+            delete obj[three][curr];
+            obj[four][curr] = true;
+        } 
+        else if(obj[curr] === 3){
+            delete obj[two][curr];
+            obj[three][curr] = true;
+        } 
+        else if(obj[curr] === 2){
+            obj[two][curr] = true;
+        }
+        return obj;
+    },{four: {}, three: {}, two: {}});
 }
 
+function poker(hand1, hand2) {
+    let count1 = findCount(hand1);
+    let count2 = findCount(hand2);
+    console.log(count1, count2);
+}
+
+poker([1,1,1,1,2],[2,2,2,3,4]);
 module.exports = poker;
