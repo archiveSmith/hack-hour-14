@@ -10,6 +10,8 @@ For example, given array A such that:
   A[1] = 3
   A[2] = 1
   A[3] = 5
+
+  A[2,3,1,5]   N=4   should contain [1..4]
 the function should return 4, as it is the missing element.
 
 Assume that:
@@ -26,6 +28,19 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  for(let i=1; i<Array.length+1; i++) {
+    if(Array.indexOf(i) < 0) {
+      return i;
+    }
+  }
+  return -1;
 }
+
+function missingNum2(Array) {
+  //set should be 1...N+1
+  //sum of set should be N+1! => 1 + 2 + 3 + 4 +...N+1
+  //
+}
+
 
 module.exports = missingNum;
