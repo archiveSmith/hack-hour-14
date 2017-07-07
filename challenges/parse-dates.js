@@ -38,9 +38,23 @@
 // - you can assume the provided day of month will be valid if it's a month string
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
+const moment = require('moment')
 
 function parseDates(str) {
-  
+  //day abbrv - month arv - day # - year - hh:mm:ss
+  let myDate = str.split(' ')
+
+  if (myDate[0] === 'Today') return moment().format('ddd MMM D Y ') + myDate[1] + ':00 ' + myDate[2] + ' GMT-0800 (PST)'
+
+
+
+  return myDate
+
+
+
+//return moment(str).format('ddd MMM D Y h:mm:ss ') + ' GMT-0800 (PST)'
 }
+
+console.log(parseDates('Today 2:01 PM'))
 
 module.exports = parseDates;
