@@ -26,6 +26,7 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(arr) {
+  if(!arr.length) return 0;
   let max = -Infinity;
   let min = Infinity;
   let sum = 0;
