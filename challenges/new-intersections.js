@@ -17,8 +17,26 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
+function newIntersections(x, y) {
+    for (let i = 0; i < x.length; i++) {
+        for (let j = 0; j < y.length; i++) {
+            let currentX = x[i];
+            let currentY = y[i];
+            if (x.indexOf(i + 1) == y.indexOf(j - 1)) {
+                if (x.indexOf(i + 2) == y.indexOf(j + 1)) {
+                    if (x.indexOf(i + 1) == y.indexOf(j + 1)) {
+                    }
+                }
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
 
 module.exports = newIntersections;

@@ -1,5 +1,6 @@
 // Have the function knightjumps(str) read str which will be a
-// string consisting of the location of a knight on a standard 8x8 chess board with no other pieces on the board.
+// string consisting of the location of a knight on a standard 
+//8x8 chess board with no other pieces on the board.
 
 // The structure of str will be the following string: "(x y)" which represents the position of the knight with x and y ranging
 // from 1 to 8.
@@ -10,8 +11,50 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
-
+function checkup(arr){
+  let moves = 0;
+  
+  if(arr[1] - 2 >= 1){
+    if(arr[0] - 1 >= 1) moves++;
+    if(arr[0] + 1 <= 8) moves++;
+  }
+  return moves
 }
+
+function checkdown(arr){
+  let moves = 0;
+  if(arr[1] + 2 <= 8){
+    if(arr[0] - 1 >= 1) moves++;
+    if(arr[0] + 1 <= 8) moves++;
+  }
+  return moves
+}
+
+function checkleft(arr){
+  let moves = 0;
+  if(arr[0] - 2 >= 1){
+    if(arr[1] - 1 >= 1) moves++;
+    if(arr[1] + 1 <= 8) moves++;
+  }
+  return moves
+}
+
+function checkright(arr){
+  let moves = 0;
+  if(arr[0] + 2 <= 8){
+    if(arr[1] - 1 >= 1) moves++;
+    if(arr[1] + 1 <= 8) moves++;
+  }
+  return moves
+}
+
+function knightjumps(str) {
+  let x = +str[1];
+  let y = +str[3];
+  let xy = [x,y];
+  return checkright(xy) + checkleft(xy) + checkup(xy) + checkdown(xy);
+}
+
+
 
 module.exports = knightjumps;
