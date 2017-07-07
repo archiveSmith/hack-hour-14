@@ -26,20 +26,21 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(arr) {
-  // loop get the max and summate the arr
-  let max = 0;
+  // max = arr.length + 1;
+  let max = arr.length + 1
+  // loop and summate the arr
   let arrSum = 0;
   for (let i = 0; i < arr.length; i += 1){
-    if(arr[i] > max) max = arr[i];
     arrSum += arr[i];
   }
   // get the sum of 1 - max
-  let sum = max * (max + 1)/2
+  let expectedSum = max * (max + 1)/2
   // return the difference between the two sums
-  return sum - arrSum;
+  const missing = expectedSum - arrSum;
+  return missing;
 }
 
 module.exports = missingNum;
 
-// arr = [1,2,4,5]
+// arr = [2,3,5,1]
 // console.log(missingNum(arr));
