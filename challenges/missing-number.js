@@ -26,19 +26,16 @@ Challange:
   ** keep in mind time complexity
 */
 
-// n * (n + 1) * .5
 function missingNum(array) {
+  //edge case:
   if (!array) return;
-
-  let actualSum = 0;
-  let max = -Infinity;
-
-  for (let i = 0; i < array.length; i += 1) {
-    actualSum += array[i];
-    if (array[i] > max) max = array[i];
-  }
-
-  let expectedSum = max * (max + 1) / 2;
+  //since we know array[0] === 1 and each step += 1, we know the max value in array will be array.length + 1
+  let maxVal = array.length + 1;
+  //calculate actual sum
+  let actualSum = array.reduce((a,c) => a + c);
+  //calculate expected sum using sum of linear series of numbers formula: n * (n + 1) / 2
+  let expectedSum = maxVal * (maxVal + 1) / 2;
+  //return difference
   return expectedSum - actualSum;
 }
 
