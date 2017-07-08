@@ -8,6 +8,29 @@
 
 
 function countTwos(num) {
+  //loop from 0 to n
+  //convert num to string
+  //split it into array
+  //loop through array, incrementing counter every time 2 appears
+
+  let counter = 0;
+  for (let i = 0; i <= num; i += 1) {
+    let num = i;
+    let str = num.toString();
+    let arr = str.split('');
+    for (let j = 0; j < arr.length; j += 1) {
+      if (arr[j] === '2') counter += 1;
+    }
+  }
+  return counter;
+}
+
+
+console.log(countTwos(1));  //-> 0
+console.log(countTwos(3));  //-> 1
+console.log(countTwos(13));  //-> 2
+console.log(countTwos(1000));  //-> 300
+console.log(countTwos(11420));  //-> 4483
 
 }
 

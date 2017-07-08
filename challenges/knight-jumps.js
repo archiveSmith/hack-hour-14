@@ -11,7 +11,27 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const x = +str[1];
+  const y = +str[3];
+  const moves = [[-2, -1], [-2, +1], [+2, -1], [+2, +1], [-1, +2], [+1, +2], [-1, -2], [+1, -2]];
 
+  //pure functional/declarative approach (no side effects):
+  return moves.reduce((a,c) => {
+    if (x + c[0] > 0 && y + c[1] > 0 && x + c[0] < 9 && y + c[1] < 9) c = 1;
+    else c = 0;
+    return a + c;
+  }, 0)
+
+  //imperative approach (with side effect)
+  // let counter = 0;
+  // for (let i = 0; i < moves.length; i += 1) {
+  //   if (x + moves[i][0] > 0 && y + moves[i][1] > 0 && x + moves[i][0] < 9 && y + moves[i][1] < 9) {
+  //     counter += 1;
+  //   }
+  // }
+  // return counter;
 }
+
+console.log(knightjumps("(4 5)"));
 
 module.exports = knightjumps;

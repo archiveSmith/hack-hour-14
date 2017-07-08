@@ -14,6 +14,22 @@
 
 function bestProfit(stock_prices_yesterday) {
 
+  if (stock_prices_yesterday[0] === Math.max(...stock_prices_yesterday)
+    || stock_prices_yesterday.some(isNaN)
+    || stock_prices_yesterday.length < 2) {
+      return 0;
+  }
+  let maxDiff = 0;
+  for (let i = 0; i < stock_prices_yesterday.length; i += 1) {
+    for (let j = i + 1; j < stock_prices_yesterday.length; j += 1) {
+      let profit = stock_prices_yesterday[j] - stock_prices_yesterday[i];
+      if (profit > maxDiff) maxDiff = profit;
+    }
+  }
+  return maxDiff;
 }
+
+const arr = [1, 9, 8, 'hi'];
+console.log(bestProfit(arr));
 
 module.exports = bestProfit;
