@@ -39,8 +39,44 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
+const l = console.log
+
 function parseDates(str) {
-  
+
+    strArr = str.split(' ');
+
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const today = new Date()
+    const currYear = today.getUTCFullYear();
+    const currMonth = today.getUTCMonth();
+    const currDate = today.getUTCDate();
+
+    // l('today --> ', today)
+    // l('currYear --> ', currYear)
+    // l('currMonth --> ', currMonth)
+    // l('currDate --> ', currDate)
+
+    // if strArr starts with 'Today' --> return date object for today
+    if (strArr[0] === 'Today') return new Date(currYear, currMonth, currDate, ...parseTime(strArr[1], strArr[2])).toString()
+    
+    // if strArr starts with a day of week --> return last the last occurence of that day of the week before today
+
+    // if strArr starts with a month --> assume for 2017
+
+    // else, return current time
 }
+
+function parseTime(timeStr){
+    return 
+}
+
+l(parseDates('Today 8:15 PM'))     //=> returns new Date object representing 'Thu Dec 17 2015 20:15:00 GMT-0800 (PST)'
+// l(parseDates('Jan 12th 1:09 AM'))  //=> returns new Date object representing 'Mon Jan 12 2015 01:09:00 GMT-0800 (PST)'
+// l(parseDates('Sunday 12:59 PM'))   //=> returns new Date object representing 'Sun Dec 13 2015 12:59:00 GMT-0800 (PST)'
+// l(parseDates('Jan 1st'))           //=> returns todays date
+// l(parseDates('hello'))             //=> returns todays date
+// l(parseDates('Today 2 PM'))        //=> returns todays date
+
 
 module.exports = parseDates;
