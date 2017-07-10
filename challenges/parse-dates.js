@@ -44,7 +44,14 @@ function parseDates(str) {
   //day abbrv - month arv - day # - year - hh:mm:ss
   let myDate = str.split(' ')
 
-  if (myDate[0] === 'Today') return moment().format('ddd MMM D Y ') + myDate[1] + ':00 ' + myDate[2] + ' GMT-0800 (PST)'
+  if (myDate[0] === 'Today') {
+    return moment().format('ddd MMM D Y ') + myDate[1] + ':00 ' + myDate[2] + ' GMT-0800 (PST)'
+  } else if (moment(myDate[0], dddd) === true) {
+
+  } else if (moment(myDate[0], MMM) === true) {
+
+  }
+
 
 
 

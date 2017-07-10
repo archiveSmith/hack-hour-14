@@ -11,6 +11,9 @@
 
 function solveKnapsack(items, weightAvailable) {
 
-};
+
+
+}
+;
 
 module.exports = solveKnapsack;
