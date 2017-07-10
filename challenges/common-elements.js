@@ -28,7 +28,7 @@ function commonElements(array1, array2, array3, array4) {
     if (array1.includes(longest[i]) && array2.includes(longest[i])
     && array3.includes(longest[i]) && array4.includes(longest[i])
     && !output.includes(longest[i])) {
-      output.push(longest[i]);
+      output.unshift(longest[i]);
     }
   }
   if (output === []) return 'Nothing in Common';
