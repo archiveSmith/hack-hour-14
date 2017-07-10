@@ -10,7 +10,9 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
+  let a = items.forEach((e) => {
+    return Object.keys(e)
+  })
 };
 
 module.exports = solveKnapsack;

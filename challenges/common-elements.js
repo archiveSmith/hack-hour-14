@@ -13,7 +13,24 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
+  let a;
+  let longestArr = Math.max(...[array2.length, array1.length, array3.length, array4.length])
+  let res = [];
 
+  for (let i = 0; i < longestArr; i++) {
+    a = array1[i];
+    if (array2.includes(a) && array3.includes(a) && array4.includes(a)) {
+      res.push(a)
+    }
+  }
+  
+  let uniq = res.reduce(function(a,b){
+    if (a.indexOf(b) < 0 ) a.push(b);
+    return a;
+  },[]);
+  
+  return uniq.length ? uniq : "Nothing in Common!"
 }
+
 
 module.exports = commonElements;
