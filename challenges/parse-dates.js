@@ -39,8 +39,69 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
+//var d = new Date("2015-03-25T12:00:00-06:30");
+
+//"Wed Mar 25 2015 09:56:24 GMT+0100
+// month day year time
+
+
+function getDay()
+
 function parseDates(str) {
+  let arr = str.split(/\s/)
+  
+  //checki if invalid
+  if(arr.length < 3) {
+    return new Date();
+  }
+  
+  let day = "";
+  let month = "";
+  let year = 2017;
+  let time = "";
+  
+  
+  //first element either DayOfWeek or Month(3 letters)
+  if(arr[0].length === 3){
+    month = arr[0]
+    day = arr[1]
+  }
+  else {
+    month = 'Jul'
+    switch(arr[0]) {
+      case 'Monday':
+        day = '03'
+        break
+      case 'Tuesday':
+        day = '04'
+        break
+      case 'Wednesday':
+        day = '05'
+        break
+      case 'Thursday':
+        day = '06'
+        break
+      case 'Friday':
+        month = 'Jun'
+        day = '30'
+        break
+      case 'Saturday':
+        day = '1st'
+        break
+      case 'Sunday':
+        day = '2nd'
+        break
+      case 'Today':
+        day = '7th'
+        break
+    }
+  }
+    
+  //check each section
+  arr.forEach((el, index) =>{
+
+  })
   
 }
 
-module.exports = parseDates;
+parseDates('Jan 12th 1:09 AM')

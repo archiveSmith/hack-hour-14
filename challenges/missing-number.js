@@ -38,8 +38,11 @@ function missingNum(Array) {
 
 function missingNum2(Array) {
   //set should be 1...N+1
+   
   //sum of set should be N+1! => 1 + 2 + 3 + 4 +...N+1
-  //
+  //take away each element until u have ze missing one
+  // let sum = Array.length
+  // Array.reduce((sum,el) => sum +el )
 }
 
 
