@@ -12,13 +12,9 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(array1, array2, array3, array4){
-  //put all arrays inside another array
-  const arr = [array1, array2, array3, array4];
-  //use reduce to create new array with only common values
-  return arr.reduce((a,c) => combine(a,c));
-
-  return 'Nothing in Common!';
+function commonElements(...args) {
+  const result = args.reduce((a,c) => combine(a,c));
+  return result.length ? result : 'Nothing in Common!';
 }
 
 function combine(arr1, arr2) {
