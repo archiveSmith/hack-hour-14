@@ -12,8 +12,25 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(array1, array2, array3, array4){
-
+function commonElements(...arrays){
+  //output array
+  const output = [];
+  //sort by arrays by length
+  const sorted = arrays.sort((a,b)=> a.length - b.length)
+  //take shortest
+  const shortest = sorted[0]
+  // check each element against the other 3 arrays using .includes
+  shortest.forEach((el)=>{
+    let count = 0;
+    for(let i = 1; i < 4; i++) {
+      sorted[i].includes(el) ? count++ : null;
+    }
+    //if all other arrays contain it, add to output array
+    if(count === 3 && !output.includes(el)) {
+      output.push(el)
+    }
+  })
+  return output
 }
 
 module.exports = commonElements;
