@@ -13,7 +13,9 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(...args) {
-  const result = args.reduce((a,c) => combine(a,c));
+  console.log('args -->', args);
+  console.log('-----------------')
+  const result = args.reduce((a,c) => combine(a,c)); //c.filter((el) => a.includes(el))
   return result.length ? result : 'Nothing in Common!';
 }
 
