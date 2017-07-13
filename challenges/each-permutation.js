@@ -24,7 +24,7 @@ function eachPermutation(arr, callback) {
 
   let myPerms = permutator(arr)
   myPerms.forEach(perm => {
-    console.log(perm)
+    callback(perm)
   })
 
 }
