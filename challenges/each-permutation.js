@@ -21,9 +21,26 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-
+  const perms = getPermutations(arr);
+  perms.forEach(perm => callback(perm));
 }
 
+function getPermutations(arr) {
+  if (arr.length < 2) return arr;
+  const perms = [];
+
+  for (let i = 0; i < arr.length; i += 1) {
+    let curr = arr.slice(i, i + 1);
+    let sliced = arr.slice(0, i).concat(arr.slice(i + 1));
+    const currPerm = getPermutations(sliced);
+    for (let j = 0; j < currPerm.length; j += 1) {
+      perms.push(curr.concat(currPerm[j]));
+    }
+  }
+  return perms;
+}
+
+console.log(eachPermutation([1,2,3], perm => console.log(perm)));
 
 
 module.exports = eachPermutation;
