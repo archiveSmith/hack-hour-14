@@ -11,7 +11,18 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const x = reflect(+str[1])
+  const y = reflect(+str[3])
+  const x_distance = Math.max(3 - x, 0)
+  const y_distance = Math.max(3 - y, 0)
+  return jumps(x_distance + y_distance)
+}
 
+function jumps(d) {
+  return 8 - (d < 2 ? 2 * d : d + 2)
+}
+function reflect(n) {
+  return n > 4 ? 9 - n : n
 }
 
 module.exports = knightjumps;
