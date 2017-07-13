@@ -21,7 +21,13 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-
+  if (arr.length === 0) {
+    return callback(build);
+  }
+  
+  for (let i = 0; i < arr.length; i += 1) {
+    eachPermutation(arr.slice(0, i).concat(arr.slice(i+1)), callback, build.concat(arr[i]));
+  }
 }
 
 
