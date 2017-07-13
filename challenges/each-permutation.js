@@ -20,7 +20,7 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+function eachPermutation(arr, callback, build = []) {
   if (arr.length === 0) {
     return callback(build);
   }
