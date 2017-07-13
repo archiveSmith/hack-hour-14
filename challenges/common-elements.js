@@ -24,7 +24,7 @@ function commonElements(array1, array2, array3, array4){
     }
   }
   
-  let uniq = res.reduce(function(a,b){
+  let uniq = res.reduce((a,b) => {
     if (a.indexOf(b) < 0 ) a.push(b);
     return a;
   },[]);
