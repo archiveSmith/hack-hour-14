@@ -25,20 +25,15 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
+
 function missingNum(Array) {
- let sorted = array.sort(function(a,b){
-    return a - b; 
-  })
-
-  for( let i = 0; i < sorted.length - 1; i++){
-    if(sorted[i] !== sorted[i+1] - 1){
-      return sorted[i] + 1
-    }
-  }
+  let sum = array.reduce((sum, value)  => {
+    return sum + value;
+  }, 0) 
+  
+  let n = array.length + 1;
+  let expectedSum = (n * (n + 1))/2;
+  return expectedSum - sum;
 }
-
-// let array = [1,2,4,3,6]
-
-// console.log(missingNum(array)); 
 
 module.exports = missingNum;
