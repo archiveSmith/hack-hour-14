@@ -21,6 +21,7 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+<<<<<<< HEAD
   let afterCurr = [];
   let beforeCurr = [];
 
@@ -42,6 +43,10 @@ function eachPermutation(arr, callback) {
 eachPermutation([1, 2, 3], function(perm) {
   console.log(perm)
 });
+=======
+
+}
+>>>>>>> f86430a001cfa3365060e6fd82d33a832dad27a7
 
 
 

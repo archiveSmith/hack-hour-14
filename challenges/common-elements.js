@@ -3,15 +3,23 @@
 // duplicates are only counted once;
 // for example == given the following input
 
+<<<<<<< HEAD
   var array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
   var array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
   var array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
   var array4 = ['ferret',12,12,45,9,66,77,78,2000];
+=======
+  // var array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
+  // var array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
+  // var array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
+  // var array4 = ['ferret',12,12,45,9,66,77,78,2000];
+>>>>>>> f86430a001cfa3365060e6fd82d33a832dad27a7
 
 // your output would be [ 12, 'ferret']
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
+<<<<<<< HEAD
 //convert each array to an object
 //check each key to see if it is present in the other 3 arrays
 
@@ -38,5 +46,10 @@ console.log(uniques);
 }
 
 commonElements(array1, array2, array3, array4)
+=======
+function commonElements(array1, array2, array3, array4){
+
+}
+>>>>>>> f86430a001cfa3365060e6fd82d33a832dad27a7
 
 module.exports = commonElements;
