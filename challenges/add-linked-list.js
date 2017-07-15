@@ -17,23 +17,11 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
+//inputs: 2 linked lists
+//output: addition of the lists backwards
 
-  curr1 = l1;
-  curr2 = l2;
-  let digits = [];
-  let remainder = 0;
-  while(curr1 && curr2){
-    let toAdd = curr1.value + curr2.value + remainder;
-    if(toAdd > 9 && curr1.next !== null){
-      remainder = Number(toAdd.toString()[0]);
-      toAdd =  Number(toAdd.toString()[1]);
-    }
-    digits.push(toAdd)
-    curr1 = curr1.next;
-    curr2 = curr2.next; 
-  }
-  return digits; 
+function addLinkedList(l1, l2) {
+    
 }
 
 let node1 = new Node(2);
@@ -51,4 +39,21 @@ node5.next = node6;
 
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
+
+
+  // curr1 = l1;
+  // curr2 = l2;
+  // let digits = [];
+  // let remainder = 0;
+  // while(curr1 && curr2){
+  //   let toAdd = curr1.value + curr2.value + remainder;
+  //   if(toAdd > 9 && curr1.next !== null){
+  //     remainder = Number(toAdd.toString()[0]);
+  //     toAdd =  Number(toAdd.toString()[1]);
+  //   }
+  //   digits.push(toAdd)
+  //   curr1 = curr1.next;
+  //   curr2 = curr2.next; 
+  // }
+  // return digits; 
 
