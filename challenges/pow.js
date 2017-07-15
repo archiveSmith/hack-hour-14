@@ -23,9 +23,9 @@ function pow(base, power) {
 
 }
 
-2 * (2 * 2 * (1) )
+// 2 * (2 * 2 * (1) )
 
-console.log(pow(2,3)); 
+// console.log(pow(2,3)); 
 
 module.exports = pow;
 
