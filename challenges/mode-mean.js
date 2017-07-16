@@ -10,41 +10,47 @@
  *
  */
 
+//input: array
+//output: boolean
+
+// mean -> average of array
+// mode -> element repeated most often
+
+// edge cases: not all numbers, empty, not an array
+
+//find average 
+    //sum up the array
+    //divde the array by the length
+//find the mode
+    //loop through the array count each occurance 
+    //store each occurance in an object
 
  function modemean(array) {
-     
-     let mean = 0;
-     
-     let mode;
-     let count = 0; 
-     let obj = {};
-     
-     //sort the original array to ind the highest mode easier
-     let sorted = array.sort((a,b)=>b-a); 
-     
-     for(let i = 0; i < sorted.length; i++){
-       //mean
-       //find the average
-       mean += sorted[i]; 
-       if(i === sorted.length - 1){
-         mean = Math.floor(mean / sorted.length); 
-       }
-       
-       //mode
-       //count instances of values
-       if(obj[sorted[i]]) obj[sorted[i]]++;
-       else obj[sorted[i]] = 1; 
-       //find the value with the most instances
-       if(obj[sorted[i]] > count){
-         mode = sorted[i];
-         count = obj[sorted[i]]; 
-       }
-     }
+   if(!Array.isArray(array)) return false; 
+   if(array.length === 0) return true; 
+   if(!array.every(el => typeof el === 'number')) return false; 
+
+   let mode = -Infinity;
+   let topFreq = 0;
+   let sum = 0; 
+
    
-   console.log(mode);
-   console.log(mean); 
+   return array.reduce((obj,curr,idx)=>{
+    sum = sum + curr;
+    obj[curr] ? obj[curr]++ : obj[curr]=1; 
+    if(obj[curr] >= topFreq && curr >= mode){
+        mode = curr;
+        topFreq = obj[curr]
+    }
     
-   return mode === mean; 
+    if(idx === array.length-1){
+      console.log(sum / array.length)
+      return Math.floor(sum / array.length) === mode;  
+    } 
+    return obj; 
+
+   }, {})
+     
  }
 
 
@@ -86,3 +92,37 @@
 //  }
 
 module.exports = modemean;
+
+
+// let mean = 0;
+     
+//      let mode;
+//      let count = 0; 
+//      let obj = {};
+     
+//      //sort the original array to ind the highest mode easier
+//      let sorted = array.sort((a,b)=>b-a); 
+     
+//      for(let i = 0; i < sorted.length; i++){
+//        //mean
+//        //find the average
+//        mean += sorted[i]; 
+//        if(i === sorted.length - 1){
+//          mean = Math.floor(mean / sorted.length); 
+//        }
+       
+//        //mode
+//        //count instances of values
+//        if(obj[sorted[i]]) obj[sorted[i]]++;
+//        else obj[sorted[i]] = 1; 
+//        //find the value with the most instances
+//        if(obj[sorted[i]] > count){
+//          mode = sorted[i];
+//          count = obj[sorted[i]]; 
+//        }
+//      }
+   
+//    console.log(mode);
+//    console.log(mean); 
+    
+//    return mode === mean; 
