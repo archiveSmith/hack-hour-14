@@ -21,8 +21,28 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+  let afterCurr = [];
+  let beforeCurr = [];
 
+  for(let i = 0; i < arr.length; i = i + 1){
+    if(i !== 0){
+      beforeCurr = arr.slice(0, i); 
+    }
+    if(i !== arr.length - 1){
+      afterCurr = arr.slice(i+1);
+    }
+
+    let perm = beforeCurr.concat(afterCurr);
+
+    callback(afterCurr)
+    
+  }
 }
+
+eachPermutation([1, 2, 3], function(perm) {
+  console.log(perm)
+});
+
 
 
 

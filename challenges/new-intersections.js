@@ -17,7 +17,9 @@
  * 	 
  */
 
+
 function newIntersections(x, y){
+
 
 }
 

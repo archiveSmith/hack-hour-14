@@ -13,8 +13,36 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
+function reverseInPlace(array=[]) {
 
+
+  for(let i = 0; i < Math.floor(array.length / 2); i++){
+    let temp = array[i]; 
+    array[i] = array[array.length - 1 - i]
+    array[array.length - 1 - i] = temp; 
+  }
+
+  return array; 
 }
-
+console.log(reverseInPlace())
 module.exports = reverseInPlace;
+
+//
+
+
+
+
+
+
+
+
+// function reverseInPlace(array) {
+//   if(array.length < 2) return array; 
+//   if(!Array.isArray(array)) return 'Not an array'
+    
+//   let output = [];
+//   for(let i = array.length-1; i >= 0; i--){
+//     output.push(array[i]);
+//   }
+//   return output;   
+// }
