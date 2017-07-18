@@ -1,24 +1,26 @@
 // Write a function "countTwos" that takes a number as an argument, n. The function will return the number of 2s encountered when counting from 1 to n (inclusive). 2222 counts as having 4 2s.
 
-//iterative approach:
-// const countTwos = (n) => {
-//   //edge case:
-//   if (n < 1) return 'n must be greater than 1';
-//   let counter = 0;
-//   //loop from 1 to n
-//   for (let i = 1; i <= n; i += 1) {
-//     //convert n to string
-//     const str = i.toString();
-//     //split string into array
-//     const arr = str.split('');
-//     //loop through arr
-//     for (let j = 0; j < arr.length; j += 1) {
-//       //if current item === '2', increment counter
-//       if (arr[j] === '2') counter += 1;
-//     }
-//   }
-//   return counter;
-// }
+iterative approach:
+const countTwos = (n) => {
+  //edge case: return error message if n < 1
+  if (n < 1) return 'n must be greater than 1';
+  //declare counter variable and initialize to 0
+  let counter = 0;
+  //loop from 1 to n
+  for (let i = 1; i <= n; i += 1) {
+    //convert i to string and store in variable called str
+    const str = i.toString();
+    //split str into array and store in a variable called arr
+    const arr = str.split('');
+    //loop through arr
+    for (let j = 0; j < arr.length; j += 1) {
+      //if current item === '2', increment counter
+      if (arr[j] === '2') counter += 1;
+    }
+  }
+ //return counter
+  return counter;
+}
 
 //recursive approach:
 const countTwos = (n) => {
