@@ -21,20 +21,33 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
-function EventEmitter() {
-}
+class EventEmitter {
+  constructor() {
+    this.events = {}
+  }
 
-EventEmitter.prototype.on = function (eventName, func) {
-  if (!this[eventName]) this[eventName] = [];
-  this[eventName].push(func);
-};
+  on(eventName, fn) {
+    if (!this.events[eventName]) {
+      this.events[eventName] = [];
+    }
+    this.events[eventName].push(fn);
+  }
 
-EventEmitter.prototype.trigger = function (eventName, ...args) {
-  if (this[eventName]) {
-    for (let i = 0; i < this[eventName].length; i++) {
-      this[eventName][i](...args);
+  unsubscribe(eventName, fn) {
+    if (this.events[eventName]) {
+      this.events[eventName] = this.events[eventName].filter(fnName => fnName !== fn)
+    } else {
+      return 'No such event'
     }
   }
-};
+
+  trigger(eventName) {
+    if (this.events[eventName]) {
+      this.events[eventName].forEach(fn => fn())
+    } else {
+      return 'No such event'
+    }
+  }
+}
 
 module.exports = EventEmitter;
