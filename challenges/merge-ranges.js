@@ -10,7 +10,7 @@
  */
 
 
-function mergeRanges(array) {
+const mergeRanges = (array) => {
 
   array.sort((a,b) => {
     //if first item in both arrays is the same, sort them according to last item
@@ -41,7 +41,8 @@ function mergeRanges(array) {
   return array;
 }
 
-var times = [[9, 10], [3, 5], [6, 7], [4, 8], [0, 2], [0,1], [10,11], [10, 12], [0,12]];
+// const times = [[9, 10], [3, 5], [6, 7], [4, 8], [0, 2], [0,1], [10,11], [10, 12], [0,12]];
+const times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
 
 console.log(mergeRanges(times)); //-> [[0, 1], [3, 8], [9, 12]]
 

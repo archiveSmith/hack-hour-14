@@ -29,7 +29,8 @@ Challange:
 function missingNum(array) {
   //edge case:
   if (!array) return;
-  //since we know array[0] === 1 and each step += 1, we know the max value in array will be array.length + 1
+  //since we know array[0] === 1, each step += 1, and a number is missing in the sequence
+  //we know the max value in array will be array.length + 1
   let maxVal = array.length + 1;
   //calculate actual sum
   let actualSum = array.reduce((a,c) => a + c);
@@ -39,6 +40,6 @@ function missingNum(array) {
   return expectedSum - actualSum;
 }
 
-console.log(missingNum([2,4,1,5])) //return 4
+console.log(missingNum([2,4,1,5])) //return 3
 
 module.exports = missingNum;

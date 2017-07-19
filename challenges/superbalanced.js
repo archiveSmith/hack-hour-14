@@ -14,16 +14,15 @@ function BinaryTree(value) {
 }
 
 const getHeight = (tree) => {
-    if (!tree) return -1;
-    let left = getHeight(tree.left);
-    let right = getHeight(tree.right);
-    return Math.max(left, right) + 1;
-  }
+  if (!tree) return -1;
+  let left = getHeight(tree.left);
+  let right = getHeight(tree.right);
+  return Math.max(left, right) + 1;
+}
 
 function superbalanced(tree) {
   const leftHeight = getHeight(tree.left);
   const rightHeight = getHeight(tree.right);
-  // console.log(leftHeight, rightHeight);
   if (leftHeight - rightHeight > 1 || rightHeight - leftHeight > 1) return false;
   else return true;
 }

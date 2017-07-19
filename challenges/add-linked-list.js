@@ -23,6 +23,7 @@ function addLinkedList(l1, l2) {
   if (!l2) return l1;
   if (!l1 && !l2) return null;
 
+  //convert linked lists to arrays
   const arr1 = [];
   const arr2 = [];
 
@@ -36,9 +37,13 @@ function addLinkedList(l1, l2) {
     l2 = l2.next;
   }
 
+  //for both arr1 and arr2, reverse array, join values into a string and then convert to a number
+  //add the two numbers together
   const sum = (+arr1.reverse().join('')) + (+arr2.reverse().join(''));
+  //convert sum to string, split string into an array and then reverse
   const arr = sum.toString().split('').reverse();
 
+  //convert array to linked list
   let linkedList = null;
   for (let i = arr.length - 1; i >= 0; i -= 1) {
     linkedList = {
@@ -48,7 +53,7 @@ function addLinkedList(l1, l2) {
   }
   return linkedList;
 
-  //other method to conver array to linked list:
+  //other method to convert array to linked list:
   // const nodes = [];
   // for (let i = 0; i < arr.length; i += 1) {
   //   nodes.push(new Node(+arr[i]));
