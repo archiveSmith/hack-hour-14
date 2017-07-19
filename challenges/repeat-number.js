@@ -10,13 +10,14 @@
  *
  */
 
-function repeatNumbers(array) {
+//O(n^2) solution:
+const repeatNumbers = (array) => {
   for (let i = 0; i < array.length; i += 1) {
-    if (array.indexOf(array[i]) !== i) return array[i];
+    if (array.indexOf(array[i + 1]) !== i + 1) return array[i + 1];
   }
 }
 
-const arr = [1,2,3,3,4];
+const arr = [1,2,4,3,1];
 console.log(repeatNumbers(arr));
 
 module.exports = repeatNumbers;
