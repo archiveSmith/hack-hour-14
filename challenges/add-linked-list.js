@@ -66,7 +66,7 @@ let node6 = new Node(2);
 node4.next = node5;
 node5.next = node6;
 
-console.log(addLinkedList(node1, node4))
+// console.log(addLinkedList(node1, node4))
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
 
