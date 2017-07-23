@@ -22,7 +22,36 @@ function Node(val) {
 
 function addLinkedList(l1, l2) {
     
+let sumList = new Node();
+let rem = 0; 
+let curr1 = l1;
+let curr2 = l2; 
+let currSumList; 
+
+while(curr1){
+  let sum = curr1.value + curr2.value + rem; 
+  if(sum > 9 && curr1.next){
+    sum = sum - 10; 
+    rem = 1; 
+  }
+
+
+  if(!sumList.value){
+    sumList.value = sum; 
+    currSumList = sumList; 
+  }else{
+    currSumList.next = new Node(sum)
+    currSumList = currSumList.next; 
+  }
+
+
+  curr1 = curr1.next; 
+  curr2 = curr2.next; 
 }
+return sumList;
+}
+
+
 
 let node1 = new Node(2);
 let node2 = new Node(1);
@@ -37,6 +66,7 @@ let node6 = new Node(2);
 node4.next = node5;
 node5.next = node6;
 
+// console.log(addLinkedList(node1, node4))
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
 
