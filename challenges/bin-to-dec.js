@@ -14,20 +14,21 @@
  */
 
 function binToDec(binary) {
+  
   if(!/^[01]+$/.test(binary)) return  'Please pass binary string';
-  //split binary into an array
-  //reverse the array
-  //loop over the array
-  return binary.split('').reverse().reduce((all, item, index)=>{
-  //if there is a 0 do not find decimal equivalent
-  //if there is a 1 find decimal equivalent
-    if(item === '1'){
-      all += Math.pow(2,index); 
-    }
-    return all
-  },0); 
+  
 
-    //    let binaryArr = binary.split('').reverse().map(function(item){
+  return binary.split('').reverse().reduce((acc, curr, index)=>{
+    return acc = acc + Math.pow(2,index) * Number(curr);  
+  },0)
+  
+ 
+  
+  }
+
+ 
+  
+  //    let binaryArr = binary.split('').reverse().map(function(item){
     //      return Number(item);
     //    });
     //    let store = [];
@@ -67,7 +68,7 @@ function binToDec(binary) {
 //     }
 //   }
 // return answer;
-}
+
 
 module.exports = binToDec;
 
@@ -80,3 +81,17 @@ module.exports = binToDec;
 //   }
 //   return answer;
 // }
+
+
+  // if(!/^[01]+$/.test(binary)) return  'Please pass binary string';
+  // //split binary into an array
+  // //reverse the array
+  // //loop over the array
+  // return binary.split('').reverse().reduce((all, item, index)=>{
+  // //if there is a 0 do not find decimal equivalent
+  // //if there is a 1 find decimal equivalent
+  //   if(item === '1'){
+  //     all += Math.pow(2,index); 
+  //   }
+  //   return all
+  // },0); 
