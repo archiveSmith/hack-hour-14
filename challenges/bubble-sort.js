@@ -6,23 +6,23 @@
 function bubbleSort(array) {
     if(!Array.isArray(array)) return null; 
     if(array.length < 2) return array; 
-    
-    let cont;
-    
+
+   let loop; 
     do {
-        cont = false;
-        for (let i=0; i < array.length-1; i=i+1) {
-            let temp = array[i];
-            if (array[i] >array[i+1]) { 
+        loop = false; 
+        for(let i = 0; i < array.length - 1; i=i+1){
+            if(array[i] > array[i+1]){
+                let temp = array[i];
                 array[i] = array[i+1];
-                array[i+1] = temp;
-                cont = true;
+                array[i+1] = temp; 
+                loop = true; 
             }
         }
-    } while (cont);
-
-    return array
+    }while(loop)
+    return array; 
 }
+
+console.log(bubbleSort([2,3,1]))
 
 module.exports = bubbleSort;
 
@@ -44,5 +44,24 @@ module.exports = bubbleSort;
 //   }
 //   return array;
 // }
+
+// if(!Array.isArray(array)) return null; 
+//     if(array.length < 2) return array; 
+    
+//     let cont;
+    
+//     do {
+//         cont = false;
+//         for (let i=0; i < array.length-1; i=i+1) {
+//             let temp = array[i];
+//             if (array[i] >array[i+1]) { 
+//                 array[i] = array[i+1];
+//                 array[i+1] = temp;
+//                 cont = true;
+//             }
+//         }
+//     } while (cont);
+
+//     return array
 
 
