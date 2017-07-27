@@ -8,11 +8,18 @@
 
 
 function countTwos(num) {
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 26572069885223de60b50fda92f39266f3cb3e4f
+    if(num<2) return 0; 
+    let count = 0;
+    for(let i = 2; i <= num; i=i+1){
+        i.toString().split('').forEach((el)=>{
+            if(el==='2') count++; 
+        })
+    }
+    return count; 
 }
+
+// console.log(countTwos(11420)); 
+
+
 
 module.exports = countTwos;
