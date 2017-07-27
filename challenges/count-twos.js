@@ -8,6 +8,7 @@
 
 
 function countTwos(num) {
+    if(typeof(num)!=='number' || isNaN(num)) return NaN
     if(num<2) return 0; 
     let count = 0;
     for(let i = 2; i <= num; i=i+1){
@@ -18,7 +19,7 @@ function countTwos(num) {
     return count; 
 }
 
-// console.log(countTwos(11420)); 
+// console.log(countTwos('11420')); 
 
 
 
