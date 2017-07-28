@@ -10,7 +10,7 @@
  */
 
  //if more than one letter only appears once, return false
- function permPalin(str) {
+ const permPalin = (str) => {
    const cache = {};
    let counter = 0;
    for (let i = 0; i < str.length; i += 1) {
@@ -28,3 +28,5 @@
  console.log(permPalin('cbaba')) // => true
  console.log(permPalin('cbac')) // => false
  console.log(permPalin('a')) // => true
+
+ module.exports = permPalin;
