@@ -46,7 +46,9 @@ function pascalTriangle(numRows) {
       }
     }
   }
-  return result;
+  console.log(result)
 }
+
+pascalTriangle(50)
 
 module.exports = pascalTriangle;
