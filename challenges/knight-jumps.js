@@ -10,8 +10,30 @@
 //  example input:
 // var str = "(4 5)"
 
+//Still needs some work??
 function knightjumps(str) {
+  let x = parseInt(str[1]);
+  let y = parseInt(str[3]);
+  let counter = 0;
+  let arr = [];
 
+  arr.push([x-2, y-1])
+  arr.push([x-2, y+1])
+  arr.push([x+2, y+1])
+  arr.push([x+2, y-1])
+  arr.push([y+2, x-1])
+  arr.push([y+2, x+1])
+  arr.push([y-2, x+1])
+  arr.push([y-2, x-1])
+  console.log(arr)
+  
+  for (let i = 0; i < arr.length; i++) {
+    if ((arr[i][0] <= 7 && arr[i][1] <= 7) && (arr[i][0] > 0 && arr[i][1] > 0)) {
+      console.log('hello')
+      counter++
+    }
+  }
+  return counter;
 }
 
 module.exports = knightjumps;

@@ -10,6 +10,28 @@
 
 function subsetSum(array, target) {
 
+  var sets = [[]];
+
+  // generate the power set and for each new set
+  // check if the temporary sum equals our sum above
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0, len = sets.length; j < len; j++) {
+      let temp = sets[j].concat(arr[i]);
+      sets.push(temp);
+      let sum = temp.reduce(function(a, c) { return a + c; });
+      if (sum === target) return true; 
+    }
+  }
+  
+  return false;
 }
+
+
+function subsetSum(array, target) {
+  if (!target) return true;
+  if (!array.length) return false;
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
+}
+
 
 module.exports = subsetSum;

@@ -18,8 +18,151 @@
 * Example: poker([3,5,5,5,2], [4,6,7,8,8]) -> "Player 1 wins"
 */
 
+//NOT FINISHED
 function poker(hand1, hand2) {
+  let handOne = [];
+  let handTwo = [];
+  
+  handOne.push(fourOfAKind(hand1), fullHouse(hand1), straight(hand1), threeOfAKind(hand1), twoPair(hand1), onePair(hand1))
+  handTwo.push(fourOfAKind(hand2), fullHouse(hand2), straight(hand2), threeOfAKind(hand2), twoPair(hand2), onePair(hand2))
+  
+  console.log('HANDONE',handOne)
+  console.log('HANDTWO', handTwo)
+  
+  if (!handOne.includes(true) && !handTwo.includes(true)) {
+    console.log('hi')
+    let h1Sort = hand1.sort();
+    let h2Sort = hand2.sort();
+    return h1Sort[4] > h2Sort[4] ? 'Player One Wins' : 'Player Two Wins'
+  } 
+  
+  console.log('HFEKJW', handOne.indexOf('true'))
+  return handOne.indexOf('true') < handTwo.indexOf('true') ? 'Player One Wins' : 'Player Two Wins'
 
 }
 
+function fourOfAKind(hand) {
+  let sorted = hand.sort();
+  if (sorted[1] === sorted[2] && sorted[1] === sorted[3]) {
+    if (sorted[1] === sorted[0] || sorted[1] === sorted[4]) {
+      return true;
+    } 
+  }
+  return false;
+}
+
+function fullHouse(hand) {
+  let cache = {};
+  for (let i = 0; i < hand.length; i++) {
+    !cache[hand[i]] ? cache[hand[i]] = 1 : cache[hand[i]]++
+  }
+
+  for (x in cache) {
+    if (cache[x] === 3) {
+      for (y in cache) {
+        if (cache[y] === 2) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+function straight(hand) {
+  let sorted = hand.sort();
+  if (sorted[4] === sorted[3]+1 && sorted[3] === sorted[2]+1 && sorted[2] === sorted[1]+1 && sorted[1] === sorted[0]+1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function threeOfAKind(hand) {
+  let cache = {};
+  for (let i = 0; i < hand.length; i++) {
+    !cache[hand[i]] ? cache[hand[i]] = 1 : cache[hand[i]]++
+  }
+  
+  for (x in cache) {
+    if (cache[x] === 3) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function twoPair(hand) {
+  let cache = {};
+  for (let i = 0; i < hand.length; i++) {
+    !cache[hand[i]] ? cache[hand[i]] = 1 : cache[hand[i]]++
+  }
+  
+  for (x in cache) {
+    if (cache[x] === 2) {
+      delete cache[x]
+      for (y in cache) {
+        if (cache[y] === 2) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+function onePair(hand) {
+  for (let i = 0; i < hand.length; i++) {
+    let a = hand[i];
+    for (let j = i+1; j < hand.length; j++) {
+      if (a === hand[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 module.exports = poker;
+
+
+
+
+
+
+
+// //CODESMITH WAY
+// function getScore(hand) {
+//   // Generate an object to represent card frequency
+//   const cardCount = hand.reduce((a, c) => {
+//     a.hasOwnProperty(c) ? a[c] += 1 : a[c] = 1;
+//     return a;
+//   }, {});
+
+//   // Accumulate scores of card count frequency
+//   let score = 0;
+
+//   for (const card in cardCount) {
+//     switch (cardCount[card]) {
+//       case 4: score += 500; break;
+//       case 3: score += 300; break;
+//       case 2: score += 100; break;
+//       default: break;
+//     }
+//   }
+
+//   // straight
+//   hand.sort((a, b) => b - a);
+//   if (score === 0 && hand[0] - hand[4] === 4) score += 350;
+
+//   // add high card
+//   return score + hand[0];
+// }
+
+// function poker(hand1, hand2) {
+//   const player1 = getScore(hand1);
+//   const player2 = getScore(hand2);
+
+//   if (player1 === player2) return 'Draw';
+//   return player1 > player2 ? 'Player 1 wins' : 'Player 2 wins';
+// }
