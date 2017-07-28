@@ -20,6 +20,6 @@ function drawStairs(n) {
 		console.log(space.repeat(n-i),star.repeat(i))
 	}
 }
-
+drawStairs(10)
 
 module.exports = drawStairs;
