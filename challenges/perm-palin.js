@@ -9,24 +9,32 @@
  *
  */
 
- //if more than one letter only appears once, return false
+ //if more than one letter appears odd number of times, return false
  const permPalin = (str) => {
+   //declare cache variable and instantiate to empty object
    const cache = {};
-   let counter = 0;
+   //declare numOdd variable and instantiate to 0
+   let numOdd = 0;
+   //loop through str and store every letter in cache
    for (let i = 0; i < str.length; i += 1) {
      if (cache[str[i]]) cache[str[i]] += 1;
      else cache[str[i]] = 1;
    }
+   //loop through cache
    for (letter in cache) {
-     if (cache[letter] === 1) counter += 1;
+     //if value stored is odd, increment numOdd
+     if (cache[letter] % 2 !== 0) numOdd += 1;
+     //if numOdd > 1 return false
+     if (numOdd > 1) return false;
    }
-   if (counter > 1) return false;
-   else return true;
+   //return true
+   return true;
  }
 
  console.log(permPalin('abab')) // => true
  console.log(permPalin('cbaba')) // => true
  console.log(permPalin('cbac')) // => false
  console.log(permPalin('a')) // => true
+ console.log(permPalin('lalala')); // => false
 
  module.exports = permPalin;
