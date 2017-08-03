@@ -52,9 +52,6 @@ function eachPermutation(arr, callback) {
 }
 
 
-eachPermutation([1, 2, 3], function(perm) {
-  console.log(perm)
-});
 
 
 
