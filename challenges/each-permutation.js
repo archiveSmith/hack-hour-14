@@ -19,31 +19,43 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 1, 2 ]
 [ 3, 2, 1 ]
 */
-
+// inefficient because it must make two new arrays for each function call
 function eachPermutation(arr, callback) {
-  let afterCurr = [];
-  let beforeCurr = [];
 
-  for(let i = 0; i < arr.length; i = i + 1){
-    if(i !== 0){
-      beforeCurr = arr.slice(0, i); 
-    }
-    if(i !== arr.length - 1){
-      afterCurr = arr.slice(i+1);
-    }
+  var indexesUsed = []; 
 
-    let perm = beforeCurr.concat(afterCurr);
+   // can't repeat elements, so keep track of the indexes of the elements we've already used
 
-    callback(afterCurr)
-    
+  for (var i = 0; i < arr.length; i++) {
+    indexesUsed.push(false);
   }
+
+  permUtil([], indexesUsed);
+  function permUtil(path, indexesUsed) {
+
+    // base case. done building up path
+    if (path.length === arr.length) { 
+      return callback(path);
+    }
+
+    for (var i = 0; i < arr.length; i++) {
+      if (indexesUsed[i] === false) {
+        var indexesUsedClone = indexesUsed.slice();
+        indexesUsedClone[i] = true;
+    // the concat method creates a new array, rather than pushing to the existing array
+        permUtil(path.concat(arr[i]), indexesUsedClone); 
+    
+      }
+    }
+  }
+
 }
 
-eachPermutation([1, 2, 3], function(perm) {
-  console.log(perm)
-});
+
 
 
 
 
 module.exports = eachPermutation;
+
+
