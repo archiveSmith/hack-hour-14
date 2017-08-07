@@ -51,25 +51,17 @@
 //   return max - min;
 // }
 //CORRECT SOLUTION
-function bestProfit(stock_prices_yesterday) {
+function bestProfit(arr) {
+  let lowest;
   let profit = 0;
-  let arr = stock_prices_yesterday;
-	arr.reduce((a, c) => {
-		let max = Math.max(c - a, 0);
-		
-		max > profit ? profit = max : null;
-		
-		if (max === 0) {
-			return c;
-		} else {
-			return a;
-		}
-	});
-	
-	if (profit <= 0) {
-		return 0;
-	}
-	return profit;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if ((arr[i] < arr[j]) && (arr[j] - arr[i]) > profit) {
+        profit = arr[j] - arr[i]
+      }
+    }
+  }
+  return profit;
 }
 
 bestProfit([500,501,490,480,520,400])
