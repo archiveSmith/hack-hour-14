@@ -3,10 +3,10 @@
 // duplicates are only counted once;
 // for example == given the following input
 
-  // var array2 = [];
-  // var array1  = ['dog'];
-  // var array3 = ['dog'];
-  // var array4 = ['dog'];
+  // var array2 = [12, 'ferret'];
+  // var array1  = ['dog', 12, 'ferret'];
+  // var array3 = ['dog', 12, 'ferret', 3];
+  // var array4 = ['dog', 'ferret', 12];
 
 // your output would be [ 12, 'ferret']
 
@@ -14,7 +14,7 @@
 
 function commonElements(array1, array2, array3, array4) {
   // set output array
-  let output = [];
+  const output = [];
   // loop through an array of arrays and get the longest array in it
   const arrs = [array1, array2, array3, array4];
   let longest = array1;
@@ -28,12 +28,10 @@ function commonElements(array1, array2, array3, array4) {
     if (array1.includes(longest[i]) && array2.includes(longest[i])
     && array3.includes(longest[i]) && array4.includes(longest[i])
     && !output.includes(longest[i])) {
-      output.unshift(longest[i]);
+      output.push(longest[i]);
     }
   }
-  if (output.length === 0) { return 'Nothing in Common'; } else {
-    return output;
-  }
+  return output.length === 0 ? 'Nothing in Common' : output;
 }
 
 module.exports = commonElements;
