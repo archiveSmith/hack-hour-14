@@ -28,32 +28,29 @@
  */
 
 //REFACTORING
+
 var Node = function(value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
-
-  let obj = {};
-
-  
-  while(head.next){
-    if(obj[head.next.value]) return true; 
-    obj[head.value] = head.next.value;
-    head = head.next; 
+  try {
+    JSON.stringify(head);
+    return false
   }
-  
-  return false;
+  catch (e) {
+    return true
+  }
 }
 
 
-  // var node1 = new Node('1');
-  // var node2 = node1.next = new Node('2');
-  // var node3 = node2.next = new Node('3');
-  // var node4 = node3.next = new Node('4');
-  // var node5 = node4.next = new Node('5');
-  // // node5.next = node2;
+  var node1 = new Node('1');
+  var node2 = node1.next = new Node('2');
+  var node3 = node2.next = new Node('3');
+  var node4 = node3.next = new Node('4');
+  var node5 = node4.next = new Node('5');
+  node5.next = node2;
 
    console.log(hasCycle(node1));
 
@@ -74,3 +71,16 @@ module.exports = {Node: Node, hasCycle: hasCycle}
   // }
   
   // return false; 
+
+
+  // let obj = {};
+  
+    
+  //   while(head.next){
+  //     if(obj[head.next.value]) return true; 
+  //     obj[head.value] = head.next.value;
+  //     head = head.next; 
+  //   }
+    
+  //   return false;
+  // }
