@@ -38,9 +38,7 @@ function balancedParens(input){
      if (arr[i] === '}') {
        if (store.pop() !== '{') return false;
      }
-     
    }
-   
    return store.length === 0;
   }
 
