@@ -12,19 +12,37 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+
+// stocks cannot be negative in value
+// TAKE INTO ACCOUNT YOU CANNOT SELL TO THE PAST
+// function assumes array does not contain any negative numbers
+// time complexity is o N (double for loops)
 function bestProfit(stock) {
-  if (Array.isArray(stock) === false) return 0; // input has to be an array.
-  let sorted = stock.slice();
-  sorted.sort((high, low) => { return high - low; });
-  // console.log(stock);
-  // console.log(sorted);
-  if (sorted[0] < 0) return 0; // stocks cannot be negative
-  const profit = sorted[sorted.length - 1] - sorted[0];
-  return profit;
+  // input has to be an array.
+  if (!Array.isArray(stock)) return 0;
+  // declare a profits array
+  const profits = [];
+  // loop through stock array
+  for (let i = 0; i < stock.length; i += 1) {
+    // set a variable for highest
+    let highest = 0;
+    // loop through all remaining values after i
+    for (let j = i + 1; j < stock.length; j += 1) {
+      // compute each value
+      const value = stock[j] - stock[i];
+      // get the highest possible value for each element of the array
+      if (value > highest) { highest = value; }
+    }
+    // push highest value onto profits array
+    profits.push(highest);
+  }
+  // get the max of the profits array
+  const best = Math.max(...profits);
+  // if the max is 0 or negative return 0
+  return best > 0 ? best : 0;
+  // if profit is 0 or negative return 0
 }
 module.exports = bestProfit;
 
-// TAKE INTO ACCOUNT YOU CANNOT SELL TO THE PAST
-
-const test = [7, 2, 7, 4]; // 5
-console.log(bestProfit(test));
+// const test = [2, 2, 3, 1];
+// console.log(bestProfit(test));
