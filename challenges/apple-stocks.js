@@ -20,29 +20,22 @@
 function bestProfit(stock) {
   // input has to be an array.
   if (!Array.isArray(stock)) return 0;
-  // declare a profits array
-  const profits = [];
+  // set a variable for best
+  let best = 0;
   // loop through stock array
   for (let i = 0; i < stock.length; i += 1) {
-    // set a variable for highest
-    let highest = 0;
     // loop through all remaining values after i
     for (let j = i + 1; j < stock.length; j += 1) {
       // compute each value
       const value = stock[j] - stock[i];
-      // get the highest possible value for each element of the array
-      if (value > highest) { highest = value; }
+      // if value is greater than best set best = value
+      if (value > best) { best = value; }
     }
-    // push highest value onto profits array
-    profits.push(highest);
   }
-  // get the max of the profits array
-  const best = Math.max(...profits);
   // if the max is 0 or negative return 0
   return best > 0 ? best : 0;
-  // if profit is 0 or negative return 0
 }
 module.exports = bestProfit;
 
-// const test = [2, 2, 3, 1];
+// const test = [3, 2, 1];
 // console.log(bestProfit(test));
