@@ -32,36 +32,71 @@
   ]
 */
 
-// function pascalTriangle(numRows) {
-//   const result = [];
-//   result[0] = [1];
-//   result[1] = [1, 1];
-//   for (let row = 2; row < numRows; row += 1) {
-//     result[row] = [];
-//     for (let col = 1; col <= row; col += 1) {
-//         result[row][col] = result[row - 1][col] + result[row - 1][col - 1];
-//     }
-//   }
-//   return result;
-// }
 
-function pascalTriangle(numRows) {
-
+const pascalTriangle = (n) => {
   const triangle = [[1]];
-  let row;
-
-  for (let i = 0; i < numRows - 1; i += 1) {
-    row = [1];
-    for (let j = 1; j < triangle[i].length; j += 1) {
-      row[j] = triangle[i][j] + triangle[i][j - 1];
+  for (let i = 0; i < n - 1; i += 1) {
+    const row = [1];
+    const prev = triangle[triangle.length - 1];
+    for (let j = 1; j < prev.length; j += 1) {
+      row.push(prev[j] + prev[j - 1]);
     }
     row.push(1);
     triangle.push(row);
   }
-
   return triangle;
 }
 
-console.log(pascalTriangle(5));
+console.log(pascalTriangle(6));
+
+
+
+
+
+
+
+
+//recursive:
+// function pascalTriangle(numRows, triangle) {
+//   if (numRows < 2) return triangle; //base case
+//
+//   let prevRow = triangle[triangle.length - 1];
+//   let curRow = [1];
+//
+//   for (let i = 1; i < prevRow.length; i += 1) {
+//     curRow[i] = prevRow[i] + prevRow[i - 1];
+//   }
+//
+//   curRow.push(1);
+//   triangle.push(curRow);
+//   return pascalTriangle(numRows - 1, triangle);
+// }
+//
+// console.log(pascalTriangle(5, [[1]]));
+
+//iterative:
+// function pascalTriangle(numRows) {
+//
+//   if (numRows < 1) return []; //edge case
+//
+//   const triangle = [[1]];
+//   let prevRow;
+//   let curRow;
+//
+//   for (let i = 0; i < numRows - 1; i += 1) {
+//     prevRow = triangle[i];
+//     curRow = [1];
+//     //loop through previous row
+//     //first time outer loop runs, j === 1 and prevRow.length === 1 so inner loop doesn't run
+//     for (let j = 1; j < prevRow.length; j += 1) {
+//       curRow[j] = prevRow[j] + prevRow[j - 1];
+//     }
+//     curRow.push(1);
+//     //push curRow that was just created at the end of the triangle
+//     triangle.push(curRow);
+//   }
+//   return triangle;
+// }
+
 
 module.exports = pascalTriangle;
