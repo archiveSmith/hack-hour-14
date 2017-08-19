@@ -27,5 +27,8 @@
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-14.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "tape": "^4.6.3"
+  }
 }

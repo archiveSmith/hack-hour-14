@@ -9,6 +9,14 @@
 
 function maxSubarray(arr) {
 
+  var subSum = 0,prev =0;
+  for(var i = 0;i < arr.length;i++){  
+    prev = Math.max(0,prev + arr[i]);
+    subSum = Math.max(prev,subSum);
+  }
+  return subSum;
+
 }
+
 
 module.exports = maxSubarray;

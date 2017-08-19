@@ -9,7 +9,9 @@
   solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 */
 
+
 function solveKnapsack(items, weightAvailable) {
+
 
 };
 

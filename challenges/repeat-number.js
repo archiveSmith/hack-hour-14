@@ -10,8 +10,12 @@
  *
  */
 
-function repeatNumbers(array) {
+let arr = [1,2,2]; 
 
+function repeatNumbers(array) {
+    
 }
+console.log(repeatNumbers(arr)); 
+ 
 
 module.exports = repeatNumbers;

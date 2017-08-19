@@ -8,7 +8,19 @@
 
 
 function countTwos(num) {
-
+    if(typeof(num)!=='number' || isNaN(num)) return NaN
+    if(num<2) return 0; 
+    let count = 0;
+    for(let i = 2; i <= num; i=i+1){
+        i.toString().split('').forEach((el)=>{
+            if(el==='2') count++; 
+        })
+    }
+    return count; 
 }
+
+// console.log(countTwos('11420')); 
+
+
 
 module.exports = countTwos;
