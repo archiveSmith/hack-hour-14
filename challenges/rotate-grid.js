@@ -16,17 +16,25 @@
  * BONUS: Do this in place
  */
 function rotateGrid(grid, n) {
-  const temp = [];
-  for (let k = 0; k < grid.length; k += 1) {
-    let j = n - 1;
+  // declare output grid
+  const newGrid = [];
+  // set a var j = 0
+  let j = 0;
+  while (j !== n) {
+    // loop through curr Grid
     for (let i = 0; i < grid.length; i += 1) {
-      temp.push(grid[i][j]);
+      // push in n empty arrays for the newGrid if array does not exist yet
+      if (!newGrid[i]) newGrid.push([]);
+      // unshift the ith element of the jth row to each of rows in the newGrid
+      newGrid[i].unshift(grid[j][i]);
     }
-    j -= 1;
+    // increment j
+    j += 1;
   }
-  console.log(temp);
+  // return new Grid
+  return newGrid;
 }
 module.exports = rotateGrid;
 
-const sampleGrid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-rotateGrid(sampleGrid, 3);
+// const sampleGrid = [[1, 2, 3, 3.5], [4, 5, 6, 6.5], [7, 8, 9, 9.5], [10,11,12,13]]
+// console.log(rotateGrid(sampleGrid, 4));
