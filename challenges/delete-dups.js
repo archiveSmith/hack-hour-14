@@ -13,7 +13,17 @@
 
 
 function deleteDups(head) {
-
+  let prev;
+  for(let i = head; i != null; i = i.next){
+    for(let j = i.next; j != null ; j = j.next){
+      
+      if(j.value == i.value){
+        prev.next = j.next
+      }
+      prev = j;
+    }
+  }
+  return head;
 }
 
 module.exports = deleteDups;

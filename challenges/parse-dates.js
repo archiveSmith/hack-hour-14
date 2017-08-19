@@ -39,8 +39,37 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
+// Example strings:
+// Thursday 12:37 PM
+// Nov 19th 1:12 PM
+// Mar 1st 6:09 PM
+// Monday 5:33 PM
+// Friday 7:04 PM
+// Today 2:01 PM
 function parseDates(str) {
+  let days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+   day = days.reduce((a,c)=>{
+    console.log(a,c)
+    if(str.includes(c)) a = c;
+    return a;
+  },undefined);
+  let thisDate;
+  let date = new Date();
+   let index = days.indexOf(day);
+   let difference =  date.getDay() - index; 
+   if(index > date.getDay()){
+     console.log(difference)
+     let temp = new Date(date.setDate(date.getDate()-7));
+     console.log(Math.abs(difference))
+     temp = new Date(date.setDate(date.getDate()) + 2)
+     return temp
+   }else{
+     thisDate = new Date(date.setDate(date.getDate()-difference))
+   }
+   return thisDate;
   
 }
+parseDates('Sat 12:37 PM')
+
 
 module.exports = parseDates;
