@@ -8,7 +8,27 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+    let arr = [];
+    let string = "";
+    let randomChar = "@!#$%^&*(){}[];:,>/?|\<-_+=~";
+    for(let i = 0; i < str.length; i++) {
+      if (randomChar.indexOf(str[i]) > -1){
+        if (randomChar.indexOf(str[i+1]) === -1){
+          arr.push(string);
+          string = "";
+        }
+        continue;
+      } 
+      string += str[i];
+      console.log(string);
+      }
+    if (randomChar.indexOf(str[str.length-1]) !== -1) {
+    arr.push(string);
+    }
+    if (arr.length === 1) {
+      return false;
+    }
+  return true;
 }
 
 module.exports = matchWord;
