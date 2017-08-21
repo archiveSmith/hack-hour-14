@@ -2,20 +2,46 @@
 
 // https://en.wikipedia.org/wiki/Bubble_sort
 
-
-
 const bubbleSort = (arr) => {
-  for (let j = arr.length - 1; j >= 0; j -= 1) {
-    for (let i = 0; i < j; i += 1) {
-      if (arr[i] > arr[i + 1]) [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+  //loop through the array backwards
+  for (let i = arr.length - 1; i >= 0; i -= 1) {
+    //loop again, starting at beginning until position in first loop
+    for (let j = 0; j < i; j += 1) {
+      //if current item is bigger than item in front, swap the two items
+      if (arr[j] > arr[j + 1]) {
+        // let temp = arr[j + 1];
+        // arr[j + 1] = arr[j];
+        // arr[j] = temp;
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
     }
   }
   return arr;
 }
 
-
-
 console.log(bubbleSort([5, 1, 4, 2, 8]));
+
+
+
+
+
+
+
+
+
+
+
+//how to swap values in an array using array destructuring assignment:
+let a = 1;
+let b = 2;
+[a, b] = [b, a]
+console.log('a -->', a); // 2
+console.log('b -->', b); // 1
+
+
+
+
+
 
 
 

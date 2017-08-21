@@ -23,7 +23,21 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  for (let i = 0; i < x.length; i += 1) {
 
+  }
+  //calculate how many districts start position is inside of
+
+  //calculate how many districts end position is inside of
 }
+
+const x = [];
+const y = [];
+const r = [];
+
+const start_x;
+const start_y;
+const end_x;
+const end_y;
 
 module.exports = circleCountry;

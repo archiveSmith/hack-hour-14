@@ -32,19 +32,48 @@
   ]
 */
 
+//iterative
+// const pascalTriangle = (n) => {
+//   //edge case: if n < 1 return an empty array
+//   if (n < 1) return [];
+//   //initialize triangle as array with first row [1] in it
+//   const triangle = [[1]];
+//   //loop from 0 to n - 1
+//   for (let i = 0; i < n - 1; i += 1) {
+//     //initialize curRow as array with first value 1 in it
+//     const curRow = [1];
+//     //initialize prevRow as last item in triangle
+//     const prevRow = triangle[triangle.length - 1];
+//     //loop through prevRow, starting at index 1
+//     for (let j = 1; j < prevRow.length; j += 1) {
+//       //push prevRow[j] + prevRow[j - 1] into curRow
+//       curRow.push(prevRow[j] + prevRow[j - 1]);
+//     }
+//     //push 1 into curRow
+//     curRow.push(1);
+//     //push curRow into triangle
+//     triangle.push(curRow);
+//   }
+//   //return triangle
+// return triangle;
+// }
 
-const pascalTriangle = (n) => {
-  const triangle = [[1]];
-  for (let i = 0; i < n - 1; i += 1) {
-    const row = [1];
-    const prev = triangle[triangle.length - 1];
-    for (let j = 1; j < prev.length; j += 1) {
-      row.push(prev[j] + prev[j - 1]);
-    }
-    row.push(1);
-    triangle.push(row);
-  }
-  return triangle;
+//recursive + reduce()
+const pascalTriangle = (n, triangle = [[1]]) => {
+  //base case: if n is 1 return triangle
+  if (n === 1) return triangle;
+  //initialize prevRow as last item in triangle
+  const prevRow = triangle[triangle.length - 1];
+  //reduce prevRow with [1] as initial value
+  //if i is last index in prevRow, return all elements in acc and 1
+  //else, return all elements in acc and sum of curr and next item in prevRow
+  const curRow = prevRow.reduce((a, c, i) => {
+    return i === prevRow.length - 1 ? [...a, 1] : [...a, c + prevRow[i + 1]];
+  }, [1]);
+  //push curRow into triangle
+  triangle.push(curRow);
+  //return recursive call
+  return pascalTriangle(n - 1, triangle);
 }
 
 console.log(pascalTriangle(6));
@@ -74,7 +103,7 @@ console.log(pascalTriangle(6));
 //
 // console.log(pascalTriangle(5, [[1]]));
 
-//iterative:
+// iterative:
 // function pascalTriangle(numRows) {
 //
 //   if (numRows < 1) return []; //edge case
