@@ -9,20 +9,22 @@ function Stack() {
 }
 
 Stack.prototype.push = function (value) {
-  this.index += 1;
-  return this.stack.push(value);
+  this.stack[this.index++] = value;
+  return this.stack[this.index];
 }
 
 Stack.prototype.pop = function () {
+  let popped = this.stack[this.index - 1];
+  delete this.stack[this.index-1];
   this.index -= 1;
-  return this.stack.pop();
+  return popped;
 }
 
 const stack = new Stack();
 stack.push(1);
 stack.push(2);
 stack.pop();
-//console.log(stack);
+console.log(stack);
 
 /**
 * Queue Class
@@ -49,6 +51,6 @@ queue.enqueue(1);
 queue.enqueue(2);
 queue.enqueue(3);
 console.log(queue.dequeue());
-console.log(queue);
+ .console.log(queue);
 
 module.exports = {Stack: Stack, Queue: Queue};

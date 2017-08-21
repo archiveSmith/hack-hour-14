@@ -20,6 +20,13 @@ function uniqueNumber(array) {
     if (cache[key].length === 1) return cache[key][0];
   }
 
+  // for (let i = 0; i < array.length; i += 1) {
+  //   if (!cache[array[i]]) cache[array[i]] = array[i];
+  //   else delete cache[array[i]];
+  // }
+  //
+  // return cache;
+
 }
 
 console.log(uniqueNumber([1,2,2,3,3,4,4]));

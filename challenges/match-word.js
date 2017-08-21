@@ -11,19 +11,22 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+
 const matchWord = (str) => {
   //edge case: empty string
   if (str === '') return true;
   //convert str to lower case, split it at non [a-z] characters, and then filter out empty strings
-  let wordArr = str.toLowerCase().split(/[^a-z]/).filter((item) => item !== '');
+  const wordArr = str.toLowerCase().split(/[^a-z]+/).filter(item => item !== '');
   //if wordArr.length is uneven number, return false
   if (wordArr.length % 2 === 1) return false;
   //initialize stack as empty array
   const stack = [];
   //loop through wordArr
   for (let i = 0; i < wordArr.length; i += 1) {
+    //declare variable reversed and set it to reverse of wordArr[i]
+    const reversed = wordArr[i].split('').reverse().join('');
     //if last item in stack === reverse of current item in wordArr, pop it off the stack
-    if (stack[stack.length - 1] === wordArr[i].split('').reverse().join('')) stack.pop();
+    if (stack[stack.length - 1] === reversed) stack.pop();
     //else, push current item in wordArr onto stack
     else stack.push(wordArr[i]);
   }
@@ -44,6 +47,28 @@ console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));  //->
 
 
 
+
+
+
+// const matchWord = (str) => {
+//   //edge case: empty string
+//   if (str === '') return true;
+//   //convert str to lower case, split it at non [a-z] characters, and then filter out empty strings
+//   let wordArr = str.toLowerCase().split(/[^a-z]/).filter((item) => item !== '');
+//   //if wordArr.length is uneven number, return false
+//   if (wordArr.length % 2 === 1) return false;
+//   //initialize stack as empty array
+//   const stack = [];
+//   //loop through wordArr
+//   for (let i = 0; i < wordArr.length; i += 1) {
+//     //if last item in stack === reverse of current item in wordArr, pop it off the stack
+//     if (stack[stack.length - 1] === wordArr[i].split('').reverse().join('')) stack.pop();
+//     //else, push current item in wordArr onto stack
+//     else stack.push(wordArr[i]);
+//   }
+//   //if stack is empty, return true, else, return false
+//   return !stack.length;
+// }
 
 // MY SOLUTION:
 

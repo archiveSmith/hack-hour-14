@@ -31,7 +31,7 @@ expectations = {
 }
 */
 
-const adj = {
+const pad = {
   1: ['1', '2', '4'],
   2: ['1', '2', '3', '5'],
   3: ['2', '3', '6'],
@@ -44,18 +44,18 @@ const adj = {
   0: ['0', '8']
 };
 
-const getPINs = (observed) => {
-  //if observed.length === 1 return adjacent numbers
-  if (observed.length === 1) return adj[observed[0]];
-  //get the rest of adjacent numbers with recursive call to getPINs() by slicing first char off observed
-  const rest = getPINs(observed.slice(1));
-  //return
-  const possiblePins = adj[observed[0]].reduce((a,c) => {
-    const map = rest.map(pin => pin.concat(c));
-    return [...a, ...map];
-  }, []);
-  return possiblePins;
-}
+// const getPINs = (observed) => {
+//   //if observed.length === 1 return adjacent numbers
+//   if (observed.length === 1) return adj[observed[0]];
+//   //get the rest of adjacent numbers with recursive call to getPINs() by slicing first char off observed
+//   const rest = getPINs(observed.slice(1));
+//   //return
+//   const possiblePins = adj[observed[0]].reduce((a,c) => {
+//     const map = rest.map(pin => pin.concat(c));
+//     return [...a, ...map];
+//   }, []);
+//   return possiblePins;
+// }
 
 // const getPINs = (observed) => {
 //   if (observed.length === 1) return keypad[observed[0]];
@@ -75,12 +75,6 @@ const getPINs = (observed) => {
 //   }, []);
 // }
 
-// function getPINs(observed) {
-//   if (observed.length === 1) return keypad[observed];
-//   const rest = getPINs(observed.slice(1));
-//   return keypad[observed[0]].reduce((a,c) => [...a, ...rest.map(pin => c.concat(pin))], []);
-// }
-
 console.log(getPINs('369').sort());
 
 // const getPINs = (observed) => {
@@ -96,21 +90,21 @@ console.log(getPINs('369').sort());
 //   return possibilities;
 // }
 //
-// function getPINs(observed) {
-//   let possibilities = [''];
-//   while (observed) {
-//     const adjacents = pad[observed[0]];
-//     const newPossibles = [];
-//     for (var i = 0; i < adjacents.length; i++) {
-//       for (var j = 0; j < possibilities.length; j++) {
-//         newPossibles.push(possibilities[j] + adjacents[i]);
-//       }
-//     }
-//     possibilities = newPossibles;
-//     observed = observed.slice(1);
-//   }
-//   return possibilities;
-// }
+function getPINs(observed) {
+  let possibilities = [''];
+  while (observed) {
+    const adjacents = pad[observed[0]];
+    const newPossibles = [];
+    for (var i = 0; i < adjacents.length; i++) {
+      for (var j = 0; j < possibilities.length; j++) {
+        newPossibles.push(possibilities[j] + adjacents[i]);
+      }
+    }
+    possibilities = newPossibles;
+    observed = observed.slice(1);
+  }
+  return possibilities;
+}
 
 
 

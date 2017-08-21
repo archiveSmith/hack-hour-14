@@ -40,6 +40,32 @@ function getPermutations(arr) {
   return perms;
 }
 
+//mark's solution:
+// function getPermutationsOg(arr, callback) {
+//   const result = [];
+//   const len = array.length;
+//
+//   function perm(items, cur = []) {
+//     if(curr.length === len) return result.push(cur);
+//
+//     let item;
+//     for (let i = 0; i < items.length; i += 1) {
+//       item = items.splice(i, 1)[0];
+//       perm(items.slice(), cur.concat(item));
+//       items.splice(i, 0, item);
+//     }
+//   };
+// 
+//   perm(arr);
+//   result.forEach((e) => callback(e));
+// }
+
+//recursive solution:
+// function eachPermutation(arr, callback, built = [], perms = {}) {
+//   if (!arr.length && !(built in perms)) perms[built] = callback[built];
+//   else arr.forEach((e, i) => eachPermutation([...arr.slice(0, i), arr.slice(i + 1)], callback, [...built, e], perms));
+// }
+
 console.log(eachPermutation([1,2,3], perm => console.log(perm)));
 
 

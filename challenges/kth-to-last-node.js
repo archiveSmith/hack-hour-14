@@ -35,27 +35,36 @@ function Node(val) {
 //   return values[values.length - k];
 // }
 
-function kthToLastNode(k, head) {
-  const array = [];
-
-  for (let i = head; i; i = i.next) {
-    array,push(i.val);
-  }
-  return array[array.length - k];
-}
+// function kthToLastNode(k, head) {
+//   const array = [];
+//
+//   for (let i = head; i; i = i.next) {
+//     array.push(i.val);
+//   }
+//   return array[array.length - k];
+// }
 
 function kthToLastNode(k, head) {
   let lead = head;
   let follow = head;
 
-  for (let i = 0; i < k; i =+ 1) {
+  for (let i = 0; i < k; i += 1) {
     lead = lead.next;
   }
 
-  for (let i = lead; i; i = i.next) {
+  //using for loop:
+  for (let current = lead; current; current = current.next) {
     follow = follow.next;
-    if (!i.next) return follow.value;
+    if (!current.next) return follow.value;
   }
+
+  //using while loop:
+  // let current = lead;
+  // while (current) {
+  //   follow = follow.next;
+  //   if (!current.next) return follow.value;
+  //   current = current.next;
+  // }
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

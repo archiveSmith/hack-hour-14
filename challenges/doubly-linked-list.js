@@ -34,7 +34,7 @@ LinkedList.prototype.add = function(val) {
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  if (!this.head) return undefined;
+  if (!this.head) return 'headless linked list';
   else if (this.head.val === val) {
     this.head = this.head.next;
     this.head.prev = null;
@@ -52,7 +52,7 @@ LinkedList.prototype.remove = function(val) {
       current = current.next;
     }
   }
-  return undefined;
+  return 'value not found in linked list';
 };
 
 const list = new LinkedList();

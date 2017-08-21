@@ -12,6 +12,16 @@ function twoSum(arr, n) {
   return false;
 }
 
+//optimized:
+// function twoSum(arr, n) {
+//   let obj = {};
+//   for (let i = 0; i < arr.length; i += 1) {
+//     if (obj[n - arr[i]]) return true;
+//     obj[arr[i]] = 1;
+//   }
+//   return false;
+// }
+
 console.log(twoSum([1,2,3,4,5], 7)); //true
 console.log(twoSum([1,2,3,4,5], 25)); //false
 

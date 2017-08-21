@@ -40,7 +40,15 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  //
+  // let split = str.split(' ');
+  // console.log(days.indexOf(split[0]));
+  // let today = new Date().getDay();
+  // console.log(today)
+
 }
+
+console.log(parseDates('Thursday 12:37 PM'));
 
 module.exports = parseDates;
