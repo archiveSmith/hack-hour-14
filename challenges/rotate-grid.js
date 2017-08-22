@@ -15,6 +15,10 @@
  *
  * BONUS: Do this in place
  */
+
+// O of N2 time complexity
+// O of N space complexity
+
 function rotateGrid(grid, n) {
   // declare output grid
   const newGrid = [];
@@ -34,6 +38,22 @@ function rotateGrid(grid, n) {
   // return new Grid
   return newGrid;
 }
+
+// ALTERNATIVE SOLUTION push one complete row at a time.
+
+// function rotateGrid(grid, n) {
+//   var newGrid = [];
+//   for (var i = 0; i < n; i++) {
+//     var newRow = [];
+//     // gets all the rows from the column
+//     // starting from the bottom row
+//     for (var j = n-1; j >= 0; j--) {
+//       newRow.push(grid[j][i]);
+//     }
+//     newGrid.push(newRow);
+//   }
+//   return newGrid;
+// }
 module.exports = rotateGrid;
 
 // const sampleGrid = [[1, 2, 3, 3.5], [4, 5, 6, 6.5], [7, 8, 9, 9.5], [10,11,12,13]]

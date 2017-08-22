@@ -9,6 +9,9 @@
  *
  */
 
+// FOR LOOP + FOR IN = O of N time complexity?
+// O of N space complexity? a counter and an odds array is created
+
 function permPalin(str) {
   // create an object to store counts of each characters
   const counter = {};

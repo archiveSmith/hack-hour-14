@@ -16,7 +16,8 @@
 // stocks cannot be negative in value
 // TAKE INTO ACCOUNT YOU CANNOT SELL TO THE PAST
 // function assumes array does not contain any negative numbers
-// time complexity is o N (double for loops)
+// time complexity is o N2 (double for loops)
+// space complexity is minimal, only a best variable is created and returned
 function bestProfit(stock) {
   // input has to be an array.
   if (!Array.isArray(stock)) return 0;
