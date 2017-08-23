@@ -9,23 +9,24 @@
  * Complete the challenge in O(1) space
  *
  */
+
+ // time complexity O(n)
+ // space complexity O(1) after deletions
 function uniqueNumber(array) {
-  // create cach to store values
-  const cache = {}
+  // create cache to store values
+  const cache = {};
   // loop
   array.forEach((el) => {
     if (cache[el]) {
-      // if in cache note that it's repeated
-      cache[el] = 'repeated';
+      // if in cache delete
+      delete cache[el];
     } else {
-      // if not in cache store note that it has appeared once
-      cache[el] = 'once';
+      // if not in cache store in cache as a unique value
+      cache[el] = 'uniq';
     }
-  })
-  // loop through cache and find the value the value that is not repeated
-  for (let key in cache) {
-    if (cache[key] === 'once') return key;
-  }
+  });
+  // return only remaining key in cache
+  return Object.keys(cache)[0];
 }
 
 // console.log(uniqueNumber([1,2,1,3,3]))
