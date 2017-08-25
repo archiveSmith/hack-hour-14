@@ -18,7 +18,7 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  // if head = null assign head and tail to a new Node
+  // if head === null assign head and tail to a new Node
   if (!this.head) {
     this.head = new Node(val);
     this.tail = this.head;
@@ -26,7 +26,7 @@ LinkedList.prototype.add = function(val) {
     // else temporarily store current tail > assign new node to tail
     // assign the tail to the stored node > assign temp to the prev of the curr tail
   } else {
-    let temp = this.tail;
+    const temp = this.tail;
     this.tail = new Node(val);
     temp.next = this.tail;
     this.tail.prev = temp;
@@ -70,13 +70,15 @@ LinkedList.prototype.remove = function(val) {
   }
 };
 
-module.exports = LinkedList;
+// module.exports = LinkedList;
+export { LinkedList as default };
 
 // TEST
-// let list = new LinkedList();
+// const list = new LinkedList();
 // list.add(1);
 // list.add(2);
 // list.add(3);
+// list.add(2);
 // list.remove(3);
 // list.remove(2);
 // list.remove(1);
