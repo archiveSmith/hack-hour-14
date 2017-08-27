@@ -14,14 +14,49 @@
  * That is a total of 8 different ways to take 5 steps, given that you can take 1 or 2 steps at a time.
  */
 
-function countStairs(n) {
-   // find all permutations of 1's and 2's that add up to n
-   // use fibonacci
-   // memoize for speed
-  if (n === 0) return 1;
-  if (n < 0) return 0;
-  return countStairs(n - 1) + (countStairs(n - 2));
+ // time and space complexity of memoized countStairs is O(n) for first run.
+ // time and space complexity vary on succeeding runs depending if n has been memoized or not
+
+
+ // use fibonacci
+ // memoize for speed
+function memStairs() {
+  const memo = {};
+  return function f(n) {
+    let value;
+    if (n in memo) value = memo[n];
+    else {
+      if (n === 0) return 1;
+      if (n < 0) return 0;
+      value = f(n - 1) + (f(n - 2));
+      memo[n] = value;
+    }
+    return value;
+  };
 }
-// console.log(countStairs(5))
+
+const countStairs = memStairs();
+// console.log(countStairs(5));
+// console.log(countStairs(100));
 
 module.exports = countStairs;
+
+// Below doesn't work WHY?
+
+// function memoize(func) {
+//   const memo = {};
+//   return (...params) => {
+//     const args = params.map(el => JSON.stringify(el));
+//     if (args in memo) return memo[args];
+//     memo[args] = func(...params);
+//     return memo[args];
+//   };
+// }
+
+// function countStairs(n, memo) {
+//   memo = memo || {};
+//   if (memo[n]) return memo[n];
+//   if (n === 0) return 1;
+//   if (n < 0) return 0;
+//   return countStairs(n - 1) + countStairs(n - 2);
+// }
