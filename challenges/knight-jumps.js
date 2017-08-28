@@ -13,52 +13,54 @@
 
 
 function knightjumps(str) {
-    //up 2 over 1
+ //can move 8 spaces except  
+}
+
+module.exports = knightjumps(str);
+
+ //up 2 over 1
     //from position it moves y axis 2
     //from posiition it movex x axis over 1
 
     //count how many spaces the knight can move
-    let count = 8; 
-
-    //seperate x and y points
-     str = str.replace(/\(/,'').replace(/\)/,'').split(' ');
-    let x = Number(str[0]);
-    let y = Number(str[1]);
-     
-    //add to count if coordinates are greater than -1 and less than 9
-    //top moves
-        //add 2 to y, add 1 to x and subtract 1 from x  
-    //bottom moves
-        //subtract 2 from y, add 1 to x and subtract 1 from x
-    //right moves
-        //add 2 to x, subtract 1 from y and add 1 to y
-    //left moves 
-        //subtract 2 from x, subtract 1 from y and add 1 to y
-  
+    // let count = 8; 
     
-//       if(y + 2 < 9 && y + 2 > -1){
-//         if(x + 1 < 9 && x + 1 > -1){
-//           count++
-//         }
-//         if(x - 1 < 9 && x - 1 > -1){
-//           count++
-//         }
-//       }
-  
-  if (x + 2 > 8 || y + 1 > 8) count -= 1
-  if (x + 2 > 8 || y - 1 < 1) count -= 1
-  if (x - 2 < 1 || y + 1 > 8) count -= 1
-  if (x - 2 < 1 || y - 1 < 1) count -= 1
-  if (x + 1 > 8 || y + 2 > 8) count -= 1
-  if (x + 1 > 8 || y - 2 < 1) count -= 1
-  if (x - 1 < 1 || y + 2 > 8) count -= 1
-  if (x - 1 < 1 || y - 2 < 1) count -= 1
-     
-     //return count
-     return count;
-}
-
-module.exports = knightjumps(str);
+    //     //seperate x and y points
+    //      str = str.replace(/\(/,'').replace(/\)/,'').split(' ');
+    //     let x = Number(str[0]);
+    //     let y = Number(str[1]);
+         
+        //add to count if coordinates are greater than -1 and less than 9
+        //top moves
+            //add 2 to y, add 1 to x and subtract 1 from x  
+        //bottom moves
+            //subtract 2 from y, add 1 to x and subtract 1 from x
+        //right moves
+            //add 2 to x, subtract 1 from y and add 1 to y
+        //left moves 
+            //subtract 2 from x, subtract 1 from y and add 1 to y
+      
+        
+    //       if(y + 2 < 9 && y + 2 > -1){
+    //         if(x + 1 < 9 && x + 1 > -1){
+    //           count++
+    //         }
+    //         if(x - 1 < 9 && x - 1 > -1){
+    //           count++
+    //         }
+    //       }
+      
+    //   if (x + 2 > 8 || y + 1 > 8) count -= 1
+    //   if (x + 2 > 8 || y - 1 < 1) count -= 1
+    //   if (x - 2 < 1 || y + 1 > 8) count -= 1
+    //   if (x - 2 < 1 || y - 1 < 1) count -= 1
+    //   if (x + 1 > 8 || y + 2 > 8) count -= 1
+    //   if (x + 1 > 8 || y - 2 < 1) count -= 1
+    //   if (x - 1 < 1 || y + 2 > 8) count -= 1
+    //   if (x - 1 < 1 || y - 2 < 1) count -= 1
+         
+    //      //return count
+    //      return count;
 
 
 // function knightjumps(str) {
