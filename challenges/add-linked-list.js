@@ -17,8 +17,73 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
+//inputs: 2 linked lists
+//output: addition of the lists backwards
 
+function addLinkedList(l1, l2) {
+    
+let sumList = new Node();
+let rem = 0; 
+let curr1 = l1;
+let curr2 = l2; 
+let currSumList; 
+
+while(curr1){
+  let sum = curr1.value + curr2.value + rem; 
+  if(sum > 9 && curr1.next){
+    sum = sum - 10; 
+    rem = 1; 
+  }
+
+
+  if(!sumList.value){
+    sumList.value = sum; 
+    currSumList = sumList; 
+  }else{
+    currSumList.next = new Node(sum)
+    currSumList = currSumList.next; 
+  }
+
+
+  curr1 = curr1.next; 
+  curr2 = curr2.next; 
+}
+return sumList;
 }
 
+
+
+let node1 = new Node(2);
+let node2 = new Node(1);
+let node3 = new Node(5);
+node1.next = node2;
+node2.next = node3
+
+let node4 = new Node(5);
+let node5 = new Node(9);
+let node6 = new Node(2);
+
+node4.next = node5;
+node5.next = node6;
+
+// console.log(addLinkedList(node1, node4))
+
 module.exports = {Node: Node, addLinkedList: addLinkedList};
+
+
+  // curr1 = l1;
+  // curr2 = l2;
+  // let digits = [];
+  // let remainder = 0;
+  // while(curr1 && curr2){
+  //   let toAdd = curr1.value + curr2.value + remainder;
+  //   if(toAdd > 9 && curr1.next !== null){
+  //     remainder = Number(toAdd.toString()[0]);
+  //     toAdd =  Number(toAdd.toString()[1]);
+  //   }
+  //   digits.push(toAdd)
+  //   curr1 = curr1.next;
+  //   curr2 = curr2.next; 
+  // }
+  // return digits; 
+

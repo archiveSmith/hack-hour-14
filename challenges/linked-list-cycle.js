@@ -27,13 +27,67 @@
  *
  */
 
+//REFACTORING
 var Node = function(value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
-
+  let node = head;
+  const cache = {};
+  while (node && !cache[stringify(node)]) {
+    cache[stringify(node)] = node;
+    node = node.next;
+    if (node === null) return false;
+    else if (cache[stringify(node)]) return true;
+  }
+  return true;
 }
 
+function stringify(obj) {
+  if (obj.next === null)
+    return obj.value.toString() + "null";
+  return obj.value.toString() + obj.next.toString();
+}
+
+
+  var node1 = new Node('1');
+  var node2 = node1.next = new Node('2');
+  var node3 = node2.next = new Node('3');
+  var node4 = node3.next = new Node('4');
+  var node5 = node4.next = new Node('5');
+  node5.next = node2;
+
+   console.log(hasCycle(node1));
+
 module.exports = {Node: Node, hasCycle: hasCycle}
+
+  // let arr = [];
+  // let curr = head;
+  
+  // while(curr){
+  //   arr.push(curr.value);
+  //   curr = curr.next;
+  //   if(curr){
+  //     if(arr.indexOf(curr.value) > -1){
+  //       return true;
+  //     }
+  //   }
+    
+  // }
+  
+  // return false; 
+
+
+  // let obj = {};
+  
+    
+  //   while(head.next){
+  //     if(obj[head.next.value]) return true; 
+  //     obj[head.value] = head.next.value;
+  //     head = head.next; 
+  //   }
+    
+  //   return false;
+  // }
