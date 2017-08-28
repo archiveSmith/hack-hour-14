@@ -16,22 +16,38 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
-  const rotated = [];
-  while (n) {
-    const subArray = [];
-    for (let i = 0; i < grid.length; i += 1) {
-      subArray.unshift(grid[i].shift());
+
+
+const rotateGrid = (grid, n) => {
+  const rotatedGrid = [];
+  for (i = 0; i < n; i += 1) {
+    const row = [];
+    for (let j = grid.length - 1; j >= 0; j -= 1) {
+      row.push(grid[j][i]);
     }
-    rotated.push(subArray);
-    n -= 1;
+    rotatedGrid.push(row);
   }
-  return rotated;
+  return rotatedGrid;
 }
 
-const sampleGrid = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ];
 
-console.log(rotateGrid(sampleGrid, 3));
+
+ const sampleGrid = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ];
+ console.log(rotateGrid(sampleGrid, 3));
+
+// function rotateGrid(grid, n) {
+//   const rotated = [];
+//   while (n) {
+//     const subArray = [];
+//     for (let i = 0; i < grid.length; i += 1) {
+//       subArray.unshift(grid[i].shift());
+//     }
+//     rotated.push(subArray);
+//     n -= 1;
+//   }
+//   return rotated;
+// }
+
 
 module.exports = rotateGrid;
 
