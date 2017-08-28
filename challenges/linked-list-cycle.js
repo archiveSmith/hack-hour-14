@@ -28,20 +28,27 @@
  */
 
 //REFACTORING
-
 var Node = function(value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
-  try {
-    JSON.stringify(head);
-    return false
+  let node = head;
+  const cache = {};
+  while (node && !cache[stringify(node)]) {
+    cache[stringify(node)] = node;
+    node = node.next;
+    if (node === null) return false;
+    else if (cache[stringify(node)]) return true;
   }
-  catch (e) {
-    return true
-  }
+  return true;
+}
+
+function stringify(obj) {
+  if (obj.next === null)
+    return obj.value.toString() + "null";
+  return obj.value.toString() + obj.next.toString();
 }
 
 
