@@ -34,6 +34,7 @@ function missingNum(Array) {
   let n = array.length + 1;
   let expectedSum = (n * (n + 1))/2;
   return expectedSum - sum;
+  
 }
 
 module.exports = missingNum;
