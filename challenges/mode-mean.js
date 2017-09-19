@@ -9,37 +9,47 @@
  *
  */
 
-
-function modemean(array) {
-<<<<<<< HEAD
-  const mean = Math.floor((array.reduce((a, c) => {
-    return a + c;
-  })) / array.length);
-
-  let cache = {};
-  array.forEach((item) => {
-    if (cache.hasOwnProperty(item)) cache[item] += 1;
-    else cache[item] = 1;
-  });
-  let mode;
-  let maxVal = 0;
-  for (prop in cache) {
-    if (maxVal < cache[prop]) {
-      maxVal = cache[prop];
-      mode = prop;
-    }
-    if (maxVal === cache[prop]) {
-      mode = Math.max(mode, prop);
-    }
+const modemean = (array) => {
+  //calculate mean
+  const getMean = (array) => {
+    const sum = array.reduce((a, c) => a + c);
+    return Math.floor(sum / array.length);
   }
-  return mode === mean ? true : false;
+
+  //create cache using reduce()
+  const createCache = (array) => {
+    return array.reduce((cache, curr) => {
+
+      if (cache[curr]) cache[curr] += 1;
+      else cache[curr] = 1;
+      return cache;
+    }, {});
+  }
+
+  //calculate mode
+  const getMode = () => {
+    let mode;
+    let max = -Infinity;
+    //loop through cache object using Object.keys() and forEach() (to avoid looping through props inherited from prototypes)
+    Object.keys(cache).forEach(key => {
+      //if current cached value > current max value, assign it to max
+      //set mode to current key
+      if (cache[key] > max) {
+        max = cache[key];
+        mode = key;
+      }
+      //if there are multiple modes, use the Math.max() of the modes
+      if (cache[key] === max) mode = Math.max(mode, key);
+    });
+    return mode;
+  }
+
+  const mean = getMean(array);
+  const cache = createCache(array);
+  const mode = getMode();
+  return mode === mean;
 }
 
-console.log(modemean([13, 13, 14, 14, 15, 15]));
+console.log(modemean([1, 2, 2, 3]));
 
-=======
-
-}
-
->>>>>>> 3e9cf2ee6443d40c100aa021ce49621a41b9e417
 module.exports = modemean;
