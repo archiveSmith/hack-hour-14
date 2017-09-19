@@ -29,7 +29,6 @@ function modemean(array) {
       count = x
     }
   }
-
   return mean === parseInt(count) ? true : false;
 }
 
