@@ -15,9 +15,12 @@ class BinaryTree {
  }
 }
 
+//Post-order traversal (top down) traversing tree only once
+//Time Complexity: O(n)
+//Space Complexity: O(H) where H is the height of the tree. This is because stack allocation for recursion
 const superbalanced = (tree) => {
   const checkBalance = (tree) => {
-    if (!tree) return 0;
+    if (!tree) return -1;
     const left = checkBalance(tree.left);
     if (left === 'unbalanced') return false;
     const right = checkBalance(tree.right);
