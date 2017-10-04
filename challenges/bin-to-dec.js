@@ -14,11 +14,11 @@
  */
 
 function binToDec(binary) {
-	return parseInt(binary, 2)
+	return parseInt(binary, 2);
 }
 
 function decToBin(dec) {
-	return dec.toString(2)
+	return dec.toString(2);
 }
 
 module.exports = binToDec;
