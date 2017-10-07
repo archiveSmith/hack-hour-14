@@ -5,36 +5,94 @@
  * BONUS: Do this in place
  */
 
- function zip(l1, l2) {
-   if (!l1) return l2;
-   l1.next = zip(l2, l1.next);
-   return l1;
- }
 
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
-function zip(l1,l2) {
-  let curr1 = l1;
-  let temp1 = l1;
+const zip = (l1, l2) => {
+  let temp1;
+  let temp2;
+  let current = l1;
 
-  let curr2 = l2;
-  let temp2 = l2;
+  while(l1 && l2) {
+    if (!current.next) {
+      current.next = l2;
+      break
+    }
+    else {
+      temp1 = current.next;
+      current.next = l2;
+      temp2 = l2.next;
+      l2.next = temp1;
 
-  while (curr1 && curr2) {
-    temp1 = temp1.next;
-    temp2 = temp2.next;
-
-    curr1.next = curr2;
-    if (temp1) curr2.next = temp1;
-
-    curr1 = temp1;
-    curr2 = temp2;
+      current = temp1;
+      l2 = temp2;
+    }
   }
-  return l1 ? l1 : l2;
+  return l1;
 }
+
+// const zip = (l1, l2) => {
+//   if (!l1) return l2;
+//   l1.next = zip(l2, l1.next);
+//   return l1;
+// }
+
+list1 = { value: 1, next: null };
+list2 = { value: 2, next: { value: 4, next: null } };
+
+console.log(JSON.stringify(zip(list1, list2)));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function zip(l1, l2) {
+//   if (!l1) return l2;
+//   l1.next = zip(l2, l1.next);
+//   return l1;
+// }
+// function zip(l1,l2) {
+//   let curr1 = l1;
+//   let temp1 = l1;
+//
+//   let curr2 = l2;
+//   let temp2 = l2;
+//
+//   while (curr1 && curr2) {
+//     temp1 = temp1.next;
+//     temp2 = temp2.next;
+//
+//     curr1.next = curr2;
+//     if (temp1) curr2.next = temp1;
+//
+//     curr1 = temp1;
+//     curr2 = temp2;
+//   }
+//   return l1 ? l1 : l2;
+// }
 
 // function zip(l1, l2) {
 //   let curr1 = l1;
@@ -65,10 +123,5 @@ function zip(l1,l2) {
 //   //if l1 isn't null, return l1
 //   return l1 ? l1 : l2;
 // }
-
-list1 = { value: 1, next: { value: 3, next: null } };
-list2 = { value: 2, next: { value: 4, next: null } };
-
-console.log(JSON.stringify(zip(list1, list2)));
 
 module.exports = {Node: Node, zip: zip};
