@@ -17,27 +17,17 @@
  * 
  */
 
- function romanNumeral(n) {
- 	let newN = n.toString();
- 	let one = 'I';
- 	let five = 'V';
- 	let ten = 'X';
- 	let output;
-
- 	if (n <= 0 || isNaN(n)) return false;
-
- 	for (let i = 0; i < newN.length; i++) {
- 		if (parseInt(newN[i]) === 1) {
- 			output += one;
- 		}
- 		if (parseInt(newN[i]) === 5) {
- 			output += five;
- 		}
- 		if (parseInt(newN[i]) === 10) {
- 			output += ten;
- 		}
- 	}
- 	return output;
- }
+ function romanNumeral(num) {
+    if (!+num) return NaN;
+    let digits = String(+num).split(""),
+        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+    while (i--)
+        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    return Array(+digits.join("") + 1).join("M") + roman;
+}
 
  module.exports = romanNumeral;
