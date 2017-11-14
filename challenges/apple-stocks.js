@@ -52,11 +52,23 @@
 // }
 //CORRECT SOLUTION
 function bestProfit(arr) {
-  let lowest;
   let profit = 0;
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if ((arr[i] < arr[j]) && (arr[j] - arr[i]) > profit) {
+        profit = arr[j] - arr[i]
+      }
+    }
+  }
+  return profit;
+}
+
+function bestProfit(arr) {
+  let profit = 0;
+  for(let i = 0; i < arr.length; i++) {
+    let price = arr[i];
+    for(let j = i+1; j < arr.length; j++) {
+      if(arr[j] - arr[i] > profit) {
         profit = arr[j] - arr[i]
       }
     }
